@@ -22,8 +22,8 @@ public class Menu_death : MonoBehaviour {
     {
         GameObject.Find("HealthBar").GetComponent<Image>().enabled = false;
         GameObject.Find("healthContent").GetComponent<Image>().enabled = false;
-        GameObject.Find("ManaBar").GetComponent<Image>().enabled = false;
-        GameObject.Find("manaContent").GetComponent<Image>().enabled = false;
+        //GameObject.Find("ManaBar").GetComponent<Image>().enabled = false;
+        //GameObject.Find("manaContent").GetComponent<Image>().enabled = false;
 
 
         SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();

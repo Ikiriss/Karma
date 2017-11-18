@@ -18,21 +18,34 @@ public class WeaponScript : MonoBehaviour {
 	/// <summary>
 	/// Temps de rechargement entre deux tirs
 	/// </summary>
-	public float shootingRate = 0.25f;
+    [SerializeField]
+	protected float shootingRate = 0.25f;
 
 	//--------------------------------
 	// 2 - Rechargement
 	//--------------------------------
 
 	protected float shootCooldown;
-	public bool isEnemy = true;
-    public int mana_cost = 0;
-    public string animatorParameter = ""; //animation à faire
-    public AudioClip soundToPlay = null; //son à faire
+    [SerializeField]
+	protected bool isEnemy = true;
+    [SerializeField]
+    protected string animatorParameter = ""; //animation à faire
+    public string AnimatorParameter
+    {
+        get { return animatorParameter; }
+    }
+    [SerializeField]
+    protected AudioClip soundToPlay = null; //son à faire
+    public AudioClip SoundToPlay
+    {
+        get { return soundToPlay; }
+    }
 
     // Multiplicateur de dommage permettant de gérer des modes super sayen ou autre
-    private int damageMultiplicator = 1;
+    [SerializeField]
+    protected int damageMultiplicator = 1;
 
+    
 
     void Start()
 	{
@@ -59,15 +72,11 @@ public class WeaponScript : MonoBehaviour {
 	{
 		if (CanAttack)
 		{
-			shootCooldown = shootingRate;
-            //Ancienne version
-            // Création d'un objet copie du prefab
-            //var shotTransform = Instantiate(shotPrefab) as Transform;
+			shootCooldown = shootingRate;          
 
-            //nouvelle version
+            //nouvelle version, pop bullet from factory
             Transform shotTransform = popBullet(bulletType);
-            //Debug.Log("bullet poped");
-            
+            //Debug.Log("bullet poped");        
 			
 
             // Propriétés du script
@@ -75,11 +84,11 @@ public class WeaponScript : MonoBehaviour {
             SoundEffectsHelper.Instance.MakePlayerShotSound();
             if (shot != null)
 			{
-				shot.isEnemyShot = isEnemy;               
+				shot.IsEnemyShot = isEnemy;               
 			}
 
             // On multiplie les dégats du shoot par le damage multiplicateur
-            shot.damage *= damageMultiplicator;
+            shot.Damage *= damageMultiplicator;
 
             // On saisit la direction pour le mouvement
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveScript : MonoBehaviour {
-
+public class MoveScript : MonoBehaviour {    
 	private Rigidbody2D rigidbody2D;
     // 1 - Designer variables
 
@@ -40,10 +39,9 @@ public class MoveScript : MonoBehaviour {
 
     void Start () {
 		rigidbody2D = GetComponent<Rigidbody2D> ();
-        
-        
-        
-	}
+
+
+    }
     
 
 	void Update()
