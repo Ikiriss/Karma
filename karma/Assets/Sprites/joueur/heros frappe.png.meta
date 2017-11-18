@@ -1,13 +1,14 @@
 fileFormatVersion: 2
-guid: 2d6d692d74dd0b04190d4dfa59964c6f
-timeCreated: 1511015436
+guid: 873cd8c546c9a364e8313f4a5889d5b1
+timeCreated: 1511014741
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: batSheet_0
-    21300002: batSheet_1
-    21300004: batSheet_2
-    21300006: batSheet_3
+    21300000: heros frappe_0
+    21300002: heros frappe_1
+    21300004: heros frappe_2
+    21300006: heros frappe_3
+    21300008: heros frappe_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -82,7 +83,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: batSheet_0
+      name: heros frappe_0
       rect:
         serializedVersion: 2
         x: 0
@@ -96,7 +97,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: batSheet_1
+      name: heros frappe_1
       rect:
         serializedVersion: 2
         x: 80
@@ -110,7 +111,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: batSheet_2
+      name: heros frappe_2
       rect:
         serializedVersion: 2
         x: 160
@@ -124,10 +125,24 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: batSheet_3
+      name: heros frappe_3
       rect:
         serializedVersion: 2
-        x: 240
+        x: 241
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: heros frappe_4
+      rect:
+        serializedVersion: 2
+        x: 320
         y: 0
         width: 80
         height: 80
