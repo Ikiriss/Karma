@@ -29,6 +29,10 @@ public class Entity : MonoBehaviour {
         get { return maxHp; }
     }
 
+    [SerializeField]
+    protected float attackRate = 0.25f;
+
+    protected float attackCooldown;
 
 
 
@@ -49,14 +53,14 @@ public class Entity : MonoBehaviour {
     }
 
 
-    private IEnumerator GiveBulletBackAfterT(float t, Transform bullet)
+    protected IEnumerator GiveBulletBackAfterT(float t, Transform bullet)
     {
         bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         yield return new WaitForSecondsRealtime(t);
         GameObject.Find("Scripts").GetComponent<BulletFactory>().GiveBackBullet(bullet.GetComponent<ShotScript>().getBulletType(), bullet);
     }
 
-    private IEnumerator GiveMobBackAfterT(float t, Transform mob)
+    protected IEnumerator GiveMobBackAfterT(float t, Transform mob)
     {
         mob.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         yield return new WaitForSecondsRealtime(t);
@@ -66,5 +70,19 @@ public class Entity : MonoBehaviour {
         {
             GameObject.Find("Menu_win").GetComponent<Menu_death>().PopDeathMenu();
         }
+    }
+
+    public virtual bool CanAttack
+    {
+        get
+        {
+            return attackCooldown <= 0f;
+        }
+    }
+
+    public virtual void Attack()
+    {
+        attackCooldown = attackRate;
+        //trigger l'animation
     }
 }

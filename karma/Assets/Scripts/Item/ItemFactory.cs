@@ -11,8 +11,6 @@ public class ItemFactory : MonoBehaviour {
     public Transform ALLUMETTES;
     public Transform ARC;
     public Transform PLANTE_MAGIQUE;
-    public Transform boule7Etoile;
-    public Transform capsuleEnergy;
 
     private Transform[] FLEURPool;
     private Transform[] EPEE_EVENT2Pool;
@@ -21,8 +19,6 @@ public class ItemFactory : MonoBehaviour {
     private Transform[] ALLUMETTESPool;
     private Transform[] ARCPool;
     private Transform[] PLANTE_MAGIQUEPool;
-    private Transform[] boule7EtoilePool;
-    private Transform[] capsuleEnergyPool;
 
     public int FLEURPoolLength;
     public int bouleEtoilePoolLength;
@@ -41,7 +37,6 @@ public class ItemFactory : MonoBehaviour {
         ARCPool = new Transform[bouleEtoilePoolLength];
         PLANTE_MAGIQUEPool = new Transform[bouleEtoilePoolLength];
         boule7EtoilePool = new Transform[bouleEtoilePoolLength];*/
-        capsuleEnergyPool = new Transform[capsuleEnergyPoolLength];
 
 
 

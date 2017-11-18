@@ -24,20 +24,28 @@ public class Player : Entity {
 	
 
     [SerializeField]
-    private Vector2 speed = new Vector2(50, 50);
+    private Vector2 speed = new Vector2(5, 20);
     public Vector2 Speed
     {
         get { return speed; }
         set { speed = value; }
     }
 
-    // Stockage du mouvement
-    private Vector2 movement;
-    public Vector2 Movement
+    [SerializeField]
+    private Vector2 maxSpeed = new Vector2(10, 20);
+    public Vector2 MaxSpeed
     {
-        get { return movement; }
-        set { movement = value; }
+        get { return maxSpeed; }
+        set { maxSpeed = value; }
     }
+
+    // Stockage du mouvement
+    //private Vector2 movement;
+    //public Vector2 Movement
+    //{
+    //    get { return movement; }
+    //    set { movement = value; }
+    //}
 
 
     void Start () {
@@ -48,8 +56,11 @@ public class Player : Entity {
 
 
     void Update()
-    { 
-       
+    {
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
 
     }
 
@@ -57,7 +68,43 @@ public class Player : Entity {
 	{
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        if (shot && shot.IsEnemyShot)
+        {
+            hp -= shot.Damage;
+            shot.ReturnToTheFactory();
+            Debug.Log("je prend des dégatzaes");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+        Pnj pnj = collision.collider.GetComponent<Pnj>();
+        Enemy enemy = collision.collider.GetComponent<Enemy>();
+        ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        if (pnj)
+        {
+            //do sth
+        }
+        else if (enemy && enemy.CanAttack)
+        {
+            enemy.Attack();
+            hp -= enemy.Damage;
+            Debug.Log(hp);
+        }
+        else if (shot && shot.IsEnemyShot)
+        {
+            hp -= shot.Damage;
+            shot.ReturnToTheFactory();
+            Debug.Log("je prend des dégats");
+        }
+    }
     
+
     void AddItemToInventory(Item item, int position)
     {
         inventory[position] = item;
@@ -115,6 +162,6 @@ public class Player : Entity {
     {
         // Game Over
         Debug.Log("Vous êtes mort !");
-        GameObject.Find("Menu_death").GetComponent<Menu_death>().PopDeathMenu();
+        //GameObject.Find("Menu_death").GetComponent<Menu_death>().PopDeathMenu();
     }
 }

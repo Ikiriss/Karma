@@ -57,6 +57,7 @@ public class WeaponScript : MonoBehaviour {
 		if (shootCooldown > 0)
 		{
 			shootCooldown -= Time.deltaTime;
+            //Debug.Log(shootCooldown);
 		}
 		
 	}
@@ -72,12 +73,13 @@ public class WeaponScript : MonoBehaviour {
 	{
 		if (CanAttack)
 		{
-			shootCooldown = shootingRate;          
+			shootCooldown = shootingRate;
+            //Debug.Log("pew");
 
             //nouvelle version, pop bullet from factory
             Transform shotTransform = popBullet(bulletType);
             //Debug.Log("bullet poped");        
-			
+            Physics2D.IgnoreCollision(GetComponentInParent<Collider2D>(), shotTransform.GetComponent<Collider2D>());
 
             // Propriétés du script
             ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
@@ -92,10 +94,10 @@ public class WeaponScript : MonoBehaviour {
 
             // On saisit la direction pour le mouvement
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-			if (move != null && !move.characterLock && !move.characterLockInit)
+			if (move != null && !move.CharacterLock && !move.CharacterLockInit)
 			{
 				
-				move.direction = this.transform.right; // ici la droite sera le devant de notre objet
+				move.Direction = this.transform.right; // ici la droite sera le devant de notre objet
 				
 			}
 		}
@@ -124,11 +126,13 @@ public class WeaponScript : MonoBehaviour {
         shotTransform.gameObject.GetComponent<Renderer>().enabled = true;
         shotTransform.gameObject.GetComponent<MoveScript>().enabled = true;
         shotTransform.gameObject.GetComponent<ShotScript>().enabled = true;
-        shotTransform.gameObject.GetComponent<Entity>().enabled = true;
-        shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
+        //shotTransform.gameObject.GetComponent<Entity>().enabled = true;
+        if(shotTransform.gameObject.GetComponent<Entity>())
+            shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
         //Si on doit viser, on calcule les coordonées et on attend l'animation si on est un projectile
         shotTransform.gameObject.GetComponent<MoveScript>().CalculDirectionForHeadHunter();
 
+        shotTransform.GetComponent<ShotScript>().PreviousPos = transform.position;
 
         return shotTransform;
     }

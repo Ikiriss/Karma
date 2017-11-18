@@ -5,31 +5,27 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour {
 
     
-    public Transform burterPrefab;
-    public Transform burterMovingPrefab;
-    public Transform jaycePrefab;
-    public Transform friezaPrefab;
+    public Transform squelettePrefab;
+    public Transform blobPrefab;
+    public Transform chauve_sourisPrefab;
 
 
-    private Transform[] burterPool;
-    private Transform[] burterMovingPool;
-    private Transform[] jaycePool;
-    private Transform[] friezaPool;
+    private Transform[] squelettePool;
+    private Transform[] blobPool;
+    private Transform[] chauve_sourisPool;
     
 
-    public int burterPoolLength = 5;
-    public int burterMovingPoolLength = 3;
-    public int jaycePoolLength = 1;
-    public int friezaPoolLength = 1;
+    public int squelettePoolLength = 5;
+    public int blobPoolLength = 3;
+    public int chauve_sourisPoolLength = 1;
 
 
     public enum MobType
     {
         NONE,
-        BURTER,
-        BURTERMOVING,
-        JAYCE,
-        FRIEZA
+        SQUELETTE,
+        BLOB,
+        CHAUVE_SOURIS
     }
 
     // Use this for initialization
@@ -38,17 +34,15 @@ public class EnemyFactory : MonoBehaviour {
 
         //initialisation de la pool
         
-        burterPool = new Transform[burterPoolLength];
-        burterMovingPool = new Transform[burterMovingPoolLength];
-        jaycePool = new Transform[jaycePoolLength];
-        friezaPool = new Transform[friezaPoolLength];
+        squelettePool = new Transform[squelettePoolLength];
+        blobPool = new Transform[blobPoolLength];
+        chauve_sourisPool = new Transform[chauve_sourisPoolLength];
         
 
         
-        initList(burterPool, burterPoolLength, MobType.BURTER);
-        initList(burterMovingPool, burterMovingPoolLength, MobType.BURTERMOVING);
-        initList(jaycePool, jaycePoolLength, MobType.JAYCE);
-        initList(friezaPool, friezaPoolLength, MobType.FRIEZA);
+        initList(squelettePool, squelettePoolLength, MobType.SQUELETTE);
+        initList(blobPool, blobPoolLength, MobType.BLOB);
+        initList(chauve_sourisPool, chauve_sourisPoolLength, MobType.CHAUVE_SOURIS);
         
 
 
@@ -74,17 +68,14 @@ public class EnemyFactory : MonoBehaviour {
         Transform bullet = null;
         switch (mobType)
         {
-            case MobType.BURTER:
-                bullet = Instantiate(burterPrefab) as Transform;
+            case MobType.SQUELETTE:
+                bullet = Instantiate(squelettePrefab) as Transform;
                 break;
-            case MobType.BURTERMOVING:
-                bullet = Instantiate(burterMovingPrefab) as Transform;
+            case MobType.BLOB:
+                bullet = Instantiate(blobPrefab) as Transform;
                 break;
-            case MobType.JAYCE:
-                bullet = Instantiate(jaycePrefab) as Transform;
-                break;
-            case MobType.FRIEZA:
-                bullet = Instantiate(friezaPrefab) as Transform;
+            case MobType.CHAUVE_SOURIS:
+                bullet = Instantiate(chauve_sourisPrefab) as Transform;
                 break;
 
         }
@@ -105,17 +96,14 @@ public class EnemyFactory : MonoBehaviour {
         switch (mobType)
         {
 
-            case MobType.BURTER:
-                bullet = GetABulletFromAPool(burterPool, burterPoolLength);
+            case MobType.SQUELETTE:
+                bullet = GetABulletFromAPool(squelettePool, squelettePoolLength);
                 break;
-            case MobType.BURTERMOVING:
-                bullet = GetABulletFromAPool(burterMovingPool, burterMovingPoolLength);
+            case MobType.BLOB:
+                bullet = GetABulletFromAPool(blobPool, blobPoolLength);
                 break;
-            case MobType.JAYCE:
-                bullet = GetABulletFromAPool(jaycePool, jaycePoolLength);
-                break;
-            case MobType.FRIEZA:
-                bullet = GetABulletFromAPool(friezaPool, friezaPoolLength);
+            case MobType.CHAUVE_SOURIS:
+                bullet = GetABulletFromAPool(chauve_sourisPool, chauve_sourisPoolLength);
                 break;
 
         }
@@ -142,17 +130,14 @@ public class EnemyFactory : MonoBehaviour {
         switch (mobType)
         {
             
-            case MobType.BURTER:
-                PutBulletBackInAPool(bullet, burterPool, burterPoolLength);
+            case MobType.SQUELETTE:
+                PutBulletBackInAPool(bullet, squelettePool, squelettePoolLength);
                 break;
-            case MobType.BURTERMOVING:
-                PutBulletBackInAPool(bullet, burterMovingPool, burterMovingPoolLength);
+            case MobType.BLOB:
+                PutBulletBackInAPool(bullet, blobPool, blobPoolLength);
                 break;
-            case MobType.JAYCE:
-                PutBulletBackInAPool(bullet, jaycePool, jaycePoolLength);
-                break;
-            case MobType.FRIEZA:
-                PutBulletBackInAPool(bullet, friezaPool, friezaPoolLength);
+            case MobType.CHAUVE_SOURIS:
+                PutBulletBackInAPool(bullet, chauve_sourisPool, chauve_sourisPoolLength);
                 break;
         }
 

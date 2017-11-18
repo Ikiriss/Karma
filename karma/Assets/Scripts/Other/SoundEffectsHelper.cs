@@ -77,6 +77,7 @@ public class SoundEffectsHelper : MonoBehaviour
     /// <param name="originalClip"></param>
     private void MakeSound(AudioClip originalClip)
     {
-        AudioSource.PlayClipAtPoint(originalClip, transform.position);
+        if(originalClip)
+            AudioSource.PlayClipAtPoint(originalClip, transform.position);
     }
 }
