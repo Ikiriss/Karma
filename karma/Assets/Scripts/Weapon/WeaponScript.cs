@@ -127,7 +127,8 @@ public class WeaponScript : MonoBehaviour {
     protected void MakeSound()
     {
         weaponSoundCooldown = weaponSoundRate;
-        AudioSource.PlayClipAtPoint(weaponSound, transform.position, volume);
+        if(weaponSound)
+            AudioSource.PlayClipAtPoint(weaponSound, transform.position, volume);
     }
 
 	/// <summary>
