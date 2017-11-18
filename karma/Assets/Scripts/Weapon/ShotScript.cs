@@ -11,18 +11,30 @@ public class ShotScript : MonoBehaviour {
 	/// <summary>
 	/// Points de dégâts infligés
 	/// </summary>
-	public int damage = 1;
+    [SerializeField]
+	private int damage = 1;
+    public int Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
     [SerializeField]
     private BulletFactory.BulletType bulletType;
 
 	/// <summary>
 	/// Projectile ami ou ennemi ?
 	/// </summary>
-	public bool isEnemyShot = false;
+    [SerializeField]
+	private bool isEnemyShot = false;
+    public bool IsEnemyShot
+    {
+        get { return isEnemyShot; }
+        set { isEnemyShot = value; }
+    }
     /// <summary>
     /// Est-ce vraiment un projectile ?
     /// </summary>
-	public bool isNotShot = false;
+	//public bool isNotShot = false;
 
 	void Start()
 	{
@@ -32,7 +44,7 @@ public class ShotScript : MonoBehaviour {
     private void Update()
     {
         //on retourne le bullet si il n'est pas visible
-        if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false && !isNotShot && gameObject.GetComponent<MoveScript>().enabled)
+        if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false /*&& !isNotShot*/ && gameObject.GetComponent<MoveScript>().enabled)
         {
             GameObject.Find("Scripts").GetComponent<BulletFactory>().GiveBackBullet(bulletType, GetComponent<Transform>());
         }
