@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Enemy : Entity {
 
+    public enum Name
+    {
+        SQUELETTE,
+        BLOB,
+        CHAUVE_SOURIS
+    }
+
+    [SerializeField]
+    protected Name enemyName;
+    public Name EnemyName
+    {
+        get { return enemyName; }
+    }
 
     protected bool hasSpawn;
     public bool HasSpawn
@@ -12,8 +25,8 @@ public class Enemy : Entity {
         set { hasSpawn = value; }
     }
 
-    private MoveScript moveScript;
-	private WeaponScript[] weapons;
+    protected MoveScript moveScript;
+	protected WeaponScript[] weapons;
 
 	protected bool alive = true;
     public bool Alive
