@@ -33,21 +33,14 @@ public class Entity : MonoBehaviour {
 
 
     [SerializeField]
-    private EnemyFactory.MobType mobType;
+    protected EnemyFactory.MobType mobType;
 
-    private Animator myAnimator;
-	private Enemy enemyScript;
-
-
-
-    void Start()
-    {
-        maxHp = hp;
-	}
+    protected Animator myAnimator;
+	//protected Enemy enemyScript;
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-	
+	    
 	}
 
     private void OnDestroy()
