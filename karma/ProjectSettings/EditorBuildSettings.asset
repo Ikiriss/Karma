@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Seb/seb.unity
+    guid: 63024c77ade8f20479159f48931e8c2b
+  - enabled: 1
+    path: Assets/Scenes/Seb/seb2.unity
+    guid: c2c442fa25d046d40b7be94246cbf884

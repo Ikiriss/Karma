@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FadingScene : MonoBehaviour {
 
@@ -41,6 +42,10 @@ public class FadingScene : MonoBehaviour {
 
     private void OnLevelWasLoaded()
     {
+        Debug.Log("salut");
+        Debug.Log(KarmaScript.karma);
+        Debug.Log(SceneManager.GetActiveScene().name);
         BeginFade(-1);
+        
     }
 }
