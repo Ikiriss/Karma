@@ -4,5 +4,12 @@ using UnityEngine;
 
 public class KarmaScript : MonoBehaviour {
 
-    static public int karma = 0;
+    public enum KarmaState
+    {
+        POSITIVE_KARMA,
+        NEUTRAL_KARMA,
+        NEGATIVE_KARMA
+    }
+
+    static public KarmaState karma = KarmaState.NEUTRAL_KARMA;
 }

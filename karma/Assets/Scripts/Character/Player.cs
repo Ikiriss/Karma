@@ -7,7 +7,9 @@ using UnityEngine;
 /// </summary>
 public class Player : Entity {
     // Use this for initialization	
-    
+
+    static public int karma = 0;
+
     private Entity entity;
     private WeaponScript weapon;
 
