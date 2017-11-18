@@ -47,16 +47,34 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        
+        HandleMovement();
     }
 
-    public void HandleMovement(float horizontal, float vertical)
+    public void HandleMovement()
     {
+        int horizontal = 0;
+        int vertical = 0;
+        if (moveRight)
+        {
+            horizontal = 1;
+        }else if (moveLeft)
+        {
+            horizontal = -1;
+        }
+        if (jump)
+        {
+            vertical = 1;
+        }
+        if(horizontal!=0 || vertical != 0)
+        {
+            // Calcul du mouvement
+            //player.Movement = new Vector2(
+            //player.Speed.x * horizontal,
+            //player.Speed.y * vertical);
+            rigidbody.AddForce(new Vector2(player.Speed.x * horizontal, player.Speed.y * vertical));
+        }
         
-        // Calcul du mouvement
-        player.Movement = new Vector2(
-          player.Speed.x * horizontal,
-          player.Speed.y * vertical);
+        
 
 
         // Déplacement limité au cadre de la caméra
@@ -83,7 +101,10 @@ public class PlayerController : MonoBehaviour {
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
-
-        rigidbody.velocity = player.Movement;
+        //if(horizontal != 0 || vertical != 0)
+        //{
+        //    rigidbody.velocity = player.Movement;
+        //}
+        
     }
 }
