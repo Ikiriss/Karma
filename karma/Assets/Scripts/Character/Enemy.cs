@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Enemy : Entity {
 
-    public enum Name
-    {
-        SQUELETTE,
-        BLOB,
-        CHAUVE_SOURIS
-    }
+
+    
 
     [SerializeField]
-    protected Name enemyName;
-    public Name EnemyName
+    protected EnemyFactory.MobType enemyName;
+    public EnemyFactory.MobType EnemyName
     {
         get { return enemyName; }
     }
+        
 
     protected bool hasSpawn;
     public bool HasSpawn
@@ -60,7 +57,8 @@ public class Enemy : Entity {
 		{
 			weapon.enabled = false;
 		}
-	}
+        attackCooldown = 0f;
+    }
 
 	void Update()
 	{
@@ -75,7 +73,10 @@ public class Enemy : Entity {
 		}
 		else
 		{
-            
+            if (attackCooldown > 0)
+            {
+                attackCooldown -= Time.deltaTime;
+            }
             // On fait tirer toutes les armes automatiquement si il est vivant
             HandleShootWithWeapons();
 
@@ -88,8 +89,29 @@ public class Enemy : Entity {
 		}
 	}
 
-	// 3 - Activation
-	private void Spawn()
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+        ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        Player player = collision.collider.GetComponent<Player>();
+        if (shot && !(shot.IsEnemyShot))
+        {
+            hp -= shot.Damage;
+        }
+        else if (player && collision.collider.GetComponent<PlayerController>().Attack1)
+        {
+            hp -= player.Damage;
+            Debug.Log("je me fais taper");
+        }
+
+        if (hp <= 0)
+        {
+            alive = false;
+        }
+    }
+    
+
+    // 3 - Activation
+    private void Spawn()
 	{
 		hasSpawn = true;
 
@@ -100,9 +122,10 @@ public class Enemy : Entity {
 		moveScript.enabled = true;
         // -- Tir
         //Si c'est une tête chercheuse, on l'anime, sinon on met les armes en place
-        if (moveScript.characterLockInit)
+        if (moveScript.CharacterLockInit)
         {
-            GetComponent<Animator>().SetTrigger("attack");
+            if(GetComponent<Animator>())
+                GetComponent<Animator>().SetTrigger("attack");
             moveScript.AnimateHeadHunter();
 
         }
@@ -127,13 +150,16 @@ public class Enemy : Entity {
             {
                 if (weapon != null && weapon.enabled && weapon.CanAttack)
                 {
-                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                    if (GetComponent<Animator>())
+                        GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
                     weapon.Attack(true);
                     SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                 }
             }
         }
     }
+    
+
     public void UnSpawn()
     {
         hasSpawn = false;

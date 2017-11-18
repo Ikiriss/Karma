@@ -9,32 +9,61 @@ public class MoveScript : MonoBehaviour {
     /// <summary>
     /// Vitesse de déplacement
     /// </summary>
-    public Vector2 speed = new Vector2(10, 10);
+    [SerializeField]
+    private Vector2 speed = new Vector2(10, 10);
+    public Vector2 Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
 
     /// <summary>
     /// Direction
     /// </summary>
-    public Vector2 direction = new Vector2(-1, 0);
+    [SerializeField]
+    private Vector2 direction = new Vector2(-1, 0);
+    public Vector2 Direction
+    {
+        get { return direction; }
+        set { direction = value; }
+    }
 
     /// <summary>
     /// permet de limiter le déplacement de l'unité par rapport au haut et au bas de la caméra (utile pour les déplacements de haut en bas, pour qu'il puisse rebondir)
     /// </summary>
-    public double limitDeplacement = 1f; // en %de caméra doit être 1 0.75 0.5 0.25 en raison de problème d'arrondi
+    [SerializeField]
+    private double limitDeplacement = 1f; // en %de caméra doit être 1 0.75 0.5 0.25 en raison de problème d'arrondi
     /// <summary>
     /// Pour calculer le mouvement
     /// </summary>
     private Vector2 movement;
 
-    public bool isShot = false;
+    //simplement pour savoir si on doit limiter le déplacement ou pas
+    [SerializeField]
+    private bool isShot = false;
+    public bool IsShot
+    {
+        get { return isShot; }
+    }
     /// <summary>
     /// Si le mouvement doit suivre le joueur ou bas (ex tête chercheuse)
     /// </summary>
     
-    public bool characterLock = false;
+    [SerializeField]
+    private bool characterLock = false;
+    public bool CharacterLock
+    {
+        get { return characterLock; }
+    }
     /// <summary>
     /// S'il s'agit d'un missile visé (pas forcemment tête chercheuse, mais on vise le joueur)
     /// </summary>
-    public bool characterLockInit = false;
+    [SerializeField]
+    private bool characterLockInit = false;
+    public bool CharacterLockInit
+    {
+        get { return characterLockInit; }
+    }
 
 
     void Start () {

@@ -99,10 +99,10 @@ public class BossWeapon : WeaponScript {
 
             // On saisit la direction pour le mouvement
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-            if (move != null && !move.characterLock && !move.characterLockInit)
+            if (move != null && !move.CharacterLock && !move.CharacterLockInit)
             {
 
-                move.direction = this.transform.right; // ici la droite sera le devant de notre objet
+                move.Direction = this.transform.right; // ici la droite sera le devant de notre objet
 
             }
         }
