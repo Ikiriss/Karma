@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class ItemFactory : MonoBehaviour {
 
-    public Transform senzu;
-    public Transform boule1Etoile;
-    public Transform boule2Etoile;
-    public Transform boule3Etoile;
-    public Transform boule4Etoile;
-    public Transform boule5Etoile;
-    public Transform boule6Etoile;
+    public Transform FLEUR;
+    public Transform EPEE_EVENT2;
+    public Transform OEUF_CORBEAU;
+    public Transform HACHE;
+    public Transform ALLUMETTES;
+    public Transform ARC;
+    public Transform PLANTE_MAGIQUE;
     public Transform boule7Etoile;
     public Transform capsuleEnergy;
 
-    private Transform[] senzuPool;
-    private Transform[] boule1EtoilePool;
-    private Transform[] boule2EtoilePool;
-    private Transform[] boule3EtoilePool;
-    private Transform[] boule4EtoilePool;
-    private Transform[] boule5EtoilePool;
-    private Transform[] boule6EtoilePool;
+    private Transform[] FLEURPool;
+    private Transform[] EPEE_EVENT2Pool;
+    private Transform[] OEUF_CORBEAUPool;
+    private Transform[] HACHEPool;
+    private Transform[] ALLUMETTESPool;
+    private Transform[] ARCPool;
+    private Transform[] PLANTE_MAGIQUEPool;
     private Transform[] boule7EtoilePool;
     private Transform[] capsuleEnergyPool;
 
-    public int senzuPoolLength;
+    public int FLEURPoolLength;
     public int bouleEtoilePoolLength;
     public int capsuleEnergyPoolLength;
     // Use this for initialization
@@ -33,30 +33,26 @@ public class ItemFactory : MonoBehaviour {
 
         //initialisation de la pool
 
-        senzuPool = new Transform[senzuPoolLength];
-        boule1EtoilePool = new Transform[bouleEtoilePoolLength];
-        /*boule2EtoilePool = new Transform[bouleEtoilePoolLength];
-        boule3EtoilePool = new Transform[bouleEtoilePoolLength];
-        boule4EtoilePool = new Transform[bouleEtoilePoolLength];
-        boule5EtoilePool = new Transform[bouleEtoilePoolLength];
-        boule6EtoilePool = new Transform[bouleEtoilePoolLength];
+        FLEURPool = new Transform[FLEURPoolLength];
+        EPEE_EVENT2Pool = new Transform[bouleEtoilePoolLength];
+        /*OEUF_CORBEAUPool = new Transform[bouleEtoilePoolLength];0
+        HACHEPool = new Transform[bouleEtoilePoolLength];
+        ALLUMETTESPool = new Transform[bouleEtoilePoolLength];
+        ARCPool = new Transform[bouleEtoilePoolLength];
+        PLANTE_MAGIQUEPool = new Transform[bouleEtoilePoolLength];
         boule7EtoilePool = new Transform[bouleEtoilePoolLength];*/
         capsuleEnergyPool = new Transform[capsuleEnergyPoolLength];
 
 
 
-        initList(senzuPool,senzuPoolLength,Item.ItemName.senzu);
-        initList(boule1EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule1Etoile);
-        /*initList(boule2EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule2Etoile);
-        initList(boule3EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule3Etoile);
-        initList(boule4EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule4Etoile);
-        initList(boule5EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule5Etoile);
-        initList(boule6EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule6Etoile);
-        initList(boule7EtoilePool, bouleEtoilePoolLength, Item.ItemName.boule7Etoile);*/
-        initList(capsuleEnergyPool, capsuleEnergyPoolLength, Item.ItemName.capsuleEnergy);
-
-
-
+        initList(FLEURPool,FLEURPoolLength,Item.Name.FLEUR);
+        initList(EPEE_EVENT2Pool, bouleEtoilePoolLength, Item.Name.EPEE_EVENT2);
+        /*initList(OEUF_CORBEAUPool, bouleEtoilePoolLength, Item.Name.OEUF_CORBEAU);
+        initList(HACHEPool, bouleEtoilePoolLength, Item.Name.HACHE);
+        initList(ALLUMETTESPool, bouleEtoilePoolLength, Item.Name.ALLUMETTES);
+        initList(ARCPool, bouleEtoilePoolLength, Item.Name.ARC);
+        initList(PLANTE_MAGIQUEPool, bouleEtoilePoolLength, Item.Name.PLANTE_MAGIQUE);
+        initList(boule7EtoilePool, bouleEtoilePoolLength, Item.Name.boule7Etoile);*/
 
     }
 
@@ -66,7 +62,7 @@ public class ItemFactory : MonoBehaviour {
 
     }
 
-    private void initList(Transform[] pool, int poolLength, Item.ItemName itemType)
+    private void initList(Transform[] pool, int poolLength, Item.Name itemType)
     {
         for (int i = 0; i < poolLength; i++)
         {
@@ -75,39 +71,32 @@ public class ItemFactory : MonoBehaviour {
     }
 
     //spawn un bullet dans la pool
-    public Transform SpawnItem(Item.ItemName itemType)
+    public Transform SpawnItem(Item.Name itemType)
     {
         Transform bullet = null;
         switch (itemType)
         {
-            case Item.ItemName.senzu:
-                bullet = Instantiate(senzu) as Transform;
+            case Item.Name.FLEUR:
+                bullet = Instantiate(FLEUR) as Transform;
                 break;
-            case Item.ItemName.boule1Etoile:
-                bullet = Instantiate(boule1Etoile) as Transform;
+            case Item.Name.EPEE_EVENT2:
+                bullet = Instantiate(EPEE_EVENT2) as Transform;
                 break;
-            case Item.ItemName.boule2Etoile:
-                bullet = Instantiate(boule2Etoile) as Transform;
+            case Item.Name.OEUF_CORBEAU:
+                bullet = Instantiate(OEUF_CORBEAU) as Transform;
                 break;
-            case Item.ItemName.boule3Etoile:
-                bullet = Instantiate(boule3Etoile) as Transform;
+            case Item.Name.HACHE:
+                bullet = Instantiate(HACHE) as Transform;
                 break;
-            case Item.ItemName.boule4Etoile:
-                bullet = Instantiate(boule4Etoile) as Transform;
+            case Item.Name.ALLUMETTES:
+                bullet = Instantiate(ALLUMETTES) as Transform;
                 break;
-            case Item.ItemName.boule5Etoile:
-                bullet = Instantiate(boule5Etoile) as Transform;
+            case Item.Name.ARC:
+                bullet = Instantiate(ARC) as Transform;
                 break;
-            case Item.ItemName.boule6Etoile:
-                bullet = Instantiate(boule6Etoile) as Transform;
+            case Item.Name.PLANTE_MAGIQUE:
+                bullet = Instantiate(PLANTE_MAGIQUE) as Transform;
                 break;
-            case Item.ItemName.boule7Etoile:
-                bullet = Instantiate(boule7Etoile) as Transform;
-                break;
-            case Item.ItemName.capsuleEnergy:
-                bullet = Instantiate(capsuleEnergy) as Transform;
-                break;
-
         }
         bullet.position = new Vector3(-100, -100, -10);
 
@@ -115,41 +104,34 @@ public class ItemFactory : MonoBehaviour {
     }
 
     //permet d'obtenir un bullet de la pool
-    public Transform GetItem(Item.ItemName itemType)
+    public Transform GetItem(Item.Name itemType)
     {
         Transform bullet = null;
         switch (itemType)
         {
 
             
-            case Item.ItemName.senzu:
-                bullet = GetABulletFromAPool(senzuPool,senzuPoolLength);
+            case Item.Name.FLEUR:
+                bullet = GetABulletFromAPool(FLEURPool,FLEURPoolLength);
                 break;
-            case Item.ItemName.boule1Etoile:
-                bullet = GetABulletFromAPool(boule1EtoilePool,bouleEtoilePoolLength);
+            case Item.Name.EPEE_EVENT2:
+                bullet = GetABulletFromAPool(EPEE_EVENT2Pool,bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule2Etoile:
-                bullet = GetABulletFromAPool(boule2EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.OEUF_CORBEAU:
+                bullet = GetABulletFromAPool(OEUF_CORBEAUPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule3Etoile:
-                bullet = GetABulletFromAPool(boule3EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.HACHE:
+                bullet = GetABulletFromAPool(HACHEPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule4Etoile:
-                bullet = GetABulletFromAPool(boule4EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.ALLUMETTES:
+                bullet = GetABulletFromAPool(ALLUMETTESPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule5Etoile:
-                bullet = GetABulletFromAPool(boule5EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.ARC:
+                bullet = GetABulletFromAPool(ARCPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule6Etoile:
-                bullet = GetABulletFromAPool(boule6EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.PLANTE_MAGIQUE:
+                bullet = GetABulletFromAPool(PLANTE_MAGIQUEPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule7Etoile:
-                bullet = GetABulletFromAPool(boule7EtoilePool, bouleEtoilePoolLength);
-                break;
-            case Item.ItemName.capsuleEnergy:
-                bullet = GetABulletFromAPool(capsuleEnergyPool, capsuleEnergyPoolLength);
-                break;
-
         }
         if (bullet == null)
         {
@@ -159,39 +141,33 @@ public class ItemFactory : MonoBehaviour {
     }
 
     //permet de rendre un bullet dans la pool
-    public void GiveBackItem(Item.ItemName mobType, Transform bullet)
+    public void GiveBackItem(Item.Name mobType, Transform bullet)
     {
         bullet.position = new Vector3(-100, -100, -10);
         
         switch (mobType)
         {
 
-            case Item.ItemName.senzu:
-                PutBulletBackInAPool(bullet,senzuPool, senzuPoolLength);
+            case Item.Name.FLEUR:
+                PutBulletBackInAPool(bullet,FLEURPool, FLEURPoolLength);
                 break;
-            case Item.ItemName.boule1Etoile:
-                PutBulletBackInAPool(bullet,boule1EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.EPEE_EVENT2:
+                PutBulletBackInAPool(bullet,EPEE_EVENT2Pool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule2Etoile:
-                PutBulletBackInAPool(bullet,boule2EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.OEUF_CORBEAU:
+                PutBulletBackInAPool(bullet,OEUF_CORBEAUPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule3Etoile:
-                PutBulletBackInAPool(bullet, boule3EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.HACHE:
+                PutBulletBackInAPool(bullet, HACHEPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule4Etoile:
-                PutBulletBackInAPool(bullet, boule4EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.ALLUMETTES:
+                PutBulletBackInAPool(bullet, ALLUMETTESPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule5Etoile:
-                PutBulletBackInAPool(bullet, boule5EtoilePool, bouleEtoilePoolLength);
+            case Item.Name.ARC:
+                PutBulletBackInAPool(bullet, ARCPool, bouleEtoilePoolLength);
                 break;
-            case Item.ItemName.boule6Etoile:
-                PutBulletBackInAPool(bullet, boule6EtoilePool, bouleEtoilePoolLength);
-                break;
-            case Item.ItemName.boule7Etoile:
-                PutBulletBackInAPool(bullet, boule7EtoilePool, bouleEtoilePoolLength);
-                break;
-            case Item.ItemName.capsuleEnergy:
-                PutBulletBackInAPool(bullet, capsuleEnergyPool, capsuleEnergyPoolLength);
+            case Item.Name.PLANTE_MAGIQUE:
+                PutBulletBackInAPool(bullet, PLANTE_MAGIQUEPool, bouleEtoilePoolLength);
                 break;
         }
 

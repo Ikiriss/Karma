@@ -13,7 +13,8 @@ public class Item : MonoBehaviour {
         OEUF_CORBEAU,
         ALLUMETTES,
         ARC,
-        PLANTE_MAGIQUE
+        PLANTE_MAGIQUE,
+        HACHE
     }
 
     [SerializeField]
