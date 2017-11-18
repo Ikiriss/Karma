@@ -20,6 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4157493529873700}
   - component: {fileID: 212780716081236956}
+  - component: {fileID: 60650895881472150}
+  - component: {fileID: 50620969573301132}
+  - component: {fileID: 114523493285535562}
+  - component: {fileID: 114245590049960132}
   m_Layer: 0
   m_Name: clodo
   m_TagString: Untagged
@@ -34,12 +38,105 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1646879702142414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.13, y: -1.28, z: 0}
+  m_LocalPosition: {x: 3.2531333, y: 0.09412694, z: 0}
   m_LocalScale: {x: 13, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50620969573301132
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646879702142414}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &60650895881472150
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646879702142414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 0.8, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.03, y: 0.17}
+      - {x: -0.13, y: 0.08}
+      - {x: -0.13, y: -0.07}
+      - {x: -0.11, y: -0.08}
+      - {x: 0.089999996, y: -0.08}
+      - {x: 0.11, y: -0.07}
+      - {x: 0.13, y: 0}
+      - {x: 0.13, y: 0.17}
+--- !u!114 &114245590049960132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646879702142414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250d9696933864f43aabb6f187528b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 1, y: 0}
+  direction: {x: -1, y: 0}
+  limitDeplacement: 1
+  isShot: 0
+  characterLock: 0
+  characterLockInit: 0
+--- !u!114 &114523493285535562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646879702142414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3b25e6292b9664f96645df1ef048d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobType: 0
+  hp: 0
+  damage: 0
+  maxHp: 0
+  attackRate: 0.25
+  attackCooldown: 0
+  attackSound: {fileID: 0}
+  attackSoundRate: 1
+  attackSoundVolume: 1
+  walkSound: {fileID: 0}
+  walkSoundRate: 1
+  walkSoundVolume: 1
+  enemyName: 0
 --- !u!212 &212780716081236956
 SpriteRenderer:
   m_ObjectHideFlags: 1
