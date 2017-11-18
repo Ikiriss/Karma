@@ -7,21 +7,24 @@ using UnityEngine;
 /// </summary>
 public class SoundEffectsHelper : MonoBehaviour
 {
-
+    AudioClip buttonSelectedSound;
+    AudioClip buttonSelectSound;
     /// <summary>
     /// Singleton
     /// </summary>
     public static SoundEffectsHelper Instance;
 
-    public AudioClip explosionSound;
-    public AudioClip playerShotSound;
-    public AudioClip enemyShotSound;
-    public AudioClip teleportationSound;
-    public AudioClip jayceSound;
-    public AudioClip enterSuperSayanSound;
-    public AudioClip buttonSelectSound;
-    public AudioClip buttonSelectedSound;
-    
+    public void MakeButtonSelectedSound()
+    {
+        MakeSound(buttonSelectedSound);
+    }
+
+    public void MakeButtonSelectSound()
+    {
+        MakeSound(buttonSelectSound);
+    }
+
+
 
     void Awake()
     {
@@ -31,45 +34,7 @@ public class SoundEffectsHelper : MonoBehaviour
         }
         Instance = this;
     }
-
-    public void MakeExplosionSound()
-    {
-        MakeSound(explosionSound);
-    }
-
-    public void MakePlayerShotSound()
-    {
-        MakeSound(playerShotSound);
-    }
-
-    public void MakeEnemyShotSound()
-    {
-        MakeSound(enemyShotSound);
-    }
-
-    public void MakeButtonSelectSound()
-    {
-        MakeSound(buttonSelectSound);
-    }
-    public void MakeButtonSelectedSound()
-    {
-        MakeSound(buttonSelectedSound);
-    }
-
-    public void MakeTeleportationSound()
-    {
-        MakeSound(teleportationSound);
-    }
-
-    public void MakeJayceSound()
-    {
-        MakeSound(jayceSound);
-    }
-
-    public void MakeEnterSuperSayanSound()
-    {
-        MakeSound(enterSuperSayanSound);
-    }
+    
 
     /// <summary>
     /// Lance la lecture d'un son
@@ -77,6 +42,13 @@ public class SoundEffectsHelper : MonoBehaviour
     /// <param name="originalClip"></param>
     private void MakeSound(AudioClip originalClip)
     {
-        AudioSource.PlayClipAtPoint(originalClip, transform.position);
+        if(originalClip)
+            AudioSource.PlayClipAtPoint(originalClip, transform.position);
+    }
+
+    public void MakeSound2(AudioClip originalClip, float volume)
+    {
+        if (originalClip)
+            AudioSource.PlayClipAtPoint(originalClip, transform.position, volume);
     }
 }

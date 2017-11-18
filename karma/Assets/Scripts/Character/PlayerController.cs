@@ -3,14 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    private float translateActivationMarge = 0.1f;
+    private bool grounded = false;
     private Rigidbody2D rigidbody;
     private Player player;
+    private Vector2 movement = new Vector2(0, 0);
     private bool moveRight = false;
     private bool moveLeft = false;
     private bool jump = false;
     private bool attack1 = false;
+    private bool moveHorizontalBlocked = false;
+    public bool Attack1
+    {
+        get {
+            if (player.CanAttack)
+            {
+                //faire l'animation
+
+                //son
+                if (player.CanAttackSound)
+                    player.MakeAttackSound();
+                player.Attack();
+                
+                return attack1;
+            }
+            else
+            {
+                return false;
+            }
+             }
+    }
     private bool attack2 = false;
     private bool attack3 = false;
+
+    private float previousVelocityY =0;
     // Use this for initialization
     void Start () {
 
@@ -21,11 +47,46 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetAxis("Horizontal")>0 || Input.GetAxis("HorizontalStick")>0 || Input.GetAxis("HorizontalCroix") > 0)
+        
+        if (/*previousVelocityY == 0 && */rigidbody.velocity.y == 0)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+        
+        if (Input.GetButtonUp("Horizontal"))
+        {
+            //moveHorizontalBlocked = true;
+        }
+        if(Input.GetButton("Attack1") || Input.GetButton("ButtonB")){ attack1 = true; }
+        else{ attack1 = false;}
+        if (Input.GetButton("Attack2") || Input.GetButton("ButtonA")){ attack2 = true;}
+        else { attack2 = false; }
+        if(Input.GetButton("Attack3") || Input.GetButton("ButtonX")) { attack3 = true; }
+        else { attack3 = false; }
+        if((Input.GetButton("Jump") || Input.GetButton("ButtonY")) && grounded) { jump = true; }
+        else { jump = false; }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        float horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
+        //if(horizontalTranslation == 0)
+        //{
+        //    moveHorizontalBlocked = false;
+        //}
+
+        if (Mathf.Abs(horizontalTranslation) > translateActivationMarge && horizontalTranslation > 0 && !moveHorizontalBlocked)
         {
             moveRight = true;
             moveLeft = false;
-        }else if(Input.GetAxis("Horizontal") < 0 || Input.GetAxis("HorizontalStick") < 0 || Input.GetAxis("HorizontalCroix") < 0)
+        }
+        else if (Mathf.Abs(horizontalTranslation) > translateActivationMarge && horizontalTranslation < 0 && !moveHorizontalBlocked)
         {
             moveLeft = true;
             moveRight = false;
@@ -35,44 +96,36 @@ public class PlayerController : MonoBehaviour {
             moveLeft = false;
             moveRight = false;
         }
-        if(Input.GetButton("Attack1") || Input.GetButton("ButtonB")){ attack1 = true; }
-        else{ attack1 = false;}
-        if (Input.GetButton("Attack2") || Input.GetButton("ButtonA")){ attack2 = true;}
-        else { attack2 = false; }
-        if(Input.GetButton("Attack3") || Input.GetButton("ButtonX")) { attack3 = true; }
-        else { attack3 = false; }
-        if(Input.GetButtonDown("Jump") || Input.GetButtonDown("ButtonY")) { jump = true; }
-        else { jump = false; }
-    }
-
-    private void FixedUpdate()
-    {
         HandleMovement();
+        HandleSound();
     }
 
-    public void HandleMovement()
+    
+    
+
+    private void HandleMovement()
     {
-        int horizontal = 0;
-        int vertical = 0;
+        
         if (moveRight)
         {
-            horizontal = 1;
+            movement.x = player.Speed.x;
         }else if (moveLeft)
         {
-            horizontal = -1;
+            movement.x = -player.Speed.x;
         }
+        else
+        {
+            movement.x = 0;
+        }        
         if (jump)
         {
-            vertical = 1;
+            movement.y = player.Speed.y;
         }
-        if(horizontal!=0 || vertical != 0)
+        else
         {
-            // Calcul du mouvement
-            //player.Movement = new Vector2(
-            //player.Speed.x * horizontal,
-            //player.Speed.y * vertical);
-            rigidbody.AddForce(new Vector2(player.Speed.x * horizontal, player.Speed.y * vertical));
+            movement.y = 0;
         }
+        
         
         
 
@@ -101,10 +154,38 @@ public class PlayerController : MonoBehaviour {
           Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
           transform.position.z
         );
-        //if(horizontal != 0 || vertical != 0)
-        //{
-        //    rigidbody.velocity = player.Movement;
-        //}
-        
+
+        previousVelocityY = rigidbody.velocity.y;
+        rigidbody.velocity += movement;
+        if (rigidbody.velocity.x > player.MaxSpeed.x)
+        {
+            rigidbody.velocity = new Vector2(player.MaxSpeed.x,rigidbody.velocity.y);
+        }else if(rigidbody.velocity.x < -player.MaxSpeed.x)
+        {
+            rigidbody.velocity = new Vector2(-player.MaxSpeed.x, rigidbody.velocity.y);
+        }else if(grounded && movement.x == 0)
+        {
+            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+        }
+        if(rigidbody.velocity.y > player.MaxSpeed.y)
+        {
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, player.MaxSpeed.y);
+        }
+                
+
+    }
+
+    private void HandleSound()
+    {
+        if(grounded && moveLeft || moveRight)
+        {
+            if (player.CanWalkSound)
+                player.MakeWalkSound();
+        }
+        if (jump)
+        {
+            if (player.CanJumpSound)
+                player.MakeJumpSound();
+        }
     }
 }

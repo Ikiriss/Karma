@@ -35,11 +35,18 @@ public class WeaponScript : MonoBehaviour {
         get { return animatorParameter; }
     }
     [SerializeField]
-    protected AudioClip soundToPlay = null; //son à faire
-    public AudioClip SoundToPlay
+    protected AudioClip weaponSound = null; //son à faire
+    public AudioClip WeaponSound
     {
-        get { return soundToPlay; }
+        get { return weaponSound; }
     }
+    [SerializeField]
+    protected float weaponSoundRate;
+    protected float weaponSoundCooldown;
+    [SerializeField]
+    protected float volume = 1f;
+    
+    
 
     // Multiplicateur de dommage permettant de gérer des modes super sayen ou autre
     [SerializeField]
@@ -57,7 +64,12 @@ public class WeaponScript : MonoBehaviour {
 		if (shootCooldown > 0)
 		{
 			shootCooldown -= Time.deltaTime;
+            //Debug.Log(shootCooldown);
 		}
+        if (weaponSoundCooldown > 0)
+        {
+            weaponSoundCooldown -= Time.deltaTime;
+        }
 		
 	}
 
@@ -72,16 +84,23 @@ public class WeaponScript : MonoBehaviour {
 	{
 		if (CanAttack)
 		{
-			shootCooldown = shootingRate;          
+			shootCooldown = shootingRate;
+            //Debug.Log("pew");
 
             //nouvelle version, pop bullet from factory
             Transform shotTransform = popBullet(bulletType);
             //Debug.Log("bullet poped");        
-			
+            Physics2D.IgnoreCollision(GetComponentInParent<Collider2D>(), shotTransform.GetComponent<Collider2D>());
 
             // Propriétés du script
             ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
-            SoundEffectsHelper.Instance.MakePlayerShotSound();
+
+            //make the sound
+            if (CanMakeSound)
+            {
+                MakeSound();
+            }
+            
             if (shot != null)
 			{
 				shot.IsEnemyShot = isEnemy;               
@@ -92,14 +111,24 @@ public class WeaponScript : MonoBehaviour {
 
             // On saisit la direction pour le mouvement
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-			if (move != null && !move.characterLock && !move.characterLockInit)
+			if (move != null && !move.CharacterLock && !move.CharacterLockInit)
 			{
 				
-				move.direction = this.transform.right; // ici la droite sera le devant de notre objet
+				move.Direction = this.transform.right; // ici la droite sera le devant de notre objet
 				
 			}
 		}
 	}
+    protected bool CanMakeSound
+    {
+        get { return weaponSoundCooldown <=0; }
+    }
+
+    protected void MakeSound()
+    {
+        weaponSoundCooldown = weaponSoundRate;
+        AudioSource.PlayClipAtPoint(weaponSound, transform.position, volume);
+    }
 
 	/// <summary>
 	/// L'arme est chargée ?
@@ -119,16 +148,24 @@ public class WeaponScript : MonoBehaviour {
         shotTransform.position = transform.position;
         //Debug.Log(shotTransform.position);
         shotTransform.rotation = transform.rotation;
+
+
         //components du shot
         shotTransform.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
         shotTransform.gameObject.GetComponent<Renderer>().enabled = true;
-        shotTransform.gameObject.GetComponent<MoveScript>().enabled = true;
+        
         shotTransform.gameObject.GetComponent<ShotScript>().enabled = true;
-        shotTransform.gameObject.GetComponent<Entity>().enabled = true;
-        shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
-        //Si on doit viser, on calcule les coordonées et on attend l'animation si on est un projectile
+
+        shotTransform.gameObject.GetComponent<MoveScript>().enabled = true;
+
         shotTransform.gameObject.GetComponent<MoveScript>().CalculDirectionForHeadHunter();
 
+        shotTransform.GetComponent<ShotScript>().PreviousPos = transform.position;
+        //shotTransform.gameObject.GetComponent<Entity>().enabled = true;
+        if (shotTransform.gameObject.GetComponent<Entity>())
+            shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
+        //Si on doit viser, on calcule les coordonées et on attend l'animation si on est un projectile
+        
 
         return shotTransform;
     }

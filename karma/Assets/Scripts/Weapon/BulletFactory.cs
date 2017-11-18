@@ -5,55 +5,40 @@ using UnityEngine;
 public class BulletFactory : MonoBehaviour {
 
     //public static BulletFactory Instance;
-    public Transform playerBulletPrefab;
-    public Transform burterBulletPrefab;
-    public Transform friezaDefaultBulletPrefab;
-    public Transform friezaMegaBulletPrefab;
-    public Transform friezaUltiBulletPrefab;
-    public Transform friezaRayonBulletPrefab;
+    public Transform archerBulletPrefab;
+    public Transform archerAutoBulletPrefab;
+    public Transform sorcierBulletPrefab;
     
-    private Transform[] playerBulletPool;
-    private Transform[] burterBulletPool;
-    private Transform[] friezaDefaultBulletPool;
-    private Transform[] friezaMegaBulletPool;
-    private Transform[] friezaUltiBulletPool;
-    private Transform[] friezaRayonBulletPool;
+    
+    private Transform[] archerBulletPool;
+    private Transform[] archerAutoBulletPool;
+    private Transform[] sorcierBulletPool;
+    
 
-    public int playerBulletPoolLength = 50;
-    public int burterBulletPoolLength = 50;
-    public int friezaDefaultBulletPoolLength = 0; //10
-    public int friezaMegaBulletPoolLength = 0;  //3
-    public int friezaUltiBulletPoolLength = 0; //1
-    public int friezaRayonBulletPoolLength = 0; //50 ?
+    public int archerBulletPoolLength = 10;
+    public int archerAutoBulletPoolLength = 10;
+    public int sorcierBulletPoolLength = 10;
+    
 
     public enum BulletType
     {
         NONE,
-        PLAYERBULLET,
-        BURTERBULLET,
-        FRIEZADEFAULTBULLET,
-        FRIEZAMEGABULLET,
-        FRIEZAULTIBULLET,
-        FRIEZARAYONBULLET
+        ARCHERBULLET,
+        ARCHERAUTOBULLET,
+        SORCIERBULLET
     }
     
 	// Use this for initialization
 	void Start () {
 
         //initialisation de la pool
-        playerBulletPool = new Transform[playerBulletPoolLength];
-        burterBulletPool = new Transform[burterBulletPoolLength];
-        friezaDefaultBulletPool = new Transform[friezaDefaultBulletPoolLength];
-        friezaMegaBulletPool = new Transform[friezaMegaBulletPoolLength];
-        friezaUltiBulletPool = new Transform[friezaUltiBulletPoolLength];
-        friezaRayonBulletPool = new Transform[friezaRayonBulletPoolLength];
+        archerBulletPool = new Transform[archerBulletPoolLength];
+        archerAutoBulletPool = new Transform[archerAutoBulletPoolLength];
+        sorcierBulletPool = new Transform[sorcierBulletPoolLength];
 
-        initBulletList(playerBulletPool, playerBulletPoolLength, BulletType.PLAYERBULLET);
-        initBulletList(burterBulletPool, burterBulletPoolLength, BulletType.BURTERBULLET);
-        initBulletList(friezaDefaultBulletPool, friezaDefaultBulletPoolLength, BulletType.FRIEZADEFAULTBULLET);
-        initBulletList(friezaMegaBulletPool, friezaMegaBulletPoolLength, BulletType.FRIEZAMEGABULLET);
-        initBulletList(friezaUltiBulletPool, friezaUltiBulletPoolLength, BulletType.FRIEZAULTIBULLET);
-        initBulletList(friezaRayonBulletPool, friezaRayonBulletPoolLength, BulletType.FRIEZARAYONBULLET);
+        initBulletList(archerBulletPool, archerBulletPoolLength, BulletType.ARCHERBULLET);
+        initBulletList(archerAutoBulletPool, archerAutoBulletPoolLength, BulletType.ARCHERAUTOBULLET);
+        initBulletList(sorcierBulletPool, sorcierBulletPoolLength, BulletType.SORCIERBULLET);
         
 
 	}
@@ -77,23 +62,14 @@ public class BulletFactory : MonoBehaviour {
         Transform bullet = null;
         switch (bulletType)
         {
-            case BulletType.PLAYERBULLET:
-                bullet = Instantiate(playerBulletPrefab) as Transform;
+            case BulletType.ARCHERBULLET:
+                bullet = Instantiate(archerBulletPrefab) as Transform;
                 break;
-            case BulletType.BURTERBULLET:
-                bullet = Instantiate(burterBulletPrefab) as Transform;
+            case BulletType.ARCHERAUTOBULLET:
+                bullet = Instantiate(archerAutoBulletPrefab) as Transform;
                 break;
-            case BulletType.FRIEZADEFAULTBULLET:
-                bullet = Instantiate(friezaDefaultBulletPrefab) as Transform;
-                break;
-            case BulletType.FRIEZAMEGABULLET:
-                bullet = Instantiate(friezaMegaBulletPrefab) as Transform;
-                break;
-            case BulletType.FRIEZAULTIBULLET:
-                bullet = Instantiate(friezaUltiBulletPrefab) as Transform;
-                break;
-            case BulletType.FRIEZARAYONBULLET:
-                bullet = Instantiate(friezaRayonBulletPrefab) as Transform;
+            case BulletType.SORCIERBULLET:
+                bullet = Instantiate(sorcierBulletPrefab) as Transform;
                 break;
                 
         }
@@ -102,7 +78,7 @@ public class BulletFactory : MonoBehaviour {
         bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
         bullet.gameObject.GetComponent<ShotScript>().enabled = false;
-        bullet.gameObject.GetComponent<Entity>().enabled = false;
+        //bullet.gameObject.GetComponent<Entity>().enabled = false;
 
         return bullet;
     } 
@@ -113,24 +89,14 @@ public class BulletFactory : MonoBehaviour {
         Transform bullet = null;
         switch (bulletType)
         {
-            case BulletType.PLAYERBULLET:
-                bullet = GetABulletFromAPool(playerBulletPool, playerBulletPoolLength);
+            case BulletType.ARCHERBULLET:
+                bullet = GetABulletFromAPool(archerBulletPool, archerBulletPoolLength);
                 break;
-
-            case BulletType.BURTERBULLET:
-                bullet = GetABulletFromAPool(burterBulletPool, burterBulletPoolLength);
+            case BulletType.ARCHERAUTOBULLET:
+                bullet = GetABulletFromAPool(archerAutoBulletPool, archerAutoBulletPoolLength);
                 break;
-            case BulletType.FRIEZADEFAULTBULLET:
-                bullet = GetABulletFromAPool(friezaDefaultBulletPool, friezaDefaultBulletPoolLength);
-                break;
-            case BulletType.FRIEZAMEGABULLET:
-                bullet = GetABulletFromAPool(friezaMegaBulletPool, friezaMegaBulletPoolLength);
-                break;
-            case BulletType.FRIEZAULTIBULLET:
-                bullet = GetABulletFromAPool(friezaUltiBulletPool, friezaUltiBulletPoolLength);
-                break;
-            case BulletType.FRIEZARAYONBULLET:
-                bullet = GetABulletFromAPool(friezaRayonBulletPool, friezaRayonBulletPoolLength);
+            case BulletType.SORCIERBULLET:
+                bullet = GetABulletFromAPool(sorcierBulletPool, sorcierBulletPoolLength);
                 break;
         }
         if (bullet == null)
@@ -149,28 +115,20 @@ public class BulletFactory : MonoBehaviour {
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
         bullet.gameObject.GetComponent<ShotScript>().enabled = false;
         bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
-        Entity hpScript = bullet.gameObject.GetComponent<Entity>();
-        hpScript.Hp = hpScript.MaxHp;
-        bullet.gameObject.GetComponent<Animator>().SetBool("pool",true);
+        //Entity hpScript = bullet.gameObject.GetComponent<Entity>();
+        //hpScript.Hp = hpScript.MaxHp;
+        if (bullet.gameObject.GetComponent<Animator>())
+            bullet.gameObject.GetComponent<Animator>().SetBool("pool",true);
         switch (bulletType)
         {
-            case BulletType.PLAYERBULLET:
-                PutBulletBackInAPool(bullet, playerBulletPool, playerBulletPoolLength);
+            case BulletType.ARCHERBULLET:
+                PutBulletBackInAPool(bullet, archerBulletPool, archerBulletPoolLength);
                 break;
-            case BulletType.BURTERBULLET:
-                PutBulletBackInAPool(bullet, burterBulletPool, burterBulletPoolLength);
+            case BulletType.ARCHERAUTOBULLET:
+                PutBulletBackInAPool(bullet, archerAutoBulletPool, archerAutoBulletPoolLength);
                 break;
-            case BulletType.FRIEZADEFAULTBULLET:
-                PutBulletBackInAPool(bullet, friezaDefaultBulletPool, friezaDefaultBulletPoolLength);
-                break;
-            case BulletType.FRIEZAMEGABULLET:
-                PutBulletBackInAPool(bullet, friezaMegaBulletPool, friezaMegaBulletPoolLength);
-                break;
-            case BulletType.FRIEZAULTIBULLET:
-                PutBulletBackInAPool(bullet, friezaUltiBulletPool, friezaUltiBulletPoolLength);
-                break;
-            case BulletType.FRIEZARAYONBULLET:
-                PutBulletBackInAPool(bullet, friezaRayonBulletPool, friezaRayonBulletPoolLength);
+            case BulletType.SORCIERBULLET:
+                PutBulletBackInAPool(bullet, sorcierBulletPool, sorcierBulletPoolLength);
                 break;
         }
 
