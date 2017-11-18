@@ -23,5 +23,16 @@ public class Item : MonoBehaviour {
     public Name ItemName
     {
         get { return itemName; }
+        set { itemName = value; }
     }
+
+    [SerializeField]
+    private bool isPicked =  false;
+
+    public bool IsPicked
+    {
+        get { return isPicked; }
+        set { isPicked = value; }
+    }
+
 }
