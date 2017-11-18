@@ -67,7 +67,7 @@ public class Entity : MonoBehaviour {
     {
         mob.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         yield return new WaitForSecondsRealtime(t);
-        GameObject.Find("Scripts").GetComponent<MobFactory>().GiveBackMob(mobType, mob);
+        GameObject.Find("Scripts").GetComponent<EnemyFactory>().GiveBackMob(mobType, mob);
         bool isBossOnStoryMode = true;
         if (isBossOnStoryMode)
         {

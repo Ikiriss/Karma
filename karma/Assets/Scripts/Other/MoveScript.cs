@@ -109,7 +109,7 @@ public class MoveScript : MonoBehaviour {
     {
         if (characterLockInit || characterLock)
         {
-            PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
+            Player player = GameObject.FindObjectOfType<Player>();
             Vector3 position = player.GetComponent<Transform>().position;
             //Debug.Log(position);
             direction = position - transform.position;

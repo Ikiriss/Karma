@@ -102,7 +102,7 @@ public class BulletFactory : MonoBehaviour {
         bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
         bullet.gameObject.GetComponent<ShotScript>().enabled = false;
-        bullet.gameObject.GetComponent<HealthScript>().enabled = false;
+        bullet.gameObject.GetComponent<Entity>().enabled = false;
 
         return bullet;
     } 
@@ -149,8 +149,8 @@ public class BulletFactory : MonoBehaviour {
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
         bullet.gameObject.GetComponent<ShotScript>().enabled = false;
         bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
-        HealthScript hpScript = bullet.gameObject.GetComponent<HealthScript>();
-        hpScript.hp = hpScript.GetMaxHp();
+        Entity hpScript = bullet.gameObject.GetComponent<Entity>();
+        hpScript.Hp = hpScript.MaxHp;
         bullet.gameObject.GetComponent<Animator>().SetBool("pool",true);
         switch (bulletType)
         {

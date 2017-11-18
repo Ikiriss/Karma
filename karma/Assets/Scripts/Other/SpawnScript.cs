@@ -5,13 +5,13 @@ using UnityEngine;
 public class SpawnScript : MonoBehaviour {
 
     public float spawnBurterCd = 2f;
-    public MobFactory.MobType burter;
+    public EnemyFactory.MobType burter;
     public float spawnBurterMovingCd = 5f;
-    public MobFactory.MobType burterMoving;
+    public EnemyFactory.MobType burterMoving;
     public float spawnJayceCd = 7f;
-    public MobFactory.MobType jayce;
+    public EnemyFactory.MobType jayce;
     public float spawnFriezaCd = 60f;
-    public MobFactory.MobType frieza;
+    public EnemyFactory.MobType frieza;
     public float senzuCd = 31f;
     public Item.ItemName senzu;
     public float boule1EtoileCd = 13f;
@@ -125,10 +125,10 @@ public class SpawnScript : MonoBehaviour {
         SpawnItem(capsule);
     }
 
-    private Transform spawnMob(MobFactory.MobType mobType, Vector3 position, Quaternion rotation)
+    private Transform spawnMob(EnemyFactory.MobType mobType, Vector3 position, Quaternion rotation)
     {
         Transform shotTransform = null;
-        shotTransform = GameObject.Find("Scripts").GetComponent<MobFactory>().GetMob(mobType);
+        shotTransform = GameObject.Find("Scripts").GetComponent<EnemyFactory>().GetMob(mobType);
         // Position
         shotTransform.position = position;
         //Debug.Log(shotTransform.position);
