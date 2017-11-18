@@ -107,8 +107,7 @@ public class WeaponScript : MonoBehaviour {
 	/// L'arme est chargée ?
 	/// </summary>
 	public virtual bool CanAttack
-	{
-        
+	{     
         get{
 			return shootCooldown <= 0f;
 		}
