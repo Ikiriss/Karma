@@ -10,6 +10,14 @@ public class Player : Entity {
     
     private Entity entity;
     private WeaponScript weapon;
+
+    [SerializeField]
+    private Item[] inventory;
+
+    public Item[] Inventory
+    {
+        get { return inventory; }
+    }
 	
 
     [SerializeField]
@@ -46,7 +54,10 @@ public class Player : Entity {
 
     }
     
-
+    void AddItemToInventory(Item item, int position)
+    {
+        inventory[position] = item;
+    }
     
 
 

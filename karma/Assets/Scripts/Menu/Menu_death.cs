@@ -49,7 +49,6 @@ public class Menu_death : MonoBehaviour {
         MoveScript[] movescripts = FindObjectsOfType<MoveScript>();
         ScrollingScript[] scrollingscripts = FindObjectsOfType<ScrollingScript>();
         WeaponScript[] weaponscripts = FindObjectsOfType<WeaponScript>();
-        SpawnScript spawnscript = FindObjectOfType<SpawnScript>();
 
         foreach (MoveScript script in movescripts)
         {
@@ -66,7 +65,6 @@ public class Menu_death : MonoBehaviour {
             script.enabled = false;
         }
 
-        spawnscript.enabled = false;
     }
 
     
