@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobFactory : MonoBehaviour {
+public class EnemyFactory : MonoBehaviour {
 
     
     public Transform burterPrefab;
@@ -134,10 +134,10 @@ public class MobFactory : MonoBehaviour {
         bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
         bullet.gameObject.GetComponent<ShotScript>().enabled = false;*/
-        bullet.gameObject.GetComponent<EnemyScript>().unSpawn();
+        bullet.gameObject.GetComponent<Enemy>().UnSpawn();
         bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-        HealthScript hpScript = bullet.gameObject.GetComponent<HealthScript>();
-        hpScript.hp = hpScript.GetMaxHp();
+        Entity hpScript = bullet.gameObject.GetComponent<Entity>();
+        hpScript.Hp = hpScript.MaxHp;
         bullet.gameObject.GetComponent<Animator>().SetBool("pool", true);
         switch (mobType)
         {
