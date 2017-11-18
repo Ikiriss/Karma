@@ -78,9 +78,9 @@ MonoBehaviour:
   squelettePrefab: {fileID: 0}
   blobPrefab: {fileID: 0}
   chauve_sourisPrefab: {fileID: 0}
-  squelettePoolLength: 5
-  blobPoolLength: 3
-  chauve_sourisPoolLength: 1
+  squelettePoolLength: 0
+  blobPoolLength: 0
+  chauve_sourisPoolLength: 0
 --- !u!114 &114350935640898252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,14 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf4c0f171eee104685d8264cec6fbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionSound: {fileID: 0}
-  playerShotSound: {fileID: 0}
-  enemyShotSound: {fileID: 0}
-  teleportationSound: {fileID: 0}
-  jayceSound: {fileID: 0}
-  enterSuperSayanSound: {fileID: 0}
-  buttonSelectSound: {fileID: 0}
-  buttonSelectedSound: {fileID: 0}
 --- !u!114 &114977369860521786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   archerBulletPrefab: {fileID: 4334138634703094, guid: 3e24028c0e25ee64aa0a7841c22514b6,
     type: 2}
+  archerAutoBulletPrefab: {fileID: 0}
   sorcierBulletPrefab: {fileID: 0}
-  archerBulletPoolLength: 50
-  sorcierBulletPoolLength: 50
+  archerBulletPoolLength: 10
+  archerAutoBulletPoolLength: 10
+  sorcierBulletPoolLength: 0
