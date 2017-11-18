@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour {
+public class Enemy : Entity {
 
-	private bool hasSpawn;
-	private MoveScript moveScript;
+
+    protected bool hasSpawn;
+    public bool HasSpawn
+    {
+        get { return hasSpawn; }
+        set { hasSpawn = value; }
+    }
+
+    private MoveScript moveScript;
 	private WeaponScript[] weapons;
-	private bool alive = true;
-    public bool isBoss = false;
-    private bool isCameraFollowing = false;
+
+	protected bool alive = true;
+    public bool Alive
+    {
+        get { return alive; }
+        set { alive = value; }
+    }
 
 
-	void Awake()
+    void Awake()
 	{
 		// Récupération de toutes les armes de l'ennemi
 		weapons = GetComponentsInChildren<WeaponScript>();
@@ -55,23 +66,6 @@ public class EnemyScript : MonoBehaviour {
             // On fait tirer toutes les armes automatiquement si il est vivant
             HandleShootWithWeapons();
 
-            //si c'est un boss, on lui donne le mouvement de la caméra à partir d'un moment
-            if (isBoss)
-            {
-                if (!isCameraFollowing)
-                {
-                    var dist = (transform.position - Camera.main.transform.position).z;
-                    var rightBorder = Camera.main.ViewportToWorldPoint(
-                        new Vector3(1, 0, dist)
-                    ).x;
-
-                    if (transform.position.x < rightBorder * 0.75f)
-                    {
-                        GetComponent<ScrollingScript>().enabled = true;
-                        isCameraFollowing = true;
-                    }
-                }
-            }
 
 			// Si L'ennemi n'a pas été détruit, il faut faire le ménage
 			if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false)
@@ -122,15 +116,12 @@ public class EnemyScript : MonoBehaviour {
                 {
                     GetComponent<Animator>().SetTrigger(weapon.animatorParameter);
                     weapon.Attack(true);
-                    if (!isBoss)
-                    {
-                        SoundEffectsHelper.Instance.MakeEnemyShotSound();
-                    }
+                    SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                 }
             }
         }
     }
-    public void unSpawn()
+    public void UnSpawn()
     {
         hasSpawn = false;
         alive = true;
@@ -142,6 +133,7 @@ public class EnemyScript : MonoBehaviour {
         {
             weapon.enabled = false;
         }
+        
     }
 
     
