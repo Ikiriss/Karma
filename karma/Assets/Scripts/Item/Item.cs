@@ -6,24 +6,21 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-    public enum ItemName
+    public enum Name
     {
-        senzu,
-        boule1Etoile,
-        boule2Etoile,
-        boule3Etoile,
-        boule4Etoile,
-        boule5Etoile,
-        boule6Etoile,
-        boule7Etoile,
-        capsuleEnergy
+        FLEUR,
+        EPEE_EVENT2,
+        OEUF_CORBEAU,
+        ALLUMETTES,
+        ARC,
+        PLANTE_MAGIQUE
     }
 
     [SerializeField]
-    private ItemName itemName;
+    private Name itemName;
 
-    public ItemName GetItemName()
+    public Name ItemName
     {
-        return (itemName);
+        get { return itemName; }
     }
 }
