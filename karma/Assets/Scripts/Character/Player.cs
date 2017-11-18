@@ -39,6 +39,15 @@ public class Player : Entity {
         set { maxSpeed = value; }
     }
 
+    [SerializeField]
+    protected AudioClip jumpSound = null;
+    //protected Enemy enemyScript;
+    [SerializeField]
+    protected float jumpSoundRate = 1;
+    protected float jumpSoundCooldown;
+    [SerializeField]
+    protected float jumpSoundVolume = 1.0f;
+
     // Stockage du mouvement
     //private Vector2 movement;
     //public Vector2 Movement
@@ -61,6 +70,18 @@ public class Player : Entity {
         {
             attackCooldown -= Time.deltaTime;
         }
+        if(attackSoundCooldown > 0)
+        {
+            attackSoundCooldown -= Time.deltaTime;
+        }
+        if(walkSoundCooldown > 0)
+        {
+            walkSoundCooldown -= Time.deltaTime;
+        }
+        if(jumpSoundCooldown > 0)
+        {
+            jumpSoundCooldown -= Time.deltaTime;
+        }
 
     }
 
@@ -76,7 +97,7 @@ public class Player : Entity {
         {
             hp -= shot.Damage;
             shot.ReturnToTheFactory();
-            Debug.Log("je prend des dégatzaes");
+            //Debug.Log("je prend des dégatzaes");
         }
     }
 
@@ -92,6 +113,10 @@ public class Player : Entity {
         }
         else if (enemy && enemy.CanAttack)
         {
+            if (enemy.CanAttackSound)
+            {
+                enemy.MakeAttackSound();
+            }
             enemy.Attack();
             hp -= enemy.Damage;
             Debug.Log(hp);
@@ -163,5 +188,19 @@ public class Player : Entity {
         // Game Over
         Debug.Log("Vous êtes mort !");
         //GameObject.Find("Menu_death").GetComponent<Menu_death>().PopDeathMenu();
+    }
+
+    public virtual bool CanJumpSound
+    {
+        get
+        {
+            return jumpSoundCooldown <= 0;
+        }
+    }
+
+    public virtual void MakeJumpSound()
+    {
+        jumpSoundCooldown = jumpSoundRate;
+        AudioSource.PlayClipAtPoint(jumpSound, transform.position, jumpSoundVolume);
     }
 }

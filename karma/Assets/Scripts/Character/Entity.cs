@@ -32,6 +32,7 @@ public class Entity : MonoBehaviour {
     [SerializeField]
     protected float attackRate = 0.25f;
 
+    [SerializeField]
     protected float attackCooldown;
 
 
@@ -40,7 +41,24 @@ public class Entity : MonoBehaviour {
     protected EnemyFactory.MobType mobType;
 
     protected Animator myAnimator;
-	//protected Enemy enemyScript;
+
+    [SerializeField]
+    protected AudioClip attackSound = null;
+    //cd en sec
+    [SerializeField]
+    protected float attackSoundRate = 1;
+    protected float attackSoundCooldown;
+    [SerializeField]
+    protected float attackSoundVolume = 1.0f;
+
+    [SerializeField]
+    protected AudioClip walkSound = null;
+    //protected Enemy enemyScript;
+    [SerializeField]
+    protected float walkSoundRate = 1;
+    protected float walkSoundCooldown;
+    [SerializeField]
+    protected float walkSoundVolume = 1.0f;
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
@@ -84,5 +102,33 @@ public class Entity : MonoBehaviour {
     {
         attackCooldown = attackRate;
         //trigger l'animation
+    }
+
+    public virtual bool CanWalkSound
+    {
+        get
+        {
+            return walkSoundCooldown <= 0f;
+        }
+    }
+
+    public virtual void MakeWalkSound()
+    {
+        walkSoundCooldown = walkSoundRate;
+        AudioSource.PlayClipAtPoint(walkSound, transform.position,walkSoundVolume);
+    }
+
+    public virtual bool CanAttackSound
+    {
+        get
+        {
+            return attackSoundCooldown <= 0;
+        }
+    }
+
+    public virtual void MakeAttackSound()
+    {
+        attackSoundCooldown = attackSoundRate;
+        AudioSource.PlayClipAtPoint(attackSound, transform.position, attackSoundVolume);
     }
 }

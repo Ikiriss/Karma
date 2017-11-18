@@ -140,6 +140,7 @@ public class MoveScript : MonoBehaviour {
             Vector3 position = player.GetComponent<Transform>().position;
             //Debug.Log(position);
             direction = position - transform.position;
+            direction.Normalize();
             //Debug.Log(direction);
         }
     }

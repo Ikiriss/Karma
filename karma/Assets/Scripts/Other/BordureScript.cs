@@ -8,15 +8,21 @@ public class BordureScript : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Je suis passé ici !");
+        if (collider.GetComponent<Player>())
+        {
+            Debug.Log("Je suis passé ici !");            
+            GetComponent<ChangeSceneAfterDelayScript>().enabled = true;
+        }
+        
     }
     
     

@@ -6,21 +6,25 @@ public class BulletFactory : MonoBehaviour {
 
     //public static BulletFactory Instance;
     public Transform archerBulletPrefab;
+    public Transform archerAutoBulletPrefab;
     public Transform sorcierBulletPrefab;
     
     
     private Transform[] archerBulletPool;
+    private Transform[] archerAutoBulletPool;
     private Transform[] sorcierBulletPool;
     
 
-    public int archerBulletPoolLength = 50;
-    public int sorcierBulletPoolLength = 50;
+    public int archerBulletPoolLength = 10;
+    public int archerAutoBulletPoolLength = 10;
+    public int sorcierBulletPoolLength = 10;
     
 
     public enum BulletType
     {
         NONE,
         ARCHERBULLET,
+        ARCHERAUTOBULLET,
         SORCIERBULLET
     }
     
@@ -29,9 +33,11 @@ public class BulletFactory : MonoBehaviour {
 
         //initialisation de la pool
         archerBulletPool = new Transform[archerBulletPoolLength];
+        archerAutoBulletPool = new Transform[archerAutoBulletPoolLength];
         sorcierBulletPool = new Transform[sorcierBulletPoolLength];
 
         initBulletList(archerBulletPool, archerBulletPoolLength, BulletType.ARCHERBULLET);
+        initBulletList(archerAutoBulletPool, archerAutoBulletPoolLength, BulletType.ARCHERAUTOBULLET);
         initBulletList(sorcierBulletPool, sorcierBulletPoolLength, BulletType.SORCIERBULLET);
         
 
@@ -59,6 +65,9 @@ public class BulletFactory : MonoBehaviour {
             case BulletType.ARCHERBULLET:
                 bullet = Instantiate(archerBulletPrefab) as Transform;
                 break;
+            case BulletType.ARCHERAUTOBULLET:
+                bullet = Instantiate(archerAutoBulletPrefab) as Transform;
+                break;
             case BulletType.SORCIERBULLET:
                 bullet = Instantiate(sorcierBulletPrefab) as Transform;
                 break;
@@ -83,7 +92,9 @@ public class BulletFactory : MonoBehaviour {
             case BulletType.ARCHERBULLET:
                 bullet = GetABulletFromAPool(archerBulletPool, archerBulletPoolLength);
                 break;
-
+            case BulletType.ARCHERAUTOBULLET:
+                bullet = GetABulletFromAPool(archerAutoBulletPool, archerAutoBulletPoolLength);
+                break;
             case BulletType.SORCIERBULLET:
                 bullet = GetABulletFromAPool(sorcierBulletPool, sorcierBulletPoolLength);
                 break;
@@ -112,6 +123,9 @@ public class BulletFactory : MonoBehaviour {
         {
             case BulletType.ARCHERBULLET:
                 PutBulletBackInAPool(bullet, archerBulletPool, archerBulletPoolLength);
+                break;
+            case BulletType.ARCHERAUTOBULLET:
+                PutBulletBackInAPool(bullet, archerAutoBulletPool, archerAutoBulletPoolLength);
                 break;
             case BulletType.SORCIERBULLET:
                 PutBulletBackInAPool(bullet, sorcierBulletPool, sorcierBulletPoolLength);

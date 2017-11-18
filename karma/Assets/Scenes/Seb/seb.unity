@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 273517671}
   - component: {fileID: 273517670}
   - component: {fileID: 273517673}
+  - component: {fileID: 273517674}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -217,7 +218,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -232,6 +233,118 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02}
   m_EdgeRadius: 0
+--- !u!251 &273517674
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 273517669}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!1 &529454847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 529454848}
+  - component: {fileID: 529454849}
+  - component: {fileID: 529454850}
+  - component: {fileID: 529454852}
+  - component: {fileID: 529454851}
+  m_Layer: 0
+  m_Name: Bordure
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &529454848
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529454847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.17, y: -2.03, z: -0.11529511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &529454849
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529454847}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2191714, y: 2.3511128}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4383428, y: 10.563844}
+  m_EdgeRadius: 0
+--- !u!114 &529454850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529454847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417a1c0e431251045b6b694905c9dbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &529454851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529454847}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b7b940bf89785478be35e03d731cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: seb2
+  _delay: 1
+--- !u!114 &529454852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529454847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b68367da19ea3143a06cf4f6aeb1c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 6d97f46ab5f62e640a1c07c747254fb6, type: 3}
+  fadeSpeed: 0.8
 --- !u!1001 &588710380
 Prefab:
   m_ObjectHideFlags: 0
@@ -241,11 +354,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4334138634703094, guid: 3e24028c0e25ee64aa0a7841c22514b6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.37
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4334138634703094, guid: 3e24028c0e25ee64aa0a7841c22514b6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.43
+      value: -1.04
       objectReference: {fileID: 0}
     - target: {fileID: 4334138634703094, guid: 3e24028c0e25ee64aa0a7841c22514b6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -279,7 +392,7 @@ Prefab:
     - target: {fileID: 60587061394771484, guid: 3e24028c0e25ee64aa0a7841c22514b6,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50788869389909294, guid: 3e24028c0e25ee64aa0a7841c22514b6,
         type: 2}
@@ -308,7 +421,6 @@ GameObject:
   m_Component:
   - component: {fileID: 905238043}
   - component: {fileID: 905238042}
-  - component: {fileID: 905238041}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -316,26 +428,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &905238041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 905238040}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b7b940bf89785478be35e03d731cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nextScene: seb2
-  _delay: 5
 --- !u!114 &905238042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 905238040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b68367da19ea3143a06cf4f6aeb1c96, type: 3}
   m_Name: 
@@ -598,7 +697,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1698107518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.029, y: -0.001, z: -0}
+  m_LocalPosition: {x: -0.073, y: -0.001, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755871686}
@@ -619,7 +718,8 @@ MonoBehaviour:
   shootingRate: 1
   isEnemy: 1
   animatorParameter: 
-  soundToPlay: {fileID: 0}
+  soundToPlay: {fileID: 8300000, guid: 34bcfec69936d8f43bbfdc5809784ad4, type: 3}
+  volume: 1
   damageMultiplicator: 1
 --- !u!1 &1701930048
 GameObject:

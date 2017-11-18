@@ -85,7 +85,12 @@ public class BossWeapon : WeaponScript {
 
 
             //Audio et animation
-            AudioSource.PlayClipAtPoint(soundToPlay, transform.position);
+            //AudioSource.PlayClipAtPoint(weaponSound, transform.position);
+            if (CanMakeSound)
+            {
+                MakeSound();
+            }
+            
            
 
             // Propriétés du script            

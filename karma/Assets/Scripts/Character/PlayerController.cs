@@ -18,7 +18,13 @@ public class PlayerController : MonoBehaviour {
         get {
             if (player.CanAttack)
             {
+                //faire l'animation
+
+                //son
+                if (player.CanAttackSound)
+                    player.MakeAttackSound();
                 player.Attack();
+                
                 return attack1;
             }
             else
@@ -91,6 +97,7 @@ public class PlayerController : MonoBehaviour {
             moveRight = false;
         }
         HandleMovement();
+        HandleSound();
     }
 
     
@@ -164,7 +171,21 @@ public class PlayerController : MonoBehaviour {
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, player.MaxSpeed.y);
         }
-        
+                
 
+    }
+
+    private void HandleSound()
+    {
+        if(grounded && moveLeft || moveRight)
+        {
+            if (player.CanWalkSound)
+                player.MakeWalkSound();
+        }
+        if (jump)
+        {
+            if (player.CanJumpSound)
+                player.MakeJumpSound();
+        }
     }
 }

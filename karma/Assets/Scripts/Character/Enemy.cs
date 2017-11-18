@@ -59,7 +59,7 @@ public class Enemy : Entity {
 		}
         attackCooldown = 0f;
     }
-
+    
 	void Update()
 	{
 		// 2 - On vérifie si l'ennemi est apparu à l'écran
@@ -77,6 +77,14 @@ public class Enemy : Entity {
             {
                 attackCooldown -= Time.deltaTime;
             }
+            if (attackSoundCooldown > 0)
+            {
+                attackSoundCooldown -= Time.deltaTime;
+            }
+            if (walkSoundCooldown > 0)
+            {
+                walkSoundCooldown -= Time.deltaTime;
+            }
             // On fait tirer toutes les armes automatiquement si il est vivant
             HandleShootWithWeapons();
 
@@ -89,15 +97,21 @@ public class Enemy : Entity {
 		}
 	}
 
-    protected void OnCollisionStay2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         ShotScript shot = collision.collider.GetComponent<ShotScript>();
-        Player player = collision.collider.GetComponent<Player>();
         if (shot && !(shot.IsEnemyShot))
         {
             hp -= shot.Damage;
         }
-        else if (player && collision.collider.GetComponent<PlayerController>().Attack1)
+    }
+
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+        
+        Player player = collision.collider.GetComponent<Player>();
+        
+        if (player && collision.collider.GetComponent<PlayerController>().Attack1)
         {
             hp -= player.Damage;
             Debug.Log("je me fais taper");
@@ -153,7 +167,7 @@ public class Enemy : Entity {
                     if (GetComponent<Animator>())
                         GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
                     weapon.Attack(true);
-                    SoundEffectsHelper.Instance.MakeEnemyShotSound();                
+                    //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                 }
             }
         }
