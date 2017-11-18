@@ -20,6 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4372740081993834}
   - component: {fileID: 212866222416964900}
+  - component: {fileID: 60023416716925198}
+  - component: {fileID: 50847188672370644}
+  - component: {fileID: 114447828214714182}
+  - component: {fileID: 114314321593989956}
   m_Layer: 0
   m_Name: lunaire marche_0
   m_TagString: Untagged
@@ -34,12 +38,107 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289671523262226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66, y: -3.41, z: 0}
+  m_LocalPosition: {x: 3.1266723, y: -1.2874253, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50847188672370644
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289671523262226}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &60023416716925198
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289671523262226}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.1, y: 0.0375}
+      - {x: 0.0125, y: 0.2875}
+      - {x: -0.15, y: 0.32500002}
+      - {x: -0.2875, y: 0.32500002}
+      - {x: -0.2875, y: -0.1875}
+      - {x: -0.2, y: -0.26250002}
+      - {x: 0.0625, y: -0.26250002}
+      - {x: 0.22500001, y: -0.2}
+      - {x: 0.25, y: -0.175}
+      - {x: 0.25, y: -0.0875}
+--- !u!114 &114314321593989956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289671523262226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250d9696933864f43aabb6f187528b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 1, y: 0}
+  direction: {x: -1, y: 0}
+  limitDeplacement: 1
+  isShot: 0
+  characterLock: 0
+  characterLockInit: 0
+--- !u!114 &114447828214714182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289671523262226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3b25e6292b9664f96645df1ef048d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobType: 0
+  hp: 0
+  damage: 0
+  maxHp: 0
+  attackRate: 0.25
+  attackCooldown: 0
+  attackSound: {fileID: 0}
+  attackSoundRate: 1
+  attackSoundVolume: 1
+  walkSound: {fileID: 0}
+  walkSoundRate: 1
+  walkSoundVolume: 1
+  enemyName: 0
 --- !u!212 &212866222416964900
 SpriteRenderer:
   m_ObjectHideFlags: 1

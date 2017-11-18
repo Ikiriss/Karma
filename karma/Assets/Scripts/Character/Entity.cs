@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour {
-
-	/// <summary>
-	/// Points de vies
-	/// </summary>
+    [SerializeField]
+    protected EnemyFactory.MobType mobType;
+    /// <summary>
+    /// Points de vies
+    /// </summary>
     [SerializeField]
     protected int hp;
 	public int Hp {
@@ -37,8 +38,7 @@ public class Entity : MonoBehaviour {
 
 
 
-    [SerializeField]
-    protected EnemyFactory.MobType mobType;
+    
 
     protected Animator myAnimator;
 
@@ -115,7 +115,8 @@ public class Entity : MonoBehaviour {
     public virtual void MakeWalkSound()
     {
         walkSoundCooldown = walkSoundRate;
-        AudioSource.PlayClipAtPoint(walkSound, transform.position,walkSoundVolume);
+        if(walkSound)
+            AudioSource.PlayClipAtPoint(walkSound, transform.position,walkSoundVolume);
     }
 
     public virtual bool CanAttackSound
@@ -129,6 +130,7 @@ public class Entity : MonoBehaviour {
     public virtual void MakeAttackSound()
     {
         attackSoundCooldown = attackSoundRate;
-        AudioSource.PlayClipAtPoint(attackSound, transform.position, attackSoundVolume);
+        if(attackSound)
+            AudioSource.PlayClipAtPoint(attackSound, transform.position, attackSoundVolume);
     }
 }

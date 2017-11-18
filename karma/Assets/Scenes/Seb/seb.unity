@@ -206,7 +206,7 @@ Transform:
   m_LocalScale: {x: 674.8444, y: 123.37754, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &273517673
 BoxCollider2D:
@@ -288,7 +288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4334138634703094, guid: 3e24028c0e25ee64aa0a7841c22514b6, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 50788869389909294, guid: 3e24028c0e25ee64aa0a7841c22514b6,
         type: 2}
@@ -504,12 +504,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0003e6a147122a4438ce4a4b773b10b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mobType: 0
   hp: 10
   damage: 5
   maxHp: 0
   attackRate: 0.25
   attackCooldown: 0
-  mobType: 0
   attackSound: {fileID: 0}
   attackSoundRate: 1
   attackSoundVolume: 1
@@ -560,7 +560,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4668710292523036, guid: e73b917e7bfaa4f49a3def2883c5d2fd, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e73b917e7bfaa4f49a3def2883c5d2fd, type: 2}
@@ -732,7 +732,7 @@ Transform:
   m_LocalScale: {x: 225.15196, y: 25.168854, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!251 &1701930053
 PlatformEffector2D:
@@ -782,12 +782,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3b25e6292b9664f96645df1ef048d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mobType: 0
   hp: 10
   damage: 5
   maxHp: 0
   attackRate: 1
   attackCooldown: 0
-  mobType: 0
   attackSound: {fileID: 0}
   attackSoundRate: 1
   attackSoundVolume: 1
@@ -896,7 +896,7 @@ Transform:
   m_Children:
   - {fileID: 1698107519}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780692316
 GameObject:
@@ -1015,7 +1015,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4652336671707278, guid: c8c548a59d2868a40a48bcb5abdaddbb, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8c548a59d2868a40a48bcb5abdaddbb, type: 2}
