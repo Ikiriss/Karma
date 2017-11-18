@@ -79,7 +79,7 @@ public class WeaponScript : MonoBehaviour {
             //nouvelle version, pop bullet from factory
             Transform shotTransform = popBullet(bulletType);
             //Debug.Log("bullet poped");        
-			
+            Physics2D.IgnoreCollision(GetComponentInParent<Collider2D>(), shotTransform.GetComponent<Collider2D>());
 
             // Propriétés du script
             ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();

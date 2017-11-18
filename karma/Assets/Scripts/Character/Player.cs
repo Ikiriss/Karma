@@ -69,6 +69,17 @@ public class Player : Entity {
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        if (shot && shot.IsEnemyShot)
+        {
+            hp -= shot.Damage;
+            shot.ReturnToTheFactory();
+            Debug.Log("je prend des dégatzaes");
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         
@@ -89,6 +100,7 @@ public class Player : Entity {
         {
             hp -= shot.Damage;
             shot.ReturnToTheFactory();
+            Debug.Log("je prend des dégats");
         }
     }
     

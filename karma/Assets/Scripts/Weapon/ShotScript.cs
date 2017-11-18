@@ -46,12 +46,24 @@ public class ShotScript : MonoBehaviour {
 	{
         
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<PlatformEffector2D>())
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+        }
+    }
 
     private void Update()
     {
-
-        Vector3 direction = transform.position - previousPos;
-        transform.Rotate(0,0,-Vector3.Dot(direction, new Vector3(1, 0, 0) / Vector3.Distance(direction, new Vector3(0, 0, 0))));
+        if (previousPos != null)
+        {
+            Vector3 direction = transform.position - previousPos;
+            
+            if(direction!=new Vector3(0,0,0))
+                transform.Rotate(0, 0, -Vector3.Dot(direction, new Vector3(1, 0, 0) / Vector3.Distance(direction, new Vector3(0, 0, 0))));
+        }
+        
 
         //on retourne le bullet si il n'est pas visible
         if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false /*&& !isNotShot*/ && gameObject.GetComponent<MoveScript>().enabled)
