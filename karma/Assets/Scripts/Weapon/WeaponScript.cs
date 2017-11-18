@@ -125,7 +125,7 @@ public class WeaponScript : MonoBehaviour {
         shotTransform.gameObject.GetComponent<Renderer>().enabled = true;
         shotTransform.gameObject.GetComponent<MoveScript>().enabled = true;
         shotTransform.gameObject.GetComponent<ShotScript>().enabled = true;
-        shotTransform.gameObject.GetComponent<HealthScript>().enabled = true;
+        shotTransform.gameObject.GetComponent<Entity>().enabled = true;
         shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
         //Si on doit viser, on calcule les coordonées et on attend l'animation si on est un projectile
         shotTransform.gameObject.GetComponent<MoveScript>().CalculDirectionForHeadHunter();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBossScript : EnemyScript {
+public class EnemyBossScript : Enemy {
 
 	// Use this for initialization
 	void Start () {

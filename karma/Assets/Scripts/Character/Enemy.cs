@@ -114,7 +114,7 @@ public class Enemy : Entity {
             {
                 if (weapon != null && weapon.enabled && weapon.CanAttack)
                 {
-                    GetComponent<Animator>().SetTrigger(weapon.animatorParameter);
+                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
                     weapon.Attack(true);
                     SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                 }
