@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: b344d307c40072c4faf3806e99d1be80
 folderAsset: yes
+<<<<<<< HEAD:karma/Assets/Prefabs/Prefab zone 2.meta
 timeCreated: 1511037937
+=======
+timeCreated: 1511041099
+>>>>>>> f1f8d6d5bdf3069d1f0a5235589ca282a696ff89:karma/Assets/Prefabs/Prefab zone 2.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
