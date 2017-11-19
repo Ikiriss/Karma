@@ -210,21 +210,15 @@ public class Pnj : Entity {
                         // TODO complete effect
                         if(attackPattern)
                         {
-                            if(transform.position.y > player.transform.position.y + 0.2)
+                            flipDirection();
+                            weapon.enabled = true;
+                            if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
-                                //rigidbody.velocity = new Vector2(-speed.x,0);
-                            }
-                            else
-                            {
-                                weapon.enabled = true;
-                                if (weapon != null && weapon.enabled && weapon.CanAttack)
-                                {
-                                    if (GetComponent<Animator>())
-                                        GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
-                                    weapon.Attack(true);
-                                    //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
-                                }
-                            }
+                                if (GetComponent<Animator>())
+                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                weapon.Attack(true);
+                                //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
+                            }                        
                         }
                         else
                         {
@@ -417,20 +411,13 @@ public class Pnj : Entity {
                         // TODO complete effect
                         if (attackPattern)
                         {
-                            if (transform.position.y > player.transform.position.y + 0.2)
+                            weapon.enabled = true;
+                            if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
-                                //rigidbody.velocity = new Vector2(-speed.x, 0);
-                            }
-                            else
-                            {
-                                weapon.enabled = true;
-                                if (weapon != null && weapon.enabled && weapon.CanAttack)
-                                {
-                                    if (GetComponent<Animator>())
-                                        GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
-                                    weapon.Attack(true);
-                                    //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
-                                }
+                                if (GetComponent<Animator>())
+                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                weapon.Attack(true);
+                                //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                             }
                         }
                         else
@@ -456,33 +443,22 @@ public class Pnj : Entity {
                         // TODO complete effect
                         if (attackPattern)
                         {
-                            if (transform.position.y > player.transform.position.y + 0.2)
+                            flipDirection();
+                            weapon.enabled = true;
+                            if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
-                                rigidbody.velocity = new Vector2(speed.x, 0);
-                            }
-                            else
-                            {
-                                weapon.enabled = true;
-                                if (weapon != null && weapon.enabled && weapon.CanAttack)
-                                {
-                                    if (GetComponent<Animator>())
-                                        GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
-                                    weapon.Attack(true);
-                                    //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
-                                }
-                            }
+                                if (GetComponent<Animator>())
+                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                weapon.Attack(true);
+                                //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
+                            }                         
                         }
                         else
                         {
-                            Vector3 playerPosition = player.transform.position;
-                            Vector3 acolytePosition = transform.position;
-                            if (transform.position.y < player.transform.position.y)
+                            Pnj pereEnfant = linkedPnj.GetComponent<Pnj>();
+                            if(pereEnfant.AttackPattern)
                             {
-                                if (player.transform.position.x < transform.position.x)
-                                {
-                                    attackPattern = true;
-                                }
-
+                                attackPattern = true;
                             }
                             if (isAttacked)
                             {
@@ -679,20 +655,13 @@ public class Pnj : Entity {
                         // TODO complete effect
                         if (attackPattern)
                         {
-                            if (transform.position.y > player.transform.position.y + 0.2)
+                            weapon.enabled = true;
+                            if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
-                                //rigidbody.velocity = new Vector2(-speed.x, 0);
-                            }
-                            else
-                            {
-                                weapon.enabled = true;
-                                if (weapon != null && weapon.enabled && weapon.CanAttack)
-                                {
-                                    if (GetComponent<Animator>())
-                                        GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
-                                    weapon.Attack(true);
-                                    //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
-                                }
+                                if (GetComponent<Animator>())
+                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                weapon.Attack(true);
+                                //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                             }
                         }
                         else
@@ -1136,6 +1105,24 @@ public class Pnj : Entity {
                 break;
         }
         
+    }
+
+    void flipDirection()
+    {
+        if (transform.eulerAngles.y == 180)
+        {
+            if (transform.position.x < player.transform.position.x)
+            {
+                transform.Rotate(0, 180, 0);
+            }
+        }
+        else
+        {
+            if (transform.position.x > player.transform.position.x)
+            {
+                transform.Rotate(0, -180, 0);
+            }
+        }
     }
 
 }
