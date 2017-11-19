@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7509b4d5946f5024a83184f909cc7085
-timeCreated: 1511027922
+timeCreated: 1511054566
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -90,10 +90,24 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+      outline:
+      - - {x: -10, y: 17}
+        - {x: -15, y: 3}
+        - {x: -15, y: -20}
+        - {x: -14, y: -21}
+        - {x: 15, y: -21}
+        - {x: 15, y: 14}
+        - {x: 14, y: 17}
+      physicsShape:
+      - - {x: -10, y: 17}
+        - {x: -15, y: 3}
+        - {x: -15.391548, y: -16.867609}
+        - {x: -13.725208, y: -18.963238}
+        - {x: 15.587326, y: -18.945099}
+        - {x: 15, y: 14}
+        - {x: 14, y: 17}
       tessellationDetail: 0
     - serializedVersion: 2
       name: archer_1
@@ -104,10 +118,36 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+      outline:
+      - - {x: 4, y: -21}
+        - {x: 17, y: -21}
+        - {x: 17, y: 17}
+        - {x: -9, y: 17}
+        - {x: -19, y: 14}
+        - {x: -20, y: 12}
+        - {x: -20, y: -1}
+        - {x: -11, y: -19}
+        - {x: -9, y: -21}
+        - {x: 0, y: -21}
+        - {x: 2, y: -19}
+        - {x: 2, y: -14}
+        - {x: 3, y: -19}
+      physicsShape:
+      - - {x: 4.1742325, y: -18.90916}
+        - {x: 16.65152, y: -18.909159}
+        - {x: 17, y: 17}
+        - {x: -9, y: 17}
+        - {x: -19, y: 14}
+        - {x: -20, y: 12}
+        - {x: -20, y: -1}
+        - {x: -9.693222, y: -11.943411}
+        - {x: -10.243065, y: -18.972868}
+        - {x: 1.0454178, y: -18.996279}
+        - {x: 1.0416946, y: -16.909159}
+        - {x: 2, y: -14}
+        - {x: 3.2613525, y: -16.909159}
       tessellationDetail: 0
     - serializedVersion: 2
       name: archer_2
@@ -118,10 +158,40 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+      outline:
+      - - {x: 4, y: -21}
+        - {x: 13, y: -21}
+        - {x: 17, y: -20}
+        - {x: 17, y: 5}
+        - {x: 13, y: 16}
+        - {x: 7, y: 17}
+        - {x: -12, y: 17}
+        - {x: -18, y: 7}
+        - {x: -18, y: -7}
+        - {x: -12, y: -20}
+        - {x: -9, y: -21}
+        - {x: 0, y: -21}
+        - {x: 2, y: -19}
+        - {x: 2, y: -14}
+        - {x: 3, y: -19}
+      physicsShape:
+      - - {x: 4.082184, y: -19.10987}
+        - {x: 14.397034, y: -19.10987}
+        - {x: 17.082184, y: -15.480127}
+        - {x: 17, y: 5}
+        - {x: 13, y: 16}
+        - {x: 7, y: 17}
+        - {x: -12, y: 17}
+        - {x: -18, y: 7}
+        - {x: -18, y: -7}
+        - {x: -11.917816, y: -15.480129}
+        - {x: -9.986145, y: -19.027693}
+        - {x: 0.9039612, y: -19.02769}
+        - {x: 1.013855, y: -16.534618}
+        - {x: 2, y: -14}
+        - {x: 3.5752563, y: -16.12372}
       tessellationDetail: 0
     - serializedVersion: 2
       name: archer_3
@@ -132,10 +202,24 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+      outline:
+      - - {x: 12, y: 4}
+        - {x: -13, y: 4}
+        - {x: -13, y: -2}
+        - {x: -10, y: -3}
+        - {x: 4, y: -3}
+        - {x: 10, y: -2}
+        - {x: 12, y: 0}
+      physicsShape:
+      - - {x: -7.9534607, y: 1.1408157}
+        - {x: -10.20163, y: 1.8708229}
+        - {x: -11.418335, y: 0.12918091}
+        - {x: -9.756683, y: -1.0533218}
+        - {x: -7.801758, y: -0.07998276}
+        - {x: 10.121674, y: -0.114154816}
+        - {x: 10.114166, y: 0.9733391}
       tessellationDetail: 0
     outline: []
     physicsShape: []

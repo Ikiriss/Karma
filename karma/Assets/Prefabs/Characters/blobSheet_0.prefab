@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50795418912690742}
   - component: {fileID: 114415318463819140}
   - component: {fileID: 114237335080179682}
+  - component: {fileID: 95751211741898752}
   m_Layer: 0
   m_Name: blobSheet_0
   m_TagString: Untagged
@@ -37,9 +38,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709936309486654}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2004793, y: 1.6146274, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.4073744, y: -10.845734, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,7 +59,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 9.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -88,14 +89,31 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: -0.075, y: 0.25}
-      - {x: -0.26250002, y: 0.125}
-      - {x: -0.26250002, y: -0.2}
-      - {x: -0.125, y: -0.2375}
-      - {x: 0.275, y: -0.2375}
-      - {x: 0.35, y: -0.1875}
-      - {x: 0.35, y: 0.112500004}
-      - {x: 0.275, y: 0.25}
+    - - {x: -0.066866495, y: 0.23102184}
+      - {x: -0.24854329, y: 0.037272166}
+      - {x: -0.22461753, y: -0.10828455}
+      - {x: -0.08106213, y: -0.20575722}
+      - {x: 0.18553142, y: -0.21581066}
+      - {x: 0.333733, y: -0.03567448}
+      - {x: 0.30391008, y: 0.09623299}
+      - {x: 0.13130799, y: 0.22288828}
+--- !u!95 &95751211741898752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709936309486654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 503a6a1790730f2478fa3b41133765d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114237335080179682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,11 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250d9696933864f43aabb6f187528b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1, y: 0}
+  speed: {x: 3, y: 0}
   direction: {x: -1, y: 0}
   limitDeplacement: 1
   isShot: 0
-  characterLock: 0
+  characterLock: 1
   characterLockInit: 0
 --- !u!114 &114415318463819140
 MonoBehaviour:
@@ -124,10 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3b25e6292b9664f96645df1ef048d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobType: 0
-  hp: 0
-  damage: 0
-  maxHp: 0
+  mobType: 2
+  hp: 1
+  damage: 1
+  maxHp: 1
   attackRate: 0.25
   attackCooldown: 0
   attackSound: {fileID: 0}

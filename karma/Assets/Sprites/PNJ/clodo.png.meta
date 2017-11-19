@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 333f55793fe486c4695a4a90c5268dc5
-timeCreated: 1511037301
+timeCreated: 1511058451
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -78,7 +78,15 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: -3, y: 17}
+      - {x: -13, y: 8}
+      - {x: -13.180609, y: -2.484787}
+      - {x: -11.180609, y: -5.923004}
+      - {x: 7.826046, y: -5.9230003}
+      - {x: 10.6387825, y: -3.2975235}
+      - {x: 13, y: 0}
+      - {x: 13, y: 17}
   spritePackingTag: 
   userData: 
   assetBundleName: 

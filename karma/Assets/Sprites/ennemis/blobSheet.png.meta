@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a54bd2fa43e551446acfac5ce7596d21
-timeCreated: 1511015220
+timeCreated: 1511054705
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -90,10 +90,18 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5.3493195, y: 18.481747}
+        - {x: -19.883463, y: 2.9817734}
+        - {x: -17.969402, y: -8.662764}
+        - {x: -6.48497, y: -16.460577}
+        - {x: 14.842514, y: -17.264853}
+        - {x: 26.698639, y: -2.8539581}
+        - {x: 24.312805, y: 7.698639}
+        - {x: 10.504639, y: 17.831062}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blobSheet_1
@@ -104,10 +112,19 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5.360771, y: 14.61417}
+        - {x: -15.57766, y: 6.397278}
+        - {x: -19.264847, y: -2.5776596}
+        - {x: -13.879021, y: -12.22834}
+        - {x: -0.85395813, y: -17.26485}
+        - {x: 15.0959015, y: -16.180384}
+        - {x: 23.662125, y: -9.625616}
+        - {x: 25.18039, y: 2.1324234}
+        - {x: 9.710098, y: 14.831062}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blobSheet_2
@@ -118,10 +135,18 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2.603836, y: 12.534611}
+        - {x: -13.732712, y: 7.382679}
+        - {x: -18.06923, y: -6.676964}
+        - {x: -8.788406, y: -15.419241}
+        - {x: 9.376999, y: -18.023075}
+        - {x: 25.06923, y: -9.963436}
+        - {x: 24.0923, y: 1.5576859}
+        - {x: 13.069214, y: 10.824989}
       tessellationDetail: 0
     - serializedVersion: 2
       name: blobSheet_3
@@ -132,10 +157,19 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -0.0095825195, y: 14.557682}
+        - {x: -8.055725, y: 13.396164}
+        - {x: -19.77884, y: -2.1384468}
+        - {x: -13.848053, y: -12.115372}
+        - {x: -1.5211182, y: -16.801918}
+        - {x: 17.290375, y: -15.580761}
+        - {x: 24.092316, y: -8.451899}
+        - {x: 25.80194, y: 1.0461464}
+        - {x: 12.092316, y: 13.824993}
       tessellationDetail: 0
     outline: []
     physicsShape: []
