@@ -855,6 +855,18 @@ public class Pnj : Entity {
     }
 }
 
+
+    void dropItem()
+    {
+        switch(pnjName)
+        {
+            case Name.MARCHAND:
+
+                break;
+        }
+    }
+
+
     void PnjEffect(bool specialEventTrigger = false)
     {
         switch (KarmaScript.karma)
@@ -1121,11 +1133,6 @@ public class Pnj : Entity {
             shot.ReturnToTheFactory();
             //Debug.Log("je prend des dégatzaes");
         }
-    }
-
-    protected void OnCollisionStay2D(Collision2D collision)
-    {
-
         Player player = collision.collider.GetComponent<Player>();
 
         if (player && collision.collider.GetComponent<PlayerController>().Attack1)
@@ -1137,9 +1144,12 @@ public class Pnj : Entity {
         if (hp <= 0)
         {
             //animation si on veut
+            dropItem();
             GiveMobBack(transform);
         }
     }
+
+    
 
     void flipDirection()
     {
