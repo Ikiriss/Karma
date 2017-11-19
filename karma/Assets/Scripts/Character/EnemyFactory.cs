@@ -20,7 +20,14 @@ public class EnemyFactory : MonoBehaviour {
     private Transform[] squelettePool;
     private Transform[] blobPool;
     private Transform[] chauve_sourisPool;
-    
+    public Transform[] archerPool;
+    public Transform[] acolytePool;
+    public Transform[] forgeronPool;
+    public Transform[] bougiePool;
+    public Transform[] corbeauPool;
+    public Transform[] chevalierPool;
+    public Transform[] sorcierePool;
+
 
     public int squelettePoolLength = 5;
     public int blobPoolLength = 3;

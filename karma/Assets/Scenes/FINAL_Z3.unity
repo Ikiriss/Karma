@@ -608,6 +608,51 @@ Transform:
   m_PrefabParentObject: {fileID: 4430784443625542, guid: 192bcc7f4519d1b49a193e762ce81819,
     type: 2}
   m_PrefabInternal: {fileID: 154117646}
+--- !u!1 &72040572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 72040573}
+  - component: {fileID: 72040574}
+  m_Layer: 0
+  m_Name: allumettes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72040573
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72040572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1935259360}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72040574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72040572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d31236f3ffa9cb45b62c6a3cd4f00c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 3
+  animatorParameter: 
+  itemSound: {fileID: 0}
+  itemSoundRate: 0
+  itemVolume: 1
 --- !u!1 &72292257
 GameObject:
   m_ObjectHideFlags: 0
