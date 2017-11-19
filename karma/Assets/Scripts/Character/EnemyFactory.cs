@@ -8,6 +8,11 @@ public class EnemyFactory : MonoBehaviour {
     public Transform squelettePrefab;
     public Transform blobPrefab;
     public Transform chauve_sourisPrefab;
+    public Transform archer;
+    public Transform acolyte;
+    public Transform forgeron;
+    public Transform chauve_sourisPrefab;
+    public Transform chauve_sourisPrefab;
 
 
     private Transform[] squelettePool;

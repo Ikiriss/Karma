@@ -129,6 +129,7 @@ public class Pnj : Entity {
             hp = 2;
             damage = 1;
         }
+        items = GetComponentsInChildren<DropScript>();
         attackCooldown = 0f;
     }
 	
