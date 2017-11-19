@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 80b31634f75bf3842bd5c73a9a259691
+timeCreated: 1511066814
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "sorci\xE8re_0"
+    21300002: "sorci\xE8re_1"
+    21300004: "sorci\xE8re_2"
+    21300006: "sorci\xE8re_3"
+    21300008: "sorci\xE8re_4"
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 80
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "sorci\xE8re_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -0.18143845, y: 20.45988}
+        - {x: -3.2742538, y: 12.016769}
+        - {x: -4.274254, y: 10.016769}
+        - {x: -3.2742538, y: 10.016769}
+        - {x: -4.274254, y: 12.016769}
+        - {x: -8.814373, y: 19.91557}
+        - {x: -11.822754, y: 19.91557}
+        - {x: -10.371258, y: 11.632935}
+        - {x: -5.0928154, y: 3.856884}
+        - {x: -3.9071846, y: -21.004192}
+        - {x: 11.367065, y: -21.004192}
+        - {x: 6.7583275, y: -5.611454}
+        - {x: 9.552696, y: 13.556885}
+        - {x: 5.4556885, y: 17.738323}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "sorci\xE8re_1"
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5.0135574, y: 17.649158}
+        - {x: -1.3964081, y: 21.662273}
+        - {x: -5.6629715, y: 30.52594}
+        - {x: -11.722206, y: 31.7202}
+        - {x: -14.121216, y: 26.753021}
+        - {x: -11.087257, y: 19.502617}
+        - {x: -11.1940155, y: -8.206589}
+        - {x: -9.7341385, y: -21.185629}
+        - {x: 10.915588, y: -21.185627}
+        - {x: 11.822754, y: -17.304188}
+        - {x: 5.6336517, y: -4.865963}
+        - {x: 9.354492, y: 8.961678}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "sorci\xE8re_2"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7.559265, y: 15.050659}
+        - {x: -1.037735, y: 22.029343}
+        - {x: -4.9787903, y: 32.378044}
+        - {x: -13.405624, y: 32.61479}
+        - {x: -16.827026, y: 27.055847}
+        - {x: -12.177582, y: 18.367805}
+        - {x: -11.131775, y: 9.075462}
+        - {x: -11.379639, y: -10.447304}
+        - {x: -9.919769, y: -21.185627}
+        - {x: 10.552689, y: -21.185629}
+        - {x: 12.185638, y: -18.549095}
+        - {x: 5.3782806, y: -6.100071}
+        - {x: 10.067657, y: 6.4257545}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "sorci\xE8re_3"
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0.18145752, y: 20.822754}
+        - {x: -2.548523, y: 10.928146}
+        - {x: -3.548523, y: 8.928146}
+        - {x: -2.548523, y: 8.928146}
+        - {x: -3.548523, y: 10.928146}
+        - {x: -7.725769, y: 18.82695}
+        - {x: -11.641327, y: 20.822754}
+        - {x: -9.826935, y: 9.818562}
+        - {x: -4.6420593, y: 5.740143}
+        - {x: -3.2784424, y: -3.0377274}
+        - {x: -3.5443115, y: -21.004192}
+        - {x: 11.367065, y: -21.004192}
+        - {x: 7.5134583, y: -6.3840866}
+        - {x: 9.552704, y: 11.561081}
+        - {x: 4.5484924, y: 17.738323}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "sorci\xE8re_4"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.738312, y: 3.2784462}
+        - {x: -8.189819, y: 2}
+        - {x: -10.004181, y: -1.1940117}
+        - {x: -7.641327, y: -5.6413193}
+        - {x: 1.2826538, y: -5.6413155}
+        - {x: 6.9155884, y: -4.459877}
+        - {x: 10.641296, y: -1.4556885}
+        - {x: 7.1940002, y: 2.088623}
+        - {x: -0.16464233, y: 2.5526962}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
