@@ -129,7 +129,7 @@ public class Player : Entity {
 
             //Debug.Log("je prend des dégats");
         }
-        if (pnj && pnj.CanAttack)
+        if (pnj && pnj.CanAttack && pnj.AttackPattern)
         {
             if(pnj.PnjName == Pnj.Name.CORBEAU && KarmaScript.karma != KarmaScript.KarmaState.NEGATIVE_KARMA)
             {
@@ -170,7 +170,7 @@ public class Player : Entity {
 
             
         }
-        else if (enemy && enemy.CanAttack)
+        if (enemy && enemy.CanAttack)
         {
             if (enemy.CanAttackSound)
             {

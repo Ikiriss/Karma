@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour {
         else { attack3 = false; }
         if((Input.GetButton("Jump") || Input.GetButton("ButtonY")) && grounded) { jump = true; }
         else { jump = false; }
+        HandleJumpAnimation();
         
     }
 
@@ -155,6 +156,7 @@ public class PlayerController : MonoBehaviour {
         {
             HandleMovement();
             HandleSound();
+            HandleAnimation();
             if (corbeauMode)
             {
                 HandleCorbeauMovement();
@@ -175,8 +177,36 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    
-    private void HandleCorbeauMovement()
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Pnj pnj = collision.collider.GetComponent<Pnj>();
+        
+        if(pnj)
+        {
+            SpriteRenderer dialogue = pnj.GetComponentInChildren<SpriteRenderer>();
+            dialogue.enabled = true;
+            if(attack2)
+            {
+                switch(pnj.PnjName)
+                {
+                    case Pnj.Name.ENFANT:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+
+                    case Pnj.Name.MARCHAND:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+
+                    case Pnj.Name.CLODO:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+                }
+            }
+        }
+    }
+
+        private void HandleCorbeauMovement()
     {
         corbeau.transform.position = corbeauPerchoir.position;
     }
@@ -269,14 +299,20 @@ public class PlayerController : MonoBehaviour {
 
     private void HandleAnimation()
     {
-        if (grounded && moveLeft || moveRight)
+        if (grounded && (moveLeft || moveRight))
         {
             player.MakeWalkAnimation();
             Debug.Log("je bouge");
         }
+        
+    }
+
+    private void HandleJumpAnimation()
+    {
         if (jump)
         {
             player.MakeJumpAnimation();
+            Debug.Log("je saute");
         }
     }
 
