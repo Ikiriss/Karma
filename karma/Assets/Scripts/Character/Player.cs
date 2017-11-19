@@ -8,6 +8,8 @@ using UnityEngine;
 public class Player : Entity {
     // Use this for initialization	
 
+    private SpriteRenderer[] itemSprites;
+
     private Rigidbody2D rigidbody;
 
     static public int karma = 0;
@@ -78,6 +80,8 @@ public class Player : Entity {
         myAnimator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         InitInventory();
+        itemSprites = new SpriteRenderer[numberOfItem];
+        InitrenderInventory();
     }
 
 
@@ -112,6 +116,7 @@ public class Player : Entity {
         Pnj pnj = collision.collider.GetComponent<Pnj>();
         Enemy enemy = collision.collider.GetComponent<Enemy>();
         ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        Item item = collision.collider.GetComponent<Item>();
         if (shot && shot.IsEnemyShot)
         {
             hp -= shot.Damage;
@@ -170,7 +175,7 @@ public class Player : Entity {
 
             
         }
-        if (enemy && enemy.CanAttack)
+        if (enemy && enemy.CanAttack && !enemy.IsHit)
         {
             if (enemy.CanAttackSound)
             {
@@ -197,6 +202,32 @@ public class Player : Entity {
 
             Debug.Log(hp);
             isHit = true;
+        }
+        if(item)
+        {
+            item.IsPicked = true;
+            switch(item.ItemName)
+            {
+                case Item.Name.PLANTE_MAGIQUE:
+                    AddItemToInventory(item, 0);
+                    break;
+
+                case Item.Name.OEUF_CORBEAU:
+                    AddItemToInventory(item, 1);
+                    break;
+
+                case Item.Name.HACHE:
+                    AddItemToInventory(item, 2);
+                    break;
+
+                case Item.Name.ALLUMETTES:
+                    AddItemToInventory(item, 3);
+                    break;
+
+                case Item.Name.BAGUETTE_MAGIQUE:
+                    AddItemToInventory(item, 4);
+                    break;
+            }
         }
     }
 
@@ -285,6 +316,31 @@ public class Player : Entity {
         if (myAnimator)
         {
             myAnimator.SetTrigger(jumpAnimationParameter);
+        }
+    }
+
+    void InitrenderInventory()
+    {
+        Camera camera = GameObject.FindObjectOfType<Camera>();
+        int childNumber = camera.transform.childCount;
+        for(int i = 0; i < childNumber; i++ )
+        {
+            Transform t = camera.transform.GetChild(i);
+            SpriteRenderer s = t.GetComponentInChildren<SpriteRenderer>();
+            itemSprites[i] = s;
+        }
+    }
+
+    void RenderInventory()
+    {
+        int i = 0;
+        foreach(Item item in inventory)
+        {
+            i++;
+            if(item.IsPicked)
+            {
+                itemSprites[i].enabled = true;
+            }
         }
     }
 }
