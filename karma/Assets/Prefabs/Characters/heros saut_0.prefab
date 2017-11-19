@@ -139,6 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f90da8abc91634ba4eff8209f23fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corbeau: {fileID: 0}
+  corbeauMode: 0
+  corbeauGravityScale: 0
 --- !u!114 &114684817544097472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,9 +162,11 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 5f1f49b9439d1d1499ecb6a71061c580, type: 3}
   attackSoundRate: 1
   attackSoundVolume: 1
+  attackAnimationParameter: attaque
   walkSound: {fileID: 8300000, guid: 9fa9c1b36179d4f44b28cbc990ae4683, type: 3}
   walkSoundRate: 0.25
   walkSoundVolume: 1
+  walkAnimationParameter: marche
   inventory: []
   numberOfItem: 6
   speed: {x: 5, y: 20}
