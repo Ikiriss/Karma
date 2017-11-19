@@ -12,7 +12,7 @@ public class Item : MonoBehaviour {
         EPEE_EVENT2,
         OEUF_CORBEAU,
         ALLUMETTES,
-        ARC,
+        BAGUETTE_MAGIQUE,
         PLANTE_MAGIQUE,
         HACHE
     }

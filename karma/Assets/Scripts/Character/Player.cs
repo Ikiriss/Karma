@@ -8,6 +8,8 @@ using UnityEngine;
 public class Player : Entity {
     // Use this for initialization	
 
+    private Rigidbody2D rigidbody;
+
     static public int karma = 0;
 
     private Entity entity;
@@ -60,6 +62,7 @@ public class Player : Entity {
     void Start () {
         maxHp = hp;
         myAnimator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody2D>();
         InitInventory();
     }
 
@@ -92,6 +95,8 @@ public class Player : Entity {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Pnj pnj = collision.collider.GetComponent<Pnj>();
+        Enemy enemy = collision.collider.GetComponent<Enemy>();
         ShotScript shot = collision.collider.GetComponent<ShotScript>();
         if (shot && shot.IsEnemyShot)
         {
@@ -99,17 +104,20 @@ public class Player : Entity {
             shot.ReturnToTheFactory();
             //Debug.Log("je prend des dégatzaes");
         }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        
-        Pnj pnj = collision.collider.GetComponent<Pnj>();
-        Enemy enemy = collision.collider.GetComponent<Enemy>();
-        ShotScript shot = collision.collider.GetComponent<ShotScript>();
         if (pnj)
         {
-            //do sth
+            if (pnj.CanAttackSound)
+            {
+                pnj.MakeAttackSound();
+            }
+            pnj.Attack();
+            hp -= pnj.Damage;
+
+            //Recule in collision
+            rigidbody.velocity = new Vector2(-10, 0);
+            pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+
+            Debug.Log(hp);
         }
         else if (enemy && enemy.CanAttack)
         {
@@ -119,14 +127,17 @@ public class Player : Entity {
             }
             enemy.Attack();
             hp -= enemy.Damage;
+
+            //Recule in collision
+            rigidbody.velocity = new Vector2(-2, 0);
+
             Debug.Log(hp);
         }
-        else if (shot && shot.IsEnemyShot)
-        {
-            hp -= shot.Damage;
-            shot.ReturnToTheFactory();
-            Debug.Log("je prend des dégats");
-        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+       
     }
     
 
@@ -163,7 +174,7 @@ public class Player : Entity {
         item1.ItemName = Item.Name.ALLUMETTES;
         inventory[2] = item3;
         Item item4 = new Item();
-        item1.ItemName = Item.Name.ARC;
+        item1.ItemName = Item.Name.BAGUETTE_MAGIQUE;
         inventory[3] = item4;
         Item item5 = new Item();
         item1.ItemName = Item.Name.PLANTE_MAGIQUE;
