@@ -1199,7 +1199,7 @@ public class Pnj : Entity {
 
     
 
-    void flipDirection()
+    public void flipDirection()
     {
         if (transform.eulerAngles.y == 180)
         {
