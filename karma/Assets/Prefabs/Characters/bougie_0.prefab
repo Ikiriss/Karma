@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50628711421236092}
   - component: {fileID: 114810099464804086}
   - component: {fileID: 114535180316886440}
+  - component: {fileID: 114023708674056756}
   m_Layer: 0
   m_Name: bougie_0
   m_TagString: Untagged
@@ -37,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1541112751456408}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9314895, y: 0.7081753, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.14, y: -9.624384, z: 0.17907159}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,13 +101,45 @@ PolygonCollider2D:
       - {x: 0, y: -0.3125}
       - {x: 0.0375, y: -0.3}
       - {x: 0.112500004, y: -0.175}
---- !u!114 &114535180316886440
+--- !u!114 &114023708674056756
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1541112751456408}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89192fb821bb62e46b62f9999abd6606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobType: 0
+  hp: 0
+  damage: 0
+  maxHp: 0
+  attackRate: 0.25
+  attackCooldown: 0
+  attackSound: {fileID: 0}
+  attackSoundRate: 1
+  attackSoundVolume: 1
+  walkSound: {fileID: 0}
+  walkSoundRate: 1
+  walkSoundVolume: 1
+  speed: {x: 10, y: 10}
+  margePnjActivation: 2
+  linkedPnj: {fileID: 0}
+  attackPattern: 0
+  isAttacked: 0
+  isCacAttack: 0
+  pnjState: 0
+  pnjName: 0
+  bossReturnCooldown: 2
+--- !u!114 &114535180316886440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541112751456408}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 250d9696933864f43aabb6f187528b54, type: 3}
   m_Name: 
@@ -123,7 +156,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1541112751456408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df3b25e6292b9664f96645df1ef048d8, type: 3}
   m_Name: 
