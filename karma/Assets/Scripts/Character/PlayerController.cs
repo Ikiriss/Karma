@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour {
     private bool attack3 = false;
 
     private float previousAltitudeY =0;
+    private float previousVelocityY = 0;
     private float previousGravityScale = -1;
     public float PreviousGravityScale
     {
@@ -271,6 +272,7 @@ public class PlayerController : MonoBehaviour {
         if (grounded && moveLeft || moveRight)
         {
             player.MakeWalkAnimation();
+            Debug.Log("je bouge");
         }
         if (jump)
         {
