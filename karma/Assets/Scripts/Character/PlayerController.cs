@@ -63,8 +63,13 @@ public class PlayerController : MonoBehaviour {
     private bool attack2 = false;
     private bool attack3 = false;
 
-    private float previousVelocityY =0;
+    private float previousAltitudeY =0;
     private float previousGravityScale = -1;
+    public float PreviousGravityScale
+    {
+        get { return previousGravityScale; }
+    }
+
     // Use this for initialization
     void Start () {
 
@@ -76,15 +81,8 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (corbeauMode)
-        {
-            if (previousGravityScale == -1)
-            {
-                previousGravityScale = rigidbody.gravityScale;
-            }
-            rigidbody.gravityScale = corbeauGravityScale;
-        }
-        
+               
+
         if (/*previousVelocityY == 0 && */rigidbody.velocity.y == 0)
         {
             grounded = true;
@@ -94,7 +92,22 @@ public class PlayerController : MonoBehaviour {
             grounded = false;
         }
 
-        
+        if (corbeauMode)
+        {
+            if (previousGravityScale == -1)
+            {
+                previousGravityScale = rigidbody.gravityScale;
+                previousAltitudeY = transform.position.y;
+            }
+            rigidbody.gravityScale = corbeauGravityScale;
+
+            if (transform.position.y - previousAltitudeY < 0 && grounded)
+            {
+                corbeauMode = false;
+                rigidbody.gravityScale = previousGravityScale;
+            }
+        }
+
         if (Input.GetButtonUp("Horizontal"))
         {
             //moveHorizontalBlocked = true;
