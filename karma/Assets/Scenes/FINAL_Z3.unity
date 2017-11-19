@@ -608,51 +608,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4430784443625542, guid: 192bcc7f4519d1b49a193e762ce81819,
     type: 2}
   m_PrefabInternal: {fileID: 154117646}
---- !u!1 &72040572
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 72040573}
-  - component: {fileID: 72040574}
-  m_Layer: 0
-  m_Name: allumettes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &72040573
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 72040572}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1935259360}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &72040574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 72040572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d31236f3ffa9cb45b62c6a3cd4f00c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 3
-  animatorParameter: 
-  itemSound: {fileID: 0}
-  itemSoundRate: 0
-  itemVolume: 1
 --- !u!1 &72292257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,79 +3438,6 @@ Prefab:
     - target: {fileID: 4157493529873700, guid: e93469641b5ffe04a9139fc453cc3bc6, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4157493529873700, guid: e93469641b5ffe04a9139fc453cc3bc6, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4157493529873700, guid: e93469641b5ffe04a9139fc453cc3bc6, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114523493285535562, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114245590049960132, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_AutoTiling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -0.13180609
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -0.024847869
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -0.11180609
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -0.05923004
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
-      value: 0.07826046
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
-      value: -0.059230004
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: 0.106387824
-      objectReference: {fileID: 0}
-    - target: {fileID: 60650895881472150, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: -0.032975234
-      objectReference: {fileID: 0}
-    - target: {fileID: 50620969573301132, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114523493285535562, guid: e93469641b5ffe04a9139fc453cc3bc6,
-        type: 2}
-      propertyPath: hp
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e93469641b5ffe04a9139fc453cc3bc6, type: 2}
@@ -6652,45 +6534,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4430784443625542, guid: 192bcc7f4519d1b49a193e762ce81819,
     type: 2}
   m_PrefabInternal: {fileID: 1782184329}
---- !u!1 &1161547834 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1646879702142414, guid: e93469641b5ffe04a9139fc453cc3bc6,
-    type: 2}
-  m_PrefabInternal: {fileID: 598135398}
---- !u!114 &1161547840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1161547834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89192fb821bb62e46b62f9999abd6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mobType: 0
-  hp: 0
-  damage: 0
-  maxHp: 0
-  attackRate: 0.25
-  attackCooldown: 0
-  attackSound: {fileID: 0}
-  attackSoundRate: 1
-  attackSoundVolume: 1
-  attackAnimationParameter: attack
-  walkSound: {fileID: 0}
-  walkSoundRate: 1
-  walkSoundVolume: 1
-  walkAnimationParameter: walk
-  speed: {x: 10, y: 10}
-  margePnjActivation: 2
-  linkedPnj: {fileID: 0}
-  attackPattern: 0
-  isAttacked: 0
-  isCacAttack: 0
-  pnjState: 0
-  pnjName: 6
-  bossReturnCooldown: 2
 --- !u!1001 &1173780557
 Prefab:
   m_ObjectHideFlags: 0

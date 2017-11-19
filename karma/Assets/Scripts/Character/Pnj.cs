@@ -339,7 +339,7 @@ public class Pnj : Entity {
                         {
                             Vector3 playerPosition = player.transform.position;
                             Vector3 chevalierPosition = transform.position;
-                            if (playerPosition.x > chevalierPosition.x)
+                            if (playerPosition.x > chevalierPosition.x + 5f)
                             {
                                 attackPattern = true;
                             }
