@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour {
     protected float attackSoundVolume = 1.0f;
 
     [SerializeField]
-    protected string attackAnimationParameter = "";
+    protected string attackAnimationParameter = "attack";
     protected string AttackAnimationParameter
     {
         get { return attackAnimationParameter; }
@@ -68,7 +68,7 @@ public class Entity : MonoBehaviour {
     protected float walkSoundVolume = 1.0f;
 
     [SerializeField]
-    protected string walkAnimationParameter = "";
+    protected string walkAnimationParameter = "walk";
     protected string WalkAnimationParameter
     {
         get { return walkAnimationParameter; }

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
         get { return corbeauGravityScale; }        
     }
 
+    private Transform corbeauPerchoir;
+
     private float translateActivationMarge = 0.1f;
     private bool grounded = false;
     private Rigidbody2D rigidbody;
@@ -39,14 +41,18 @@ public class PlayerController : MonoBehaviour {
         get {
             if (player.CanAttack)
             {
-                //faire l'animation
-
-                //son
-                if (player.CanAttackSound)
-                    player.MakeAttackSound();
-                player.Attack();
+                if (attack1)
+                {
+                    //faire l'animation
+                    player.MakeAttackAnimation();
+                    //son
+                    if (player.CanAttackSound)
+                        player.MakeAttackSound();
+                    player.Attack();
+                    return true;
+                }
+                return false;
                 
-                return attack1;
             }
             else
             {
@@ -64,6 +70,7 @@ public class PlayerController : MonoBehaviour {
 
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+        corbeauPerchoir = GameObject.Find("perchoir_corbeau").transform;
     }
 	
 	// Update is called once per frame
@@ -110,7 +117,10 @@ public class PlayerController : MonoBehaviour {
         //{
         //    moveHorizontalBlocked = false;
         //}
-
+        if (attack1)
+        {
+            bool attackanim = Attack1;
+        }
         if (Mathf.Abs(horizontalTranslation) > translateActivationMarge && horizontalTranslation > 0 && !moveHorizontalBlocked)
         {
             moveRight = true;
@@ -131,6 +141,10 @@ public class PlayerController : MonoBehaviour {
         {
             HandleMovement();
             HandleSound();
+            if (corbeauMode)
+            {
+                HandleCorbeauMovement();
+            }
         }
         else
         {
@@ -148,7 +162,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     
-    
+    private void HandleCorbeauMovement()
+    {
+        corbeau.transform.position = corbeauPerchoir.position;
+    }
 
     private void HandleMovement()
     {
@@ -233,6 +250,18 @@ public class PlayerController : MonoBehaviour {
         {
             if (player.CanJumpSound)
                 player.MakeJumpSound();
+        }
+    }
+
+    private void HandleAnimation()
+    {
+        if (grounded && moveLeft || moveRight)
+        {
+            player.MakeWalkAnimation();
+        }
+        if (jump)
+        {
+            player.MakeJumpAnimation();
         }
     }
 

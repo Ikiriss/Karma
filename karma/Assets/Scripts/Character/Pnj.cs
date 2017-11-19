@@ -225,7 +225,7 @@ public class Pnj : Entity {
                             if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
                                 if (GetComponent<Animator>())
-                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                    GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                 weapon.Attack(true);
                                 //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                             }                        
@@ -363,7 +363,7 @@ public class Pnj : Entity {
                                     if (weapon != null && weapon.enabled && weapon.CanAttack)
                                     {
                                         if (GetComponent<Animator>())
-                                            GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                            GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                         weapon.Attack(true);
                                         //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                                     }
@@ -391,7 +391,7 @@ public class Pnj : Entity {
                                         if (weapon != null && weapon.enabled && weapon.CanAttack)
                                         {
                                             if (GetComponent<Animator>())
-                                                GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                                GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                             weapon.Attack(true);
                                             //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                                         }
@@ -425,7 +425,7 @@ public class Pnj : Entity {
                             if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
                                 if (GetComponent<Animator>())
-                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                    GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                 weapon.Attack(true);
                                 //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                             }
@@ -458,7 +458,7 @@ public class Pnj : Entity {
                             if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
                                 if (GetComponent<Animator>())
-                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                    GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                 weapon.Attack(true);
                                 //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                             }                         
@@ -611,7 +611,7 @@ public class Pnj : Entity {
                                     if (weapon != null && weapon.enabled && weapon.CanAttack)
                                     {
                                         if (GetComponent<Animator>())
-                                            GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                            GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                         weapon.Attack(true);
                                         //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                                     }
@@ -636,7 +636,7 @@ public class Pnj : Entity {
                                         if (weapon != null && weapon.enabled && weapon.CanAttack)
                                         {
                                             if (GetComponent<Animator>())
-                                                GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                                GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                             weapon.Attack(true);
                                             //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                                         }
@@ -669,7 +669,7 @@ public class Pnj : Entity {
                             if (weapon != null && weapon.enabled && weapon.CanAttack)
                             {
                                 if (GetComponent<Animator>())
-                                    GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                    GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                 weapon.Attack(true);
                                 //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                             }
@@ -811,7 +811,7 @@ public class Pnj : Entity {
                                     if (weapon != null && weapon.enabled && weapon.CanAttack)
                                     {
                                         if (GetComponent<Animator>())
-                                            GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                            GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                         weapon.Attack(true);
                                         //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                                     }
@@ -836,7 +836,7 @@ public class Pnj : Entity {
                                         if (weapon != null && weapon.enabled && weapon.CanAttack)
                                         {
                                             if (GetComponent<Animator>())
-                                                GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                                                GetComponent<Animator>().SetTrigger(weapon.WeaponAnimationParameter);
                                             weapon.Attack(true);
                                             //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                                         }
