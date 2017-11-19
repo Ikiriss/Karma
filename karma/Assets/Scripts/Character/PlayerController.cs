@@ -3,6 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+
+    private float frameCount = 0;
+    private float maxCount = 20;
+
+    [SerializeField]
+    private GameObject corbeau;
+    [SerializeField]
+    private bool corbeauMode = false;
+    public bool CorbeauMode
+    {
+        get { return corbeauMode; }
+        set { corbeauMode = value; }
+    }
+    [SerializeField]
+    private float corbeauGravityScale;
+    public float CorbeauGravityScale
+    {
+        get { return corbeauGravityScale; }        
+    }
+
+    private Transform corbeauPerchoir;
+
     private float translateActivationMarge = 0.1f;
     private bool grounded = false;
     private Rigidbody2D rigidbody;
@@ -13,19 +35,24 @@ public class PlayerController : MonoBehaviour {
     private bool jump = false;
     private bool attack1 = false;
     private bool moveHorizontalBlocked = false;
+    private float horizontalTranslation = 0f;
     public bool Attack1
     {
         get {
             if (player.CanAttack)
             {
-                //faire l'animation
-
-                //son
-                if (player.CanAttackSound)
-                    player.MakeAttackSound();
-                player.Attack();
+                if (attack1)
+                {
+                    //faire l'animation
+                    player.MakeAttackAnimation();
+                    //son
+                    if (player.CanAttackSound)
+                        player.MakeAttackSound();
+                    player.Attack();
+                    return true;
+                }
+                return false;
                 
-                return attack1;
             }
             else
             {
@@ -36,18 +63,27 @@ public class PlayerController : MonoBehaviour {
     private bool attack2 = false;
     private bool attack3 = false;
 
-    private float previousVelocityY =0;
+    private float previousAltitudeY =0;
+    private float previousVelocityY = 0;
+    private float previousGravityScale = -1;
+    public float PreviousGravityScale
+    {
+        get { return previousGravityScale; }
+    }
+
     // Use this for initialization
     void Start () {
 
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+        corbeauPerchoir = GameObject.Find("perchoir_corbeau").transform;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        
+               
+
         if (/*previousVelocityY == 0 && */rigidbody.velocity.y == 0)
         {
             grounded = true;
@@ -57,7 +93,22 @@ public class PlayerController : MonoBehaviour {
             grounded = false;
         }
 
-        
+        if (corbeauMode)
+        {
+            if (previousGravityScale == -1)
+            {
+                previousGravityScale = rigidbody.gravityScale;
+                previousAltitudeY = transform.position.y;
+            }
+            rigidbody.gravityScale = corbeauGravityScale;
+
+            if (transform.position.y - previousAltitudeY < 0 && grounded)
+            {
+                corbeauMode = false;
+                rigidbody.gravityScale = previousGravityScale;
+            }
+        }
+
         if (Input.GetButtonUp("Horizontal"))
         {
             //moveHorizontalBlocked = true;
@@ -70,17 +121,21 @@ public class PlayerController : MonoBehaviour {
         else { attack3 = false; }
         if((Input.GetButton("Jump") || Input.GetButton("ButtonY")) && grounded) { jump = true; }
         else { jump = false; }
+        HandleJumpAnimation();
         
     }
 
     private void FixedUpdate()
     {
-        float horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
+        horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
         //if(horizontalTranslation == 0)
         //{
         //    moveHorizontalBlocked = false;
         //}
-
+        if (attack1)
+        {
+            bool attackanim = Attack1;
+        }
         if (Mathf.Abs(horizontalTranslation) > translateActivationMarge && horizontalTranslation > 0 && !moveHorizontalBlocked)
         {
             moveRight = true;
@@ -96,12 +151,65 @@ public class PlayerController : MonoBehaviour {
             moveLeft = false;
             moveRight = false;
         }
-        HandleMovement();
-        HandleSound();
+        Flip();
+        if(!player.IsHit)
+        {
+            HandleMovement();
+            HandleSound();
+            HandleAnimation();
+            if (corbeauMode)
+            {
+                HandleCorbeauMovement();
+            }
+        }
+        else
+        {
+            if(frameCount == maxCount)
+            {
+                player.IsHit = false;
+                frameCount = 0;
+            }
+            else
+            {
+                frameCount++;
+            }
+        }
+
     }
 
-    
-    
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Pnj pnj = collision.collider.GetComponent<Pnj>();
+        
+        if(pnj)
+        {
+            SpriteRenderer dialogue = pnj.GetComponentInChildren<SpriteRenderer>();
+            dialogue.enabled = true;
+            if(attack2)
+            {
+                switch(pnj.PnjName)
+                {
+                    case Pnj.Name.ENFANT:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+
+                    case Pnj.Name.MARCHAND:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+
+                    case Pnj.Name.CLODO:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+                }
+            }
+        }
+    }
+
+        private void HandleCorbeauMovement()
+    {
+        corbeau.transform.position = corbeauPerchoir.position;
+    }
 
     private void HandleMovement()
     {
@@ -186,6 +294,43 @@ public class PlayerController : MonoBehaviour {
         {
             if (player.CanJumpSound)
                 player.MakeJumpSound();
+        }
+    }
+
+    private void HandleAnimation()
+    {
+        if (grounded && (moveLeft || moveRight))
+        {
+            player.MakeWalkAnimation();
+            Debug.Log("je bouge");
+        }
+        
+    }
+
+    private void HandleJumpAnimation()
+    {
+        if (jump)
+        {
+            player.MakeJumpAnimation();
+            Debug.Log("je saute");
+        }
+    }
+
+    void Flip()
+    {
+        if(moveLeft)
+        {
+            if (transform.eulerAngles.y == 0)
+            {
+                transform.Rotate(new Vector3(0, 180, 0));
+            }
+        }
+        else
+        {
+            if (transform.eulerAngles.y == 180)
+            {
+                transform.Rotate(new Vector3(0, -180, 0));
+            }
         }
     }
 }

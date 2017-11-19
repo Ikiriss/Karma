@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class Enemy : Entity {
 
+    private Rigidbody2D rigidbody;
 
-    
+    private Player player;
+
+    private bool isHit = false;
+    public bool IsHit
+    {
+        get { return isHit; }
+        set { isHit = value; }
+    }
+
+
+    private float frameCount = 0;
+    private float maxCount = 20;
 
     [SerializeField]
     protected EnemyFactory.MobType enemyName;
@@ -45,11 +57,14 @@ public class Enemy : Entity {
 	// 1 - Disable everything
 	void Start()
 	{
-		hasSpawn = false;
+        player = GameObject.FindObjectOfType<Player>();
+        hasSpawn = false;
 
 		// On désactive tout
 		// -- collider
 		GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+        myAnimator = GetComponent<Animator>();
 		// -- Mouvement
 		moveScript.enabled = false;
 		// -- Tir
@@ -88,13 +103,26 @@ public class Enemy : Entity {
             // On fait tirer toutes les armes automatiquement si il est vivant
             HandleShootWithWeapons();
 
-
-			// Si L'ennemi n'a pas été détruit, il faut faire le ménage
-			if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false)
-			{
-				Destroy(gameObject);
-			}
-		}
+            if (isHit)
+            {
+                if(frameCount == maxCount)
+                {
+                    frameCount = 0;
+                    moveScript.enabled = true;
+                    isHit = false;
+                }
+                else
+                {
+                    frameCount++;
+                    moveScript.enabled = false;
+                }
+            }
+                // Si L'ennemi n'a pas été détruit, il faut faire le ménage
+                //if (GetComponent<Renderer>().IsVisibleFrom(Camera.main) == false)
+                //{
+                //	Destroy(gameObject);
+                //}
+            }
 	}
 
     protected void OnCollisionEnter2D(Collision2D collision)
@@ -104,23 +132,26 @@ public class Enemy : Entity {
         {
             hp -= shot.Damage;
         }
-    }
 
-    protected void OnCollisionStay2D(Collision2D collision)
-    {
-        
         Player player = collision.collider.GetComponent<Player>();
-        
+
         if (player && collision.collider.GetComponent<PlayerController>().Attack1)
         {
             hp -= player.Damage;
+            isHit = true;
+            rigidbody.velocity = new Vector2(-5, 0);
             Debug.Log("je me fais taper");
         }
 
         if (hp <= 0)
         {
-            alive = false;
+            GiveMobBack(transform);
         }
+    }
+
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+        
     }
     
 
@@ -132,6 +163,7 @@ public class Enemy : Entity {
 		// On active tout
 		// -- Collider
 		GetComponent<Collider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().simulated = true;
 		// -- Mouvement
 		moveScript.enabled = true;
         // -- Tir
@@ -164,8 +196,8 @@ public class Enemy : Entity {
             {
                 if (weapon != null && weapon.enabled && weapon.CanAttack)
                 {
-                    if (GetComponent<Animator>())
-                        GetComponent<Animator>().SetTrigger(weapon.AnimatorParameter);
+                    if (myAnimator)
+                        myAnimator.SetTrigger(weapon.WeaponAnimationParameter);
                     weapon.Attack(true);
                     //SoundEffectsHelper.Instance.MakeEnemyShotSound();                
                 }
@@ -179,6 +211,7 @@ public class Enemy : Entity {
         hasSpawn = false;
         alive = true;
         GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
         // -- Mouvement
         moveScript.enabled = false;
         // -- Tir
@@ -186,8 +219,27 @@ public class Enemy : Entity {
         {
             weapon.enabled = false;
         }
+        hp = maxHp;
         
     }
 
-    
+    public void flipDirection()
+    {
+        if (transform.eulerAngles.y == 180)
+        {
+            if (transform.position.x < player.transform.position.x)
+            {
+                transform.Rotate(0, 180, 0);
+            }
+        }
+        else
+        {
+            if (transform.position.x > player.transform.position.x)
+            {
+                transform.Rotate(0, -180, 0);
+            }
+        }
+    }
+
+
 }

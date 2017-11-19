@@ -52,6 +52,13 @@ public class Entity : MonoBehaviour {
     protected float attackSoundVolume = 1.0f;
 
     [SerializeField]
+    protected string attackAnimationParameter = "attack";
+    protected string AttackAnimationParameter
+    {
+        get { return attackAnimationParameter; }
+    }
+
+    [SerializeField]
     protected AudioClip walkSound = null;
     //protected Enemy enemyScript;
     [SerializeField]
@@ -60,7 +67,14 @@ public class Entity : MonoBehaviour {
     [SerializeField]
     protected float walkSoundVolume = 1.0f;
 
-	void OnTriggerEnter2D(Collider2D collider)
+    [SerializeField]
+    protected string walkAnimationParameter = "walk";
+    protected string WalkAnimationParameter
+    {
+        get { return walkAnimationParameter; }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
 	{
 	    
 	}
@@ -88,6 +102,12 @@ public class Entity : MonoBehaviour {
         {
             GameObject.Find("Menu_win").GetComponent<Menu_death>().PopDeathMenu();
         }
+    }
+
+    protected void GiveMobBack(Transform mob)
+    {
+        mob.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        GameObject.Find("Scripts").GetComponent<EnemyFactory>().GiveBackMob(mobType, mob);
     }
 
     public virtual bool CanAttack
@@ -132,5 +152,28 @@ public class Entity : MonoBehaviour {
         attackSoundCooldown = attackSoundRate;
         if(attackSound)
             AudioSource.PlayClipAtPoint(attackSound, transform.position, attackSoundVolume);
+    }
+
+    public virtual void MakeWalkAnimation()
+    {
+        
+        if (myAnimator)
+        {
+            myAnimator.SetTrigger(walkAnimationParameter);
+            Debug.Log(myAnimator);
+            //Debug.Log()
+            Debug.Log(gameObject);
+            Debug.Log("walking");
+        }
+    }
+
+    public virtual void MakeAttackAnimation()
+    {
+        if (myAnimator)
+        {
+            myAnimator.SetTrigger(attackAnimationParameter);
+            Debug.Log(gameObject);
+            Debug.Log("attack");
+        }
     }
 }

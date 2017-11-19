@@ -29,11 +29,13 @@ public class WeaponScript : MonoBehaviour {
     [SerializeField]
 	protected bool isEnemy = true;
     [SerializeField]
-    protected string animatorParameter = ""; //animation à faire
-    public string AnimatorParameter
+    protected string weaponAnimationParameter = "attack"; //animation à faire
+    public string WeaponAnimationParameter
     {
-        get { return animatorParameter; }
+        get { return weaponAnimationParameter; }
     }
+    
+
     [SerializeField]
     protected AudioClip weaponSound = null; //son à faire
     public AudioClip WeaponSound
@@ -44,7 +46,7 @@ public class WeaponScript : MonoBehaviour {
     protected float weaponSoundRate;
     protected float weaponSoundCooldown;
     [SerializeField]
-    protected float volume = 1f;
+    protected float weaponVolume = 1f;
     
     
 
@@ -128,8 +130,9 @@ public class WeaponScript : MonoBehaviour {
     {
         weaponSoundCooldown = weaponSoundRate;
         if(weaponSound)
-            AudioSource.PlayClipAtPoint(weaponSound, transform.position, volume);
+            AudioSource.PlayClipAtPoint(weaponSound, transform.position, weaponVolume);
     }
+
 
 	/// <summary>
 	/// L'arme est chargée ?
@@ -163,7 +166,7 @@ public class WeaponScript : MonoBehaviour {
 
         shotTransform.GetComponent<ShotScript>().PreviousPos = transform.position;
         //shotTransform.gameObject.GetComponent<Entity>().enabled = true;
-        if (shotTransform.gameObject.GetComponent<Entity>())
+        if (shotTransform.gameObject.GetComponent<Animator>())
             shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
         //Si on doit viser, on calcule les coordonées et on attend l'animation si on est un projectile
         

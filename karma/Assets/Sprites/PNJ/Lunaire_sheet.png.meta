@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 8694debfb02271b4ab32677654820a7e
+timeCreated: 1511064101
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Lunaire_sheet_0
+    21300002: Lunaire_sheet_1
+    21300004: Lunaire_sheet_2
+    21300006: Lunaire_sheet_3
+    21300008: Lunaire_sheet_4
+    21300010: Lunaire_sheet_5
+    21300012: Lunaire_sheet_6
+    21300014: Lunaire_sheet_7
+    21300016: Lunaire_sheet_8
+    21300018: Lunaire_sheet_9
+    21300020: Lunaire_sheet_10
+    21300022: Lunaire_sheet_11
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 80
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Lunaire_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.752716, y: 17.872269}
+        - {x: -7.558037, y: 17.16806}
+        - {x: -8.272316, y: 2.4662018}
+        - {x: -7.3788834, y: -11.784836}
+        - {x: -12.311768, y: -23.198017}
+        - {x: 13.523987, y: -23.214138}
+        - {x: 17.834435, y: 1.346962}
+        - {x: 7.7519073, y: 2.4774323}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.26709, y: 18.221252}
+        - {x: -4.610565, y: 18.111473}
+        - {x: -10.589905, y: 7.456398}
+        - {x: -11.881683, y: -7.018135}
+        - {x: -12.369171, y: -23.094196}
+        - {x: 9.61322, y: -23.044704}
+        - {x: 12.278168, y: -8.486855}
+        - {x: 15.292358, y: 4.284729}
+        - {x: 9.571014, y: 10.455215}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2.8356934, y: 16.729156}
+        - {x: -4.073395, y: 16.572395}
+        - {x: -10.438812, y: 4.5682373}
+        - {x: -17.631195, y: -15.940758}
+        - {x: -15.67041, y: -26.518776}
+        - {x: 14.075195, y: -26.318989}
+        - {x: 15.533752, y: -13.206856}
+        - {x: 17.000122, y: 7.884529}
+        - {x: 10.7901, y: 12.733391}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.8027344, y: 18.787178}
+        - {x: -13.764465, y: -5.068405}
+        - {x: -7.1660156, y: -10.267326}
+        - {x: -12.575073, y: -23.34185}
+        - {x: 5.0756836, y: -23.341846}
+        - {x: 13.124939, y: -7.7080917}
+        - {x: 15.324463, y: 8.692207}
+        - {x: 6.7369995, y: 17.293213}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.9554443, y: 19.485863}
+        - {x: -10.263184, y: -2.7797775}
+        - {x: -17.411499, y: -12.18161}
+        - {x: -18.152466, y: -17.938168}
+        - {x: -13.663757, y: -26.450958}
+        - {x: 12.129822, y: -26.634247}
+        - {x: 17.991333, y: -14.835907}
+        - {x: 17.991333, y: 11.991463}
+        - {x: 8.57312, y: 19.302574}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7.039917, y: 17.47651}
+        - {x: -6.5863037, y: 18.209671}
+        - {x: -14.651123, y: -5.5830994}
+        - {x: -6.8913574, y: -10.777069}
+        - {x: -12.6427, y: -23.341846}
+        - {x: 5.3824463, y: -23.158554}
+        - {x: 12.87793, y: -6.988632}
+        - {x: 15.444092, y: 3.7775955}
+        - {x: 8.57251, y: 8.800987}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.6989746, y: 17.103065}
+        - {x: -10.64856, y: -1.029129}
+        - {x: -17.059814, y: -13.533211}
+        - {x: -14.860352, y: -17.137344}
+        - {x: -14.868164, y: -26.81754}
+        - {x: 11.381714, y: -26.450958}
+        - {x: 14.587402, y: -15.290718}
+        - {x: 16.23706, y: 8.156044}
+        - {x: 8.65564, y: 16.369904}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6.784424, y: 18.209671}
+        - {x: -13.932861, y: -5.576248}
+        - {x: -7.613037, y: -11.159782}
+        - {x: -12.291016, y: -23.341846}
+        - {x: 5.273926, y: -23.341846}
+        - {x: 13.046265, y: -7.9050903}
+        - {x: 15.0625, y: 9.174431}
+        - {x: 6.291748, y: 17.843094}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.95166, y: 17.258041}
+        - {x: -6.418579, y: 18.20282}
+        - {x: -6.8553467, y: 2.2564163}
+        - {x: -12.720703, y: -9.860512}
+        - {x: -10.708374, y: -23.341846}
+        - {x: 13.248413, y: -23.158558}
+        - {x: 16.910278, y: -11.889526}
+        - {x: 17.273071, y: 1.7280121}
+        - {x: 6.8254395, y: 2.963066}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.4539795, y: 19.551376}
+        - {x: -11.815918, y: 1.6116486}
+        - {x: -16.23169, y: -23.307644}
+        - {x: 11.387207, y: -23.104576}
+        - {x: 24.907227, y: -0.15743256}
+        - {x: 10.286621, y: 1.4375}
+        - {x: 9.155029, y: 19.551369}
+      - - {x: 26.177979, y: -1.7381363}
+        - {x: 23.939209, y: 9.657738}
+        - {x: 18.62915, y: 19.752739}
+        - {x: 8.175049, y: 26.8787}
+        - {x: -6.1429443, y: 28.328941}
+        - {x: 12.742065, y: 35.436195}
+        - {x: 26.550415, y: 30.359581}
+        - {x: 44.623047, y: 8.022484}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8.567139, y: 15.966904}
+        - {x: -4.3134766, y: 16.576088}
+        - {x: -4.45874, y: 4.280403}
+        - {x: -12.349365, y: -4.065796}
+        - {x: -16.20752, y: -23.10458}
+        - {x: 11.557373, y: -23.307644}
+        - {x: 34.474854, y: -23.368477}
+        - {x: 8.685547, y: -7.011505}
+        - {x: 9.989746, y: 6.290497}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Lunaire_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2233
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5.8361816, y: 18.037827}
+        - {x: -7.334961, y: 17.967133}
+        - {x: -6.8134766, y: 2.9403534}
+        - {x: -12.702393, y: -9.213951}
+        - {x: -8.536621, y: -13.183258}
+        - {x: -11.541992, y: -23.30764}
+        - {x: 13.437012, y: -23.104576}
+        - {x: 17.034424, y: -11.357254}
+        - {x: 18.194824, y: 1.3042908}
+        - {x: 6.823242, y: 2.5029602}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

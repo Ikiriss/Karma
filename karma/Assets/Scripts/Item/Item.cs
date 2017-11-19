@@ -12,7 +12,7 @@ public class Item : MonoBehaviour {
         EPEE_EVENT2,
         OEUF_CORBEAU,
         ALLUMETTES,
-        ARC,
+        BAGUETTE_MAGIQUE,
         PLANTE_MAGIQUE,
         HACHE
     }
@@ -35,4 +35,18 @@ public class Item : MonoBehaviour {
         set { isPicked = value; }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player player = collision.collider.GetComponent<Player>();
+        if (player)
+        {
+            ReturnToTheFactory();
+            //ajouter l'item à l'inventaire
+        }
+    }
+
+    public void ReturnToTheFactory()
+    {
+        GameObject.Find("Scripts").GetComponent<ItemFactory>().GiveBackItem(itemName, GetComponent<Transform>());
+    }
 }

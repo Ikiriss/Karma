@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 576169b44596ada46887a1f04cb0981a
+timeCreated: 1511068976
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: acolyte (1)_0
+    21300002: acolyte (1)_1
+    21300004: acolyte (1)_2
+    21300006: acolyte (1)_3
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 80
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: acolyte (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.304329, y: 14.51931}
+        - {x: -9.044672, y: 7.4625397}
+        - {x: -9.99395, y: -9.405769}
+        - {x: -6.1461105, y: -17.94323}
+        - {x: 14.310375, y: -17.94323}
+        - {x: 14.46859, y: 10.253605}
+        - {x: 8.41787, y: 14.993954}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: acolyte (1)_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 15.322723, y: -17.871378}
+        - {x: 8.488617, y: -0.7377701}
+        - {x: 17.024307, y: 1.5874176}
+        - {x: 11.407806, y: 10.432102}
+        - {x: 6.9952316, y: 15.126247}
+        - {x: -5.5631256, y: 15.305855}
+        - {x: -14.946632, y: 4.199127}
+        - {x: -7.762253, y: -7.1019516}
+        - {x: -7.8446884, y: -18.024294}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: acolyte (1)_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 15.587418, y: -18.024296}
+        - {x: 9.001465, y: -0.19297409}
+        - {x: 16.531982, y: -0.36837006}
+        - {x: 16.613968, y: 4.705288}
+        - {x: 12.89328, y: 6.509758}
+        - {x: 11.048584, y: 13.228199}
+        - {x: 4.5631256, y: 15.126247}
+        - {x: -6.228195, y: 15.485466}
+        - {x: -12.94664, y: 8.252495}
+        - {x: -12.9526825, y: -1.9582596}
+        - {x: -4.145767, y: -10.6698475}
+        - {x: -7.3301544, y: -18.024294}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: acolyte (1)_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16.436981, y: 5.812332}
+        - {x: -18.812317, y: 3.8072166}
+        - {x: -16.516693, y: 1.295639}
+        - {x: -13.843292, y: 2.591278}
+        - {x: 6.1644897, y: 2.7557907}
+        - {x: 6.0667114, y: 4.26075}
+        - {x: -13.809906, y: 4.192787}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

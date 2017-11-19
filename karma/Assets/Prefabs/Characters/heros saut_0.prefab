@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114684817544097472}
   - component: {fileID: 114529571100232436}
   - component: {fileID: 114426023556293994}
+  - component: {fileID: 95879387966568466}
   m_Layer: 0
   m_Name: heros saut_0
   m_TagString: Untagged
@@ -39,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866117470981808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4, y: -1.31, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: -17.659527, y: -1.25, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,7 +82,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.03, y: 1.58}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -89,13 +90,29 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: -0.18471876, y: -0.16243742}
-      - {x: -0.16200428, y: -0.22502504}
-      - {x: 0.32500002, y: -0.22417758}
-      - {x: 0.32500002, y: 0.16250001}
-      - {x: 0.3, y: 0.275}
-      - {x: -0.175, y: 0.275}
-      - {x: -0.1875, y: 0.25}
+    - - {x: -0.14253448, y: -0.17199676}
+      - {x: 0.06179504, y: -0.17135929}
+      - {x: 0.033636093, y: -0.009709854}
+      - {x: 0.047376554, y: 0.12194404}
+      - {x: -0.030541992, y: 0.17259033}
+      - {x: -0.119101785, y: 0.13906364}
+--- !u!95 &95879387966568466
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866117470981808}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f120c2c198a1286489b25a73330cd7bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114426023556293994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f90da8abc91634ba4eff8209f23fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corbeau: {fileID: 0}
+  corbeauMode: 0
+  corbeauGravityScale: 0
 --- !u!114 &114684817544097472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,9 +162,11 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 5f1f49b9439d1d1499ecb6a71061c580, type: 3}
   attackSoundRate: 1
   attackSoundVolume: 1
+  attackAnimationParameter: attaque
   walkSound: {fileID: 8300000, guid: 9fa9c1b36179d4f44b28cbc990ae4683, type: 3}
   walkSoundRate: 0.25
   walkSoundVolume: 1
+  walkAnimationParameter: marche
   inventory: []
   numberOfItem: 6
   speed: {x: 5, y: 20}
@@ -186,7 +208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 7c5f3a5fae2ecad41a06e3c1aa65868a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b58f377e00f22834199c4e9a47a0ccca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

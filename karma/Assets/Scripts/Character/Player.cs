@@ -8,6 +8,10 @@ using UnityEngine;
 public class Player : Entity {
     // Use this for initialization	
 
+    private SpriteRenderer[] itemSprites;
+
+    private Rigidbody2D rigidbody;
+
     static public int karma = 0;
 
     private Entity entity;
@@ -20,7 +24,7 @@ public class Player : Entity {
         get { return inventory; }
     }
     [SerializeField]
-    private int numberOfItem = 6;
+    private int numberOfItem = 5;
 	
 
     [SerializeField]
@@ -48,6 +52,13 @@ public class Player : Entity {
     [SerializeField]
     protected float jumpSoundVolume = 1.0f;
 
+    [SerializeField]
+    protected string jumpAnimationParameter = "jump";
+    protected string JumpAnimationParameter
+    {
+        get { return jumpAnimationParameter; }
+    }
+
     // Stockage du mouvement
     //private Vector2 movement;
     //public Vector2 Movement
@@ -56,11 +67,21 @@ public class Player : Entity {
     //    set { movement = value; }
     //}
 
+    private bool isHit = false;
+    public bool IsHit
+    {
+        get { return isHit; }
+        set { isHit = value; }
+    }
+
 
     void Start () {
         maxHp = hp;
         myAnimator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody2D>();
         InitInventory();
+        itemSprites = new SpriteRenderer[numberOfItem];
+        InitrenderInventory();
     }
 
 
@@ -92,26 +113,69 @@ public class Player : Entity {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Pnj pnj = collision.collider.GetComponent<Pnj>();
+        Enemy enemy = collision.collider.GetComponent<Enemy>();
         ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        Item item = collision.collider.GetComponent<Item>();
         if (shot && shot.IsEnemyShot)
         {
             hp -= shot.Damage;
             shot.ReturnToTheFactory();
-            //Debug.Log("je prend des dégatzaes");
-        }
-    }
+            if(transform.eulerAngles.y == 0)
+            {
+                rigidbody.velocity = new Vector2(-5, 0);
+            }
+            else
+            {
+                rigidbody.velocity = new Vector2(5, 0);
+            }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        
-        Pnj pnj = collision.collider.GetComponent<Pnj>();
-        Enemy enemy = collision.collider.GetComponent<Enemy>();
-        ShotScript shot = collision.collider.GetComponent<ShotScript>();
-        if (pnj)
-        {
-            //do sth
+            isHit = true;
+
+            //Debug.Log("je prend des dégats");
         }
-        else if (enemy && enemy.CanAttack)
+        if (pnj && pnj.CanAttack && pnj.AttackPattern)
+        {
+            if(pnj.PnjName == Pnj.Name.CORBEAU && KarmaScript.karma != KarmaScript.KarmaState.NEGATIVE_KARMA)
+            {
+                PlayerController playerController = GetComponent<PlayerController>();
+                if(playerController.PreviousGravityScale == -1)
+                {
+                    playerController.CorbeauMode = true;
+                }
+                
+            }
+            else
+            {
+                if (pnj.CanAttackSound)
+                {
+                    pnj.MakeAttackSound();
+                }
+                pnj.Attack();
+                hp -= pnj.Damage;
+                pnj.MakeAttackAnimation();
+                //Recule in collision
+                if (transform.eulerAngles.y == 0)
+                {
+                    rigidbody.velocity = new Vector2(-10, 0);
+                    pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                    pnj.flipDirection();
+                }
+                else
+                {
+                    rigidbody.velocity = new Vector2(10, 0);
+                    pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+                    pnj.flipDirection();
+                }
+
+                Debug.Log(hp);
+                isHit = true;
+
+            }
+
+            
+        }
+        if (enemy && enemy.CanAttack && !enemy.IsHit)
         {
             if (enemy.CanAttackSound)
             {
@@ -119,14 +183,57 @@ public class Player : Entity {
             }
             enemy.Attack();
             hp -= enemy.Damage;
+            enemy.MakeAttackAnimation();
+
+            //Recule in collision
+            if (transform.eulerAngles.y == 0)
+            {
+                rigidbody.velocity = new Vector2(-10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                pnj.flipDirection();
+            }
+            else
+            {
+                rigidbody.velocity = new Vector2(10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+                pnj.flipDirection();
+            }
+
+
             Debug.Log(hp);
+            isHit = true;
         }
-        else if (shot && shot.IsEnemyShot)
+        if(item)
         {
-            hp -= shot.Damage;
-            shot.ReturnToTheFactory();
-            Debug.Log("je prend des dégats");
+            item.IsPicked = true;
+            switch(item.ItemName)
+            {
+                case Item.Name.PLANTE_MAGIQUE:
+                    AddItemToInventory(item, 0);
+                    break;
+
+                case Item.Name.OEUF_CORBEAU:
+                    AddItemToInventory(item, 1);
+                    break;
+
+                case Item.Name.HACHE:
+                    AddItemToInventory(item, 2);
+                    break;
+
+                case Item.Name.ALLUMETTES:
+                    AddItemToInventory(item, 3);
+                    break;
+
+                case Item.Name.BAGUETTE_MAGIQUE:
+                    AddItemToInventory(item, 4);
+                    break;
+            }
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+       
     }
     
 
@@ -163,7 +270,7 @@ public class Player : Entity {
         item1.ItemName = Item.Name.ALLUMETTES;
         inventory[2] = item3;
         Item item4 = new Item();
-        item1.ItemName = Item.Name.ARC;
+        item1.ItemName = Item.Name.BAGUETTE_MAGIQUE;
         inventory[3] = item4;
         Item item5 = new Item();
         item1.ItemName = Item.Name.PLANTE_MAGIQUE;
@@ -202,5 +309,38 @@ public class Player : Entity {
     {
         jumpSoundCooldown = jumpSoundRate;
         AudioSource.PlayClipAtPoint(jumpSound, transform.position, jumpSoundVolume);
+    }
+
+    public virtual void MakeJumpAnimation()
+    {
+        if (myAnimator)
+        {
+            myAnimator.SetTrigger(jumpAnimationParameter);
+        }
+    }
+
+    void InitrenderInventory()
+    {
+        Camera camera = GameObject.FindObjectOfType<Camera>();
+        int childNumber = camera.transform.childCount;
+        for(int i = 0; i < childNumber; i++ )
+        {
+            Transform t = camera.transform.GetChild(i);
+            SpriteRenderer s = t.GetComponentInChildren<SpriteRenderer>();
+            itemSprites[i] = s;
+        }
+    }
+
+    void RenderInventory()
+    {
+        int i = 0;
+        foreach(Item item in inventory)
+        {
+            i++;
+            if(item.IsPicked)
+            {
+                itemSprites[i].enabled = true;
+            }
+        }
     }
 }

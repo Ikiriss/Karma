@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: c26cecf090eaf08468c9b98432da8d90
+timeCreated: 1511070058
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: forgeron (2)_0
+    21300002: forgeron (2)_1
+    21300004: forgeron (2)_2
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 80
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: forgeron (2)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.8209038, y: 28.412941}
+        - {x: -9.810951, y: 21}
+        - {x: -10.810949, y: 14.004978}
+        - {x: -12.09955, y: 0.40298843}
+        - {x: -11.502537, y: -3.9950218}
+        - {x: -3.701538, y: -11.60199}
+        - {x: -3.6467896, y: -18}
+        - {x: -4.407963, y: -28.009956}
+        - {x: 17.41792, y: -28.009954}
+        - {x: 24.407959, y: -14.004978}
+        - {x: 21.820904, y: 11.47765}
+        - {x: 13.592037, y: 28.810951}
+      - - {x: -5.940735, y: -11.240929}
+        - {x: -9.88229, y: -15.538824}
+        - {x: -18.99144, y: -6.5620766}
+        - {x: -23.397419, y: -9.364641}
+        - {x: -29.725489, y: -1.9970627}
+        - {x: -20.173271, y: 6.7591324}
+        - {x: -13.009111, y: -0.4050293}
+        - {x: -14.999155, y: -3.1910896}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forgeron (2)_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.4228973, y: 28.213936}
+        - {x: -9.014931, y: 20.800995}
+        - {x: -10.611938, y: 14.004978}
+        - {x: -10.905525, y: 0.8009987}
+        - {x: -10.706512, y: -6.781082}
+        - {x: -3.7015457, y: -11.402987}
+        - {x: -3.8457947, y: -18.398008}
+        - {x: -4.407959, y: -28.009956}
+        - {x: 17.417923, y: -28.009954}
+        - {x: 23.611938, y: -15.199003}
+        - {x: 22.417923, y: 10.084618}
+        - {x: 12.796005, y: 28.810951}
+      - - {x: -6.335251, y: -11.695393}
+        - {x: -10.532349, y: -15.688305}
+        - {x: -19.511444, y: -6.838192}
+        - {x: -23.290733, y: -9.113403}
+        - {x: -29.328888, y: -2.594078}
+        - {x: -19.975677, y: 6.361126}
+        - {x: -13.010513, y: -0.80303574}
+        - {x: -14.204544, y: -2.9920845}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forgeron (2)_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 11.900452, y: 28.611946}
+        - {x: -1.6517639, y: 28.960175}
+        - {x: -8.422897, y: 20.77113}
+        - {x: -11.284668, y: -6.4908752}
+        - {x: -5.7313995, y: -13.12932}
+        - {x: -2.945343, y: -18.920362}
+        - {x: -3.303543, y: -21.75122}
+        - {x: -3.4477844, y: -24.567146}
+        - {x: -3.8109589, y: -28.009956}
+        - {x: 20.427872, y: -28.20896}
+        - {x: 15.732193, y: -21.034916}
+        - {x: 15.009018, y: -15.623293}
+        - {x: 19.235977, y: -18.273705}
+        - {x: 24.23413, y: -14.41209}
+        - {x: 23.953796, y: -5.074108}
+        - {x: 19.631866, y: 21.64679}
+      - - {x: -9.142685, y: -18.713442}
+        - {x: -9.142685, y: -17.71842}
+        - {x: -8.34668, y: -17.71842}
+        - {x: -8.34668, y: -18.713442}
+      - - {x: -29.242142, y: -1.9970627}
+        - {x: -20.286942, y: 6.560131}
+        - {x: -12.923782, y: -0.20602417}
+        - {x: -15.404999, y: -2.62986}
+        - {x: -7.538315, y: -11.300676}
+        - {x: -9.800537, y: -16.665342}
+        - {x: -19.840012, y: -6.8356514}
+        - {x: -22.077988, y: -9.559235}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

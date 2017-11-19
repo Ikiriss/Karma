@@ -25,7 +25,7 @@ public class Menu_death : MonoBehaviour {
         //GameObject.Find("ManaBar").GetComponent<Image>().enabled = false;
         //GameObject.Find("manaContent").GetComponent<Image>().enabled = false;
 
-
+        
         SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
         BoxCollider2D[] colliders = GetComponentsInChildren<BoxCollider2D>();
         ChangeSceneOnClickScript[] scripts = GetComponentsInChildren<ChangeSceneOnClickScript>();
@@ -64,6 +64,7 @@ public class Menu_death : MonoBehaviour {
         {
             script.enabled = false;
         }
+        
 
     }
 

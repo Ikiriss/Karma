@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: 44c88a0ad54f5384cab4ddc5631be7ab
+timeCreated: 1511061001
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: joueur_saut_0
+    21300002: joueur_saut_1
+    21300004: joueur_saut_2
+    21300006: joueur_saut_3
+    21300008: joueur_saut_4
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: joueur_saut_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13.971809, y: -17.24971}
+        - {x: 6.7761765, y: -17.055233}
+        - {x: 5.2203674, y: 5.499428}
+        - {x: 3.6369324, y: 14.138092}
+        - {x: -5.137512, y: 16.666283}
+        - {x: -10.665703, y: 8.805527}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_saut_1
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -11.60968, y: 17.834686}
+        - {x: -16.665314, y: 8.768883}
+        - {x: -13.368378, y: -1.2429047}
+        - {x: -12.990631, y: -7.753868}
+        - {x: -11.068207, y: -12.187256}
+        - {x: -12.666931, y: -16.866776}
+        - {x: -3.3654785, y: -16.990582}
+        - {x: 8.34552, y: -16.970806}
+        - {x: 8.809021, y: -3.5012283}
+        - {x: -0.8296509, y: 11.33213}
+        - {x: -3.8322449, y: 16.268066}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_saut_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16.507782, y: 1.3493271}
+        - {x: -12.641846, y: -16.086102}
+        - {x: 3.960846, y: -9.387444}
+        - {x: 0.7709961, y: 8.235718}
+        - {x: -6.9177856, y: 18.602684}
+        - {x: -18.262177, y: 11.693718}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_saut_3
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6.189026, y: 17.31958}
+        - {x: -15.712341, y: 14.383499}
+        - {x: -13.589905, y: 6.3385544}
+        - {x: -14.764282, y: -2.771965}
+        - {x: -12.966431, y: -7.037941}
+        - {x: -12.710693, y: -11.8342285}
+        - {x: -12.591553, y: -17.23835}
+        - {x: 6.0319824, y: -16.94474}
+        - {x: 8.885193, y: -2.8152466}
+        - {x: -0.6571655, y: 1.860199}
+        - {x: -1.6018677, y: 11.768654}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_saut_4
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13.996155, y: -16.93798}
+        - {x: 5.8953247, y: -16.790695}
+        - {x: 2.3604736, y: -1.7519608}
+        - {x: 3.8643188, y: 13.844948}
+        - {x: -3.631775, y: 16.348831}
+        - {x: -11.344971, y: 12.829468}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

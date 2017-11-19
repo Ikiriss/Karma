@@ -50,7 +50,16 @@ public class ShotScript : MonoBehaviour {
     {
         if (collision.collider.GetComponent<PlatformEffector2D>())
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            Wall wall = collision.collider.GetComponent<Wall>();
+            if(wall && wall.BulletThrough && wall.IsInList(bulletType))
+            {
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            }
+            else
+            {
+                ReturnToTheFactory();
+            }
+            
         }
     }
 
@@ -59,8 +68,9 @@ public class ShotScript : MonoBehaviour {
         if (previousPos != null)
         {
             Vector3 direction = transform.position - previousPos;
-            
-            if(direction!=new Vector3(0,0,0))
+
+            if (direction != new Vector3(0, 0, 0))
+                /*transform.eulerAngles= new Vector3(0, 0, -Vector3.Dot(direction, new Vector3(1, 0, 0) / Vector3.Distance(direction, new Vector3(0, 0, 0))));*/
                 transform.Rotate(0, 0, -Vector3.Dot(direction, new Vector3(1, 0, 0) / Vector3.Distance(direction, new Vector3(0, 0, 0))));
         }
         

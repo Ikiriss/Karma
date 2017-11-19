@@ -9,7 +9,7 @@ public class ItemFactory : MonoBehaviour {
     public Transform OEUF_CORBEAU;
     public Transform HACHE;
     public Transform ALLUMETTES;
-    public Transform ARC;
+    public Transform BAGUETTE_MAGIQUE;
     public Transform PLANTE_MAGIQUE;
 
     private Transform[] FLEURPool;
@@ -17,37 +17,38 @@ public class ItemFactory : MonoBehaviour {
     private Transform[] OEUF_CORBEAUPool;
     private Transform[] HACHEPool;
     private Transform[] ALLUMETTESPool;
-    private Transform[] ARCPool;
+    private Transform[] BAGUETTE_MAGIQUEPool;
     private Transform[] PLANTE_MAGIQUEPool;
 
-    public int FLEURPoolLength;
-    public int bouleEtoilePoolLength;
-    public int capsuleEnergyPoolLength;
+    public int FleurPoolLength = 1;
+    public int OeufCorbeauPoolLength = 1;
+    public int HachePoolLength = 1;
+    public int AllumettesPoolLength = 1;
+    public int BaguetteMagiquePoolLength = 1;
+    public int PlanteMagiquePoolLength = 1;
+
     // Use this for initialization
     void Start()
     {
 
         //initialisation de la pool
 
-        FLEURPool = new Transform[FLEURPoolLength];
-        EPEE_EVENT2Pool = new Transform[bouleEtoilePoolLength];
-        /*OEUF_CORBEAUPool = new Transform[bouleEtoilePoolLength];0
-        HACHEPool = new Transform[bouleEtoilePoolLength];
-        ALLUMETTESPool = new Transform[bouleEtoilePoolLength];
-        ARCPool = new Transform[bouleEtoilePoolLength];
-        PLANTE_MAGIQUEPool = new Transform[bouleEtoilePoolLength];
-        boule7EtoilePool = new Transform[bouleEtoilePoolLength];*/
+        FLEURPool = new Transform[FleurPoolLength];      
+        OEUF_CORBEAUPool = new Transform[OeufCorbeauPoolLength]; 
+        HACHEPool = new Transform[HachePoolLength];
+        ALLUMETTESPool = new Transform[AllumettesPoolLength];
+        BAGUETTE_MAGIQUEPool = new Transform[BaguetteMagiquePoolLength];
+        PLANTE_MAGIQUEPool = new Transform[PlanteMagiquePoolLength];
 
 
 
-        initList(FLEURPool,FLEURPoolLength,Item.Name.FLEUR);
-        initList(EPEE_EVENT2Pool, bouleEtoilePoolLength, Item.Name.EPEE_EVENT2);
-        /*initList(OEUF_CORBEAUPool, bouleEtoilePoolLength, Item.Name.OEUF_CORBEAU);
-        initList(HACHEPool, bouleEtoilePoolLength, Item.Name.HACHE);
-        initList(ALLUMETTESPool, bouleEtoilePoolLength, Item.Name.ALLUMETTES);
-        initList(ARCPool, bouleEtoilePoolLength, Item.Name.ARC);
-        initList(PLANTE_MAGIQUEPool, bouleEtoilePoolLength, Item.Name.PLANTE_MAGIQUE);
-        initList(boule7EtoilePool, bouleEtoilePoolLength, Item.Name.boule7Etoile);*/
+
+        initList(FLEURPool, FleurPoolLength, Item.Name.FLEUR);
+        initList(OEUF_CORBEAUPool, OeufCorbeauPoolLength, Item.Name.OEUF_CORBEAU);
+        initList(HACHEPool, HachePoolLength, Item.Name.HACHE);
+        initList(ALLUMETTESPool, AllumettesPoolLength, Item.Name.ALLUMETTES);
+        initList(BAGUETTE_MAGIQUEPool, BaguetteMagiquePoolLength, Item.Name.BAGUETTE_MAGIQUE);
+        initList(PLANTE_MAGIQUEPool, PlanteMagiquePoolLength, Item.Name.PLANTE_MAGIQUE);
 
     }
 
@@ -65,140 +66,138 @@ public class ItemFactory : MonoBehaviour {
         }
     }
 
-    //spawn un bullet dans la pool
+    //spawn un item dans la pool
     public Transform SpawnItem(Item.Name itemType)
     {
-        Transform bullet = null;
+        Transform item = null;
         switch (itemType)
         {
             case Item.Name.FLEUR:
-                bullet = Instantiate(FLEUR) as Transform;
+                item = Instantiate(FLEUR) as Transform;
                 break;
             case Item.Name.EPEE_EVENT2:
-                bullet = Instantiate(EPEE_EVENT2) as Transform;
+                item = Instantiate(EPEE_EVENT2) as Transform;
                 break;
             case Item.Name.OEUF_CORBEAU:
-                bullet = Instantiate(OEUF_CORBEAU) as Transform;
+                item = Instantiate(OEUF_CORBEAU) as Transform;
                 break;
             case Item.Name.HACHE:
-                bullet = Instantiate(HACHE) as Transform;
+                item = Instantiate(HACHE) as Transform;
                 break;
             case Item.Name.ALLUMETTES:
-                bullet = Instantiate(ALLUMETTES) as Transform;
+                item = Instantiate(ALLUMETTES) as Transform;
                 break;
-            case Item.Name.ARC:
-                bullet = Instantiate(ARC) as Transform;
+            case Item.Name.BAGUETTE_MAGIQUE:
+                item = Instantiate(BAGUETTE_MAGIQUE) as Transform;
                 break;
             case Item.Name.PLANTE_MAGIQUE:
-                bullet = Instantiate(PLANTE_MAGIQUE) as Transform;
+                item = Instantiate(PLANTE_MAGIQUE) as Transform;
                 break;
         }
-        bullet.position = new Vector3(-100, -100, -10);
+        item.position = new Vector3(-100, -100, -10);
 
-        return bullet;
+        return item;
     }
 
-    //permet d'obtenir un bullet de la pool
+    //permet d'obtenir un item de la pool
     public Transform GetItem(Item.Name itemType)
     {
-        Transform bullet = null;
+        Transform item = null;
         switch (itemType)
         {
 
             
             case Item.Name.FLEUR:
-                bullet = GetABulletFromAPool(FLEURPool,FLEURPoolLength);
-                break;
-            case Item.Name.EPEE_EVENT2:
-                bullet = GetABulletFromAPool(EPEE_EVENT2Pool,bouleEtoilePoolLength);
+                item = GetAitemFromAPool(FLEURPool, FleurPoolLength);
                 break;
             case Item.Name.OEUF_CORBEAU:
-                bullet = GetABulletFromAPool(OEUF_CORBEAUPool, bouleEtoilePoolLength);
+                item = GetAitemFromAPool(OEUF_CORBEAUPool, OeufCorbeauPoolLength);
                 break;
             case Item.Name.HACHE:
-                bullet = GetABulletFromAPool(HACHEPool, bouleEtoilePoolLength);
+                item = GetAitemFromAPool(HACHEPool, HachePoolLength);
                 break;
             case Item.Name.ALLUMETTES:
-                bullet = GetABulletFromAPool(ALLUMETTESPool, bouleEtoilePoolLength);
+                item = GetAitemFromAPool(ALLUMETTESPool, AllumettesPoolLength);
                 break;
-            case Item.Name.ARC:
-                bullet = GetABulletFromAPool(ARCPool, bouleEtoilePoolLength);
+            case Item.Name.BAGUETTE_MAGIQUE:
+                item = GetAitemFromAPool(BAGUETTE_MAGIQUEPool, BaguetteMagiquePoolLength);
                 break;
             case Item.Name.PLANTE_MAGIQUE:
-                bullet = GetABulletFromAPool(PLANTE_MAGIQUEPool, bouleEtoilePoolLength);
+                item = GetAitemFromAPool(PLANTE_MAGIQUEPool, PlanteMagiquePoolLength);
                 break;
         }
-        if (bullet == null)
+        if (item == null)
         {
-            bullet = SpawnItem(itemType);
+            item = SpawnItem(itemType);
         }
-        return bullet;
+        return item;
     }
 
-    //permet de rendre un bullet dans la pool
-    public void GiveBackItem(Item.Name mobType, Transform bullet)
+    //permet de rendre un item dans la pool
+    public void GiveBackItem(Item.Name mobType, Transform item)
     {
-        bullet.position = new Vector3(-100, -100, -10);
+        item.position = new Vector3(-100, -100, -10);
+        if (item.GetComponent<Rigidbody2D>())
+        {
+            item.GetComponent<Rigidbody2D>().simulated = false;
+        }
         
         switch (mobType)
         {
 
             case Item.Name.FLEUR:
-                PutBulletBackInAPool(bullet,FLEURPool, FLEURPoolLength);
-                break;
-            case Item.Name.EPEE_EVENT2:
-                PutBulletBackInAPool(bullet,EPEE_EVENT2Pool, bouleEtoilePoolLength);
+                PutitemBackInAPool(item,FLEURPool, FleurPoolLength);
                 break;
             case Item.Name.OEUF_CORBEAU:
-                PutBulletBackInAPool(bullet,OEUF_CORBEAUPool, bouleEtoilePoolLength);
+                PutitemBackInAPool(item,OEUF_CORBEAUPool, OeufCorbeauPoolLength);
                 break;
             case Item.Name.HACHE:
-                PutBulletBackInAPool(bullet, HACHEPool, bouleEtoilePoolLength);
+                PutitemBackInAPool(item, HACHEPool, HachePoolLength);
                 break;
             case Item.Name.ALLUMETTES:
-                PutBulletBackInAPool(bullet, ALLUMETTESPool, bouleEtoilePoolLength);
+                PutitemBackInAPool(item, ALLUMETTESPool, AllumettesPoolLength);
                 break;
-            case Item.Name.ARC:
-                PutBulletBackInAPool(bullet, ARCPool, bouleEtoilePoolLength);
+            case Item.Name.BAGUETTE_MAGIQUE:
+                PutitemBackInAPool(item, BAGUETTE_MAGIQUEPool, BaguetteMagiquePoolLength);
                 break;
             case Item.Name.PLANTE_MAGIQUE:
-                PutBulletBackInAPool(bullet, PLANTE_MAGIQUEPool, bouleEtoilePoolLength);
+                PutitemBackInAPool(item, PLANTE_MAGIQUEPool, PlanteMagiquePoolLength);
                 break;
         }
 
     }
 
-    //sort un bullet d'une pool
-    private Transform GetABulletFromAPool(Transform[] bulletPool, int poolLength)
+    //sort un item d'une pool
+    private Transform GetAitemFromAPool(Transform[] itemPool, int poolLength)
     {
-        Transform bullet = null;
+        Transform item = null;
         for (int i = 0; i < poolLength; i++)
         {
-            if (bulletPool[i] != null)
+            if (itemPool[i] != null)
             {
-                bullet = bulletPool[i];
-                bulletPool[i] = null;
+                item = itemPool[i];
+                itemPool[i] = null;
                 break;
             }
         }
-        return bullet;
+        return item;
     }
 
-    //met un bullet dans une pool
-    private void PutBulletBackInAPool(Transform bullet, Transform[] bulletPool, int poolLength)
+    //met un item dans une pool
+    private void PutitemBackInAPool(Transform item, Transform[] itemPool, int poolLength)
     {
         for (int i = 0; i < poolLength; i++)
         {
 
-            if (bulletPool[i] == null)
+            if (itemPool[i] == null)
             {
-                //Debug.Log(bulletPool[i]);
-                bulletPool[i] = bullet;
+                //Debug.Log(itemPool[i]);
+                itemPool[i] = item;
                 return;
             }
         }
         //Si on est ici, il n'y a plus de place
-        Destroy(bullet.gameObject);
+        Destroy(item.gameObject);
     }
 
 

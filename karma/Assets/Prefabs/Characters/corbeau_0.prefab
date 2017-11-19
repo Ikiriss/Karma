@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4187109354471666}
   - component: {fileID: 212430117386257560}
+  - component: {fileID: 114205638532548930}
+  - component: {fileID: 50976069028326546}
   m_Layer: 0
   m_Name: corbeau_0
   m_TagString: Untagged
@@ -33,13 +35,65 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551611473422554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.9, y: 6.7, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50976069028326546
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551611473422554}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &114205638532548930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551611473422554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89192fb821bb62e46b62f9999abd6606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobType: 0
+  hp: 0
+  damage: 0
+  maxHp: 0
+  attackRate: 0.25
+  attackCooldown: 0
+  attackSound: {fileID: 0}
+  attackSoundRate: 1
+  attackSoundVolume: 1
+  walkSound: {fileID: 0}
+  walkSoundRate: 1
+  walkSoundVolume: 1
+  speed: {x: 10, y: 10}
+  margePnjActivation: 2
+  linkedPnj: {fileID: 0}
+  attackPattern: 0
+  isAttacked: 0
+  isCacAttack: 0
+  pnjState: 0
+  pnjName: 11
+  bossReturnCooldown: 2
 --- !u!212 &212430117386257560
 SpriteRenderer:
   m_ObjectHideFlags: 1
