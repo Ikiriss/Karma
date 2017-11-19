@@ -1188,7 +1188,7 @@ public class Pnj : Entity {
         
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionStay2D(Collision2D collision)
     {
         if(pnjName == Name.ENFANT)
         {
