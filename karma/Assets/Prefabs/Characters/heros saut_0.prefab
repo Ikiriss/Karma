@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 60522470844728392}
   - component: {fileID: 114684817544097472}
   - component: {fileID: 114529571100232436}
+  - component: {fileID: 114426023556293994}
   m_Layer: 0
   m_Name: heros saut_0
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866117470981808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.207144, y: 0.53441334, z: 0}
+  m_LocalPosition: {x: 28.6, y: -0.2, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,7 +59,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -88,17 +89,28 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 0.175, y: 0}
-      - {x: 0.1875, y: 0.2125}
-      - {x: 0.0625, y: 0.275}
+    - - {x: -0.18471876, y: -0.16243742}
+      - {x: -0.16200428, y: -0.22502504}
+      - {x: 0.32500002, y: -0.22417758}
+      - {x: 0.32500002, y: 0.16250001}
+      - {x: 0.3, y: 0.275}
       - {x: -0.175, y: 0.275}
       - {x: -0.1875, y: 0.25}
-      - {x: -0.1875, y: -0.16250001}
-      - {x: -0.16250001, y: -0.25}
-      - {x: 0.112500004, y: -0.25}
-      - {x: 0.2875, y: -0.175}
-      - {x: 0.32500002, y: -0.1375}
-      - {x: 0.32500002, y: -0.0875}
+--- !u!114 &114426023556293994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866117470981808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b90302d9ad78634f8dbb08af5cd6ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 1, y: 0}
+  direction: {x: 1, y: 0}
+  isLinkedToCamera: 1
+  isLooping: 0
 --- !u!114 &114529571100232436
 MonoBehaviour:
   m_ObjectHideFlags: 1
