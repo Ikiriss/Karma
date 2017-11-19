@@ -1140,6 +1140,24 @@ public class Pnj : Entity {
             GiveMobBack(transform);
         }
     }
+
+    void flipDirection()
+    {
+        if (transform.eulerAngles.y == 180)
+        {
+            if (transform.position.x < player.transform.position.x)
+            {
+                transform.Rotate(0, 180, 0);
+            }
+        }
+        else
+        {
+            if (transform.position.x > player.transform.position.x)
+            {
+                transform.Rotate(0, -180, 0);
+            }
+        }
+    }
 }
 
 
