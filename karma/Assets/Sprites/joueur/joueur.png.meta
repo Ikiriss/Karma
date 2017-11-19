@@ -1,0 +1,336 @@
+fileFormatVersion: 2
+guid: b58f377e00f22834199c4e9a47a0ccca
+timeCreated: 1511060635
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: joueur_0
+    21300002: joueur_1
+    21300004: joueur_2
+    21300006: joueur_3
+    21300008: joueur_4
+    21300010: joueur_5
+    21300012: joueur_6
+    21300014: joueur_7
+    21300016: joueur_8
+    21300018: joueur_9
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: joueur_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.2534485, y: -17.199677}
+        - {x: 6.1795044, y: -17.13593}
+        - {x: 3.3636093, y: -0.9709854}
+        - {x: 4.7376556, y: 12.194405}
+        - {x: -3.0541992, y: 17.259033}
+        - {x: -11.910179, y: 13.906364}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_1
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1.2100525, y: 16.420082}
+        - {x: -6.4868164, y: 15.990097}
+        - {x: -8.620209, y: 9.693527}
+        - {x: -10.340179, y: -16.993393}
+        - {x: 7.2100525, y: -16.993393}
+        - {x: 3.6070251, y: -7.9867935}
+        - {x: 4.7536316, y: 1.0132065}
+        - {x: 5.2001343, y: 12.413475}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8.978821, y: 10.24176}
+        - {x: 2.98349, y: 16.488228}
+        - {x: -5.75589, y: 15.232353}
+        - {x: -9.74173, y: -1.5729599}
+        - {x: -15.983551, y: -4.5541306}
+        - {x: -17.23941, y: -19.990585}
+        - {x: 14.9835205, y: -19.990585}
+        - {x: 17.24414, y: -6.758232}
+        - {x: 6.201782, y: -0.7535324}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_3
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1.9644775, y: 16.679176}
+        - {x: -6.357727, y: 16.500648}
+        - {x: -7.7160034, y: 6.32341}
+        - {x: -11.8220825, y: -2.7529068}
+        - {x: -10.383362, y: -16.926537}
+        - {x: 7.7790527, y: -17.029716}
+        - {x: 7.8233643, y: -6.8939133}
+        - {x: 4.074402, y: -2.4631348}
+        - {x: 6.6435547, y: 11.287193}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_4
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8.560242, y: 11.475685}
+        - {x: 4.29126, y: 16.285881}
+        - {x: -4.630493, y: 16.727165}
+        - {x: -6.6696167, y: 7.843422}
+        - {x: -12.684082, y: -4.403961}
+        - {x: -16.539185, y: -19.779358}
+        - {x: 14.032593, y: -19.779358}
+        - {x: 14.526123, y: -7.167282}
+        - {x: 5.8641357, y: -1.7259903}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_5
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2.3527832, y: 16.204689}
+        - {x: -5.2633057, y: 16.498932}
+        - {x: -8.173706, y: 11.940292}
+        - {x: -8.352051, y: 4.897209}
+        - {x: -11.851807, y: -2.3773727}
+        - {x: -10.512939, y: -17.026096}
+        - {x: 8.050293, y: -17.026096}
+        - {x: 7.408325, y: -7.174835}
+        - {x: 4.024536, y: -2.4136505}
+        - {x: 6.704712, y: 11.115128}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_6
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10.964722, y: 0.17954254}
+        - {x: -10.778687, y: -17.10688}
+        - {x: 9.206177, y: -17.10688}
+        - {x: 8.73291, y: -6.381592}
+        - {x: 4.5985107, y: -1.5884781}
+        - {x: 8.679443, y: 10.244324}
+        - {x: 3.703003, y: 16.166}
+        - {x: -4.8206787, y: 15.805359}
+        - {x: -6.8740234, y: 8.526726}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_7
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 9.604126, y: 7.729164}
+        - {x: 6.197876, y: 13.781235}
+        - {x: 0.760376, y: 16.697884}
+        - {x: -3.760376, y: 14.260368}
+        - {x: -5.958252, y: 4.1144714}
+        - {x: -4.375122, y: -3.0812683}
+        - {x: -10.291626, y: -16.83331}
+        - {x: 9.145752, y: -16.83331}
+        - {x: 9.604126, y: -5.9477844}
+        - {x: 4.510254, y: -2.79171}
+        - {x: 10.197998, y: 1.6458206}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_8
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3.6253662, y: 16.968727}
+        - {x: -2.385376, y: 11.635056}
+        - {x: -4.116333, y: -3.6809921}
+        - {x: -8.968506, y: -5.958397}
+        - {x: -11.135254, y: -16.968727}
+        - {x: 12.166504, y: -16.83331}
+        - {x: 8.274048, y: -9.514801}
+        - {x: 11.087524, y: -7.6220474}
+        - {x: 9.187378, y: 0.88022614}
+        - {x: 9.729004, y: 9.385307}
+      - - {x: 18.259888, y: -16.715435}
+        - {x: 10.755859, y: -9.347321}
+        - {x: 17.011353, y: -4.462181}
+        - {x: 20.03357, y: 0.7839813}
+        - {x: 22.476929, y: 8.336929}
+        - {x: 20.64148, y: 15.29879}
+        - {x: 25.787354, y: 9.475807}
+        - {x: 28.016968, y: -0.85630035}
+        - {x: 25.516602, y: -10.159836}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: joueur_9
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 0
+        width: 203
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6.6638184, y: 8.759102}
+        - {x: -11.367554, y: -1.2012482}
+        - {x: -8.143433, y: -10.057526}
+        - {x: -10.791626, y: -16.968727}
+        - {x: 8.953491, y: -16.968727}
+        - {x: 8.806274, y: -6.5312576}
+        - {x: 4.7509766, y: -2.0053864}
+        - {x: 7.9786377, y: 5.107025}
+        - {x: 5.5352783, y: 15.799644}
+        - {x: -3.880127, y: 15.817368}
+        - {x: -9.044312, y: 12.564552}
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
