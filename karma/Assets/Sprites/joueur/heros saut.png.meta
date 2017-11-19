@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7c5f3a5fae2ecad41a06e3c1aa65868a
-timeCreated: 1511014707
+timeCreated: 1511050217
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -88,10 +88,24 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+      outline:
+      - - {x: -15, y: -15.2199955}
+        - {x: -12.664999, y: -17.997496}
+        - {x: 25.554993, y: -17.997498}
+        - {x: 26, y: 13}
+        - {x: 24, y: 22}
+        - {x: -14, y: 22}
+        - {x: -15, y: 20}
+      physicsShape:
+      - - {x: -14.7775, y: -12.994993}
+        - {x: -12.960342, y: -18.002003}
+        - {x: 26, y: -17.934206}
+        - {x: 26, y: 13}
+        - {x: 24, y: 22}
+        - {x: -14, y: 22}
+        - {x: -15, y: 20}
       tessellationDetail: 0
     - serializedVersion: 2
       name: heros saut_1
@@ -102,10 +116,32 @@ TextureImporter:
         width: 80
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+      outline:
+      - - {x: 15, y: 20}
+        - {x: 5, y: 22}
+        - {x: -9, y: 22}
+        - {x: -14, y: 16}
+        - {x: -21, y: 5}
+        - {x: -23, y: 1}
+        - {x: -23, y: -8}
+        - {x: -14, y: -20}
+        - {x: 6, y: -20}
+        - {x: 22, y: -3}
+        - {x: 22, y: 15}
+      physicsShape:
+      - - {x: 15, y: 20}
+        - {x: 5, y: 22}
+        - {x: -9, y: 22}
+        - {x: -14, y: 16}
+        - {x: -21, y: 5}
+        - {x: -23, y: 1}
+        - {x: -23, y: -8}
+        - {x: -14, y: -20}
+        - {x: 6, y: -20}
+        - {x: 22, y: -3}
+        - {x: 22, y: 15}
       tessellationDetail: 0
     outline: []
     physicsShape: []
