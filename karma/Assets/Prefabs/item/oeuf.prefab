@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212397149589409856}
   - component: {fileID: 50118248511942120}
   - component: {fileID: 60812777085389544}
+  - component: {fileID: 114072798697173260}
   m_Layer: 0
   m_Name: oeuf
   m_TagString: Untagged
@@ -94,6 +95,19 @@ PolygonCollider2D:
       - {x: 0.099999994, y: -0.089999996}
       - {x: 0.099999994, y: 0.08}
       - {x: 0.049999997, y: 0.12}
+--- !u!114 &114072798697173260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377433113246688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d6aefd6de7205428c8112ee2153684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 2
+  isPicked: 0
 --- !u!212 &212397149589409856
 SpriteRenderer:
   m_ObjectHideFlags: 1
