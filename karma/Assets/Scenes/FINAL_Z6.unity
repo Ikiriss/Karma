@@ -3988,6 +3988,68 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1258366829
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2116825917}
+    m_Modifications:
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.0445223
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683156882662676, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61623631882379694, guid: 2d9b548f560648a498c3fedc81fbf780,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -1.3819818
+      objectReference: {fileID: 0}
+    - target: {fileID: 61623631882379694, guid: 2d9b548f560648a498c3fedc81fbf780,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.43980122
+      objectReference: {fileID: 0}
+    - target: {fileID: 61623631882379694, guid: 2d9b548f560648a498c3fedc81fbf780,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.4261341
+      objectReference: {fileID: 0}
+    - target: {fileID: 61623631882379694, guid: 2d9b548f560648a498c3fedc81fbf780,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 4.4423447
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2d9b548f560648a498c3fedc81fbf780, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1290837544
 Prefab:
   m_ObjectHideFlags: 0
