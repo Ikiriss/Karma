@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class SoundEffectsHelper : MonoBehaviour
 {
-    AudioClip buttonSelectedSound;
-    AudioClip buttonSelectSound;
+    public AudioClip buttonSelectedSound;
+    public AudioClip buttonSelectSound;
     /// <summary>
     /// Singleton
     /// </summary>
