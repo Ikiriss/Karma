@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour {
         get { return corbeauMode; }
         set { corbeauMode = value; }
     }
+    [SerializeField]
+    private float corbeauGravityScale;
+    public float CorbeauGravityScale
+    {
+        get { return corbeauGravityScale; }        
+    }
 
     private float translateActivationMarge = 0.1f;
     private bool grounded = false;
@@ -52,6 +58,7 @@ public class PlayerController : MonoBehaviour {
     private bool attack3 = false;
 
     private float previousVelocityY =0;
+    private float previousGravityScale = -1;
     // Use this for initialization
     void Start () {
 
@@ -64,7 +71,11 @@ public class PlayerController : MonoBehaviour {
     {
         if (corbeauMode)
         {
-            rigidbody.gravityScale = 1.0f;
+            if (previousGravityScale == -1)
+            {
+                previousGravityScale = rigidbody.gravityScale;
+            }
+            rigidbody.gravityScale = corbeauGravityScale;
         }
         
         if (/*previousVelocityY == 0 && */rigidbody.velocity.y == 0)

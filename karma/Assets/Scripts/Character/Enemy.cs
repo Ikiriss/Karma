@@ -52,6 +52,7 @@ public class Enemy : Entity {
 		// -- collider
 		GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
+        myAnimator = GetComponent<Animator>();
 		// -- Mouvement
 		moveScript.enabled = false;
 		// -- Tir

@@ -110,6 +110,7 @@ public class Pnj : Entity {
 
     // Use this for initialization
     void Start () {
+        myAnimator = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
         InitPnjState();
         weapon = GetComponentInChildren<WeaponScript>();
