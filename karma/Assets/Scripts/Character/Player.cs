@@ -50,6 +50,13 @@ public class Player : Entity {
     [SerializeField]
     protected float jumpSoundVolume = 1.0f;
 
+    [SerializeField]
+    protected string jumpAnimationParameter = "jump";
+    protected string JumpAnimationParameter
+    {
+        get { return jumpAnimationParameter; }
+    }
+
     // Stockage du mouvement
     //private Vector2 movement;
     //public Vector2 Movement
@@ -136,7 +143,7 @@ public class Player : Entity {
                 }
                 pnj.Attack();
                 hp -= pnj.Damage;
-
+                pnj.MakeAttackAnimation();
                 //Recule in collision
                 if (transform.eulerAngles.y == 0)
                 {
@@ -166,6 +173,7 @@ public class Player : Entity {
             }
             enemy.Attack();
             hp -= enemy.Damage;
+            enemy.MakeAttackAnimation();
 
             //Recule in collision
             if (transform.eulerAngles.y == 0)
@@ -265,5 +273,13 @@ public class Player : Entity {
     {
         jumpSoundCooldown = jumpSoundRate;
         AudioSource.PlayClipAtPoint(jumpSound, transform.position, jumpSoundVolume);
+    }
+
+    public virtual void MakeJumpAnimation()
+    {
+        if (myAnimator)
+        {
+            myAnimator.SetTrigger(jumpAnimationParameter);
+        }
     }
 }

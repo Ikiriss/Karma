@@ -17,6 +17,7 @@ public class MoveScript : MonoBehaviour {
         set { speed = value; }
     }
 
+    private Enemy enemy;
     /// <summary>
     /// Direction
     /// </summary>
@@ -68,6 +69,7 @@ public class MoveScript : MonoBehaviour {
 
     void Start () {
 		rigidbody2D = GetComponent<Rigidbody2D> ();
+        enemy = GetComponent<Enemy>();
 
 
     }
@@ -99,6 +101,11 @@ public class MoveScript : MonoBehaviour {
 		// Application du mouvement
 		// new pos = position + speed * maxspeed*time deltatime Time.deltaTime si on utilise pas velocity
 		rigidbody2D.velocity = movement;
+        if (enemy && movement != new Vector2(0, 0))
+        {
+            enemy.MakeWalkAnimation();
+            enemy.MakeWalkSound();
+        }
 	}
 
     public void setDead()

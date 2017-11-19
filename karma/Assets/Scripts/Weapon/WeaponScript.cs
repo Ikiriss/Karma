@@ -29,11 +29,13 @@ public class WeaponScript : MonoBehaviour {
     [SerializeField]
 	protected bool isEnemy = true;
     [SerializeField]
-    protected string animatorParameter = ""; //animation à faire
-    public string AnimatorParameter
+    protected string weaponAnimationParameter = "attack"; //animation à faire
+    public string WeaponAnimationParameter
     {
-        get { return animatorParameter; }
+        get { return weaponAnimationParameter; }
     }
+    
+
     [SerializeField]
     protected AudioClip weaponSound = null; //son à faire
     public AudioClip WeaponSound
@@ -130,6 +132,7 @@ public class WeaponScript : MonoBehaviour {
         if(weaponSound)
             AudioSource.PlayClipAtPoint(weaponSound, transform.position, weaponVolume);
     }
+
 
 	/// <summary>
 	/// L'arme est chargée ?
