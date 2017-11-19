@@ -163,7 +163,7 @@ public class WeaponScript : MonoBehaviour {
 
         shotTransform.GetComponent<ShotScript>().PreviousPos = transform.position;
         //shotTransform.gameObject.GetComponent<Entity>().enabled = true;
-        if (shotTransform.gameObject.GetComponent<Entity>())
+        if (shotTransform.gameObject.GetComponent<Animator>())
             shotTransform.gameObject.GetComponent<Animator>().SetBool("pool", false);
         //Si on doit viser, on calcule les coordonées et on attend l'animation si on est un projectile
         

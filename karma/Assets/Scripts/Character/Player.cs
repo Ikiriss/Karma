@@ -58,6 +58,13 @@ public class Player : Entity {
     //    set { movement = value; }
     //}
 
+    private bool isHit = false;
+    public bool IsHit
+    {
+        get { return isHit; }
+        set { isHit = value; }
+    }
+
 
     void Start () {
         maxHp = hp;
@@ -102,22 +109,54 @@ public class Player : Entity {
         {
             hp -= shot.Damage;
             shot.ReturnToTheFactory();
-            //Debug.Log("je prend des dégatzaes");
-        }
-        if (pnj)
-        {
-            if (pnj.CanAttackSound)
+            if(transform.eulerAngles.y == 0)
             {
-                pnj.MakeAttackSound();
+                rigidbody.velocity = new Vector2(-5, 0);
             }
-            pnj.Attack();
-            hp -= pnj.Damage;
+            else
+            {
+                rigidbody.velocity = new Vector2(5, 0);
+            }
 
-            //Recule in collision
-            rigidbody.velocity = new Vector2(-10, 0);
-            pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+            isHit = true;
 
-            Debug.Log(hp);
+            //Debug.Log("je prend des dégats");
+        }
+        if (pnj && pnj.CanAttack)
+        {
+            if(pnj.PnjName == Pnj.Name.CORBEAU && KarmaScript.karma != KarmaScript.KarmaState.NEGATIVE_KARMA)
+            {
+                GetComponent<PlayerController>().CorbeauMode = true;
+            }
+            else
+            {
+                if (pnj.CanAttackSound)
+                {
+                    pnj.MakeAttackSound();
+                }
+                pnj.Attack();
+                hp -= pnj.Damage;
+
+                //Recule in collision
+                if (transform.eulerAngles.y == 0)
+                {
+                    rigidbody.velocity = new Vector2(-10, 0);
+                    pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                    pnj.flipDirection();
+                }
+                else
+                {
+                    rigidbody.velocity = new Vector2(10, 0);
+                    pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+                    pnj.flipDirection();
+                }
+
+                Debug.Log(hp);
+                isHit = true;
+
+            }
+
+            
         }
         else if (enemy && enemy.CanAttack)
         {
@@ -129,9 +168,22 @@ public class Player : Entity {
             hp -= enemy.Damage;
 
             //Recule in collision
-            rigidbody.velocity = new Vector2(-2, 0);
+            if (transform.eulerAngles.y == 0)
+            {
+                rigidbody.velocity = new Vector2(-10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                pnj.flipDirection();
+            }
+            else
+            {
+                rigidbody.velocity = new Vector2(10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+                pnj.flipDirection();
+            }
+
 
             Debug.Log(hp);
+            isHit = true;
         }
     }
 

@@ -104,8 +104,13 @@ public class Pnj : Entity {
     private float bossReturnCooldown = 2f;
     private float bossReturnCount = 0f;
 
+    protected DropScript[] items;
+
+
+
     // Use this for initialization
     void Start () {
+        myAnimator = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player>();
         InitPnjState();
         weapon = GetComponentInChildren<WeaponScript>();
@@ -855,6 +860,61 @@ public class Pnj : Entity {
     }
 }
 
+
+    void dropItem(bool specialEventTrigger = false)
+    {
+        switch(pnjName)
+        {
+            case Name.MARCHAND:
+                if(KarmaScript.karma == KarmaScript.KarmaState.POSITIVE_KARMA)
+                {
+                    if(specialEventTrigger)
+                    {
+                        foreach (DropScript drop in items)
+                        {
+                            // Drop all items
+                        }
+                    }
+                }
+                else if(KarmaScript.karma == KarmaScript.KarmaState.NEGATIVE_KARMA)
+                {
+                    if (!specialEventTrigger)
+                    {
+                        foreach (DropScript drop in items)
+                        {
+                            // Drop only the egg
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (DropScript drop in items)
+                    {
+                        // Drop only the egg
+                    }
+                }
+                break;
+
+            case Name.ENFANT:
+                if(KarmaScript.karma == KarmaScript.KarmaState.POSITIVE_KARMA)
+                {
+                    if(specialEventTrigger && pnjState == State.HAPPY)
+                    {
+                        foreach (DropScript drop in items)
+                        {
+                            // Drop only the plante magique
+                        }
+                    }
+                }
+                break;
+
+            case Name.CLODO:
+
+                break;
+        }
+    }
+
+
     void PnjEffect(bool specialEventTrigger = false)
     {
         switch (KarmaScript.karma)
@@ -1121,11 +1181,6 @@ public class Pnj : Entity {
             shot.ReturnToTheFactory();
             //Debug.Log("je prend des dégatzaes");
         }
-    }
-
-    protected void OnCollisionStay2D(Collision2D collision)
-    {
-
         Player player = collision.collider.GetComponent<Player>();
 
         if (player && collision.collider.GetComponent<PlayerController>().Attack1)
@@ -1137,11 +1192,14 @@ public class Pnj : Entity {
         if (hp <= 0)
         {
             //animation si on veut
+            dropItem();
             GiveMobBack(transform);
         }
     }
 
-    void flipDirection()
+    
+
+    public void flipDirection()
     {
         if (transform.eulerAngles.y == 180)
         {

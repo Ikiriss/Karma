@@ -3,6 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+
+    private float frameCount = 0;
+    private float maxCount = 20;
+
+    [SerializeField]
+    private GameObject corbeau;
+    [SerializeField]
+    private bool corbeauMode = false;
+    public bool CorbeauMode
+    {
+        get { return corbeauMode; }
+        set { corbeauMode = value; }
+    }
+    [SerializeField]
+    private float corbeauGravityScale;
+    public float CorbeauGravityScale
+    {
+        get { return corbeauGravityScale; }        
+    }
+
     private float translateActivationMarge = 0.1f;
     private bool grounded = false;
     private Rigidbody2D rigidbody;
@@ -13,6 +33,7 @@ public class PlayerController : MonoBehaviour {
     private bool jump = false;
     private bool attack1 = false;
     private bool moveHorizontalBlocked = false;
+    private float horizontalTranslation = 0f;
     public bool Attack1
     {
         get {
@@ -37,6 +58,7 @@ public class PlayerController : MonoBehaviour {
     private bool attack3 = false;
 
     private float previousVelocityY =0;
+    private float previousGravityScale = -1;
     // Use this for initialization
     void Start () {
 
@@ -47,6 +69,14 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (corbeauMode)
+        {
+            if (previousGravityScale == -1)
+            {
+                previousGravityScale = rigidbody.gravityScale;
+            }
+            rigidbody.gravityScale = corbeauGravityScale;
+        }
         
         if (/*previousVelocityY == 0 && */rigidbody.velocity.y == 0)
         {
@@ -75,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        float horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
+        horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
         //if(horizontalTranslation == 0)
         //{
         //    moveHorizontalBlocked = false;
@@ -96,8 +126,25 @@ public class PlayerController : MonoBehaviour {
             moveLeft = false;
             moveRight = false;
         }
-        HandleMovement();
-        HandleSound();
+        Flip();
+        if(!player.IsHit)
+        {
+            HandleMovement();
+            HandleSound();
+        }
+        else
+        {
+            if(frameCount == maxCount)
+            {
+                player.IsHit = false;
+                frameCount = 0;
+            }
+            else
+            {
+                frameCount++;
+            }
+        }
+
     }
 
     
@@ -186,6 +233,24 @@ public class PlayerController : MonoBehaviour {
         {
             if (player.CanJumpSound)
                 player.MakeJumpSound();
+        }
+    }
+
+    void Flip()
+    {
+        if(moveLeft)
+        {
+            if (transform.eulerAngles.y == 0)
+            {
+                transform.Rotate(new Vector3(0, 180, 0));
+            }
+        }
+        else
+        {
+            if (transform.eulerAngles.y == 180)
+            {
+                transform.Rotate(new Vector3(0, -180, 0));
+            }
         }
     }
 }

@@ -52,6 +52,13 @@ public class Entity : MonoBehaviour {
     protected float attackSoundVolume = 1.0f;
 
     [SerializeField]
+    protected string attackAnimationParameter = "";
+    protected string AttackAnimationParameter
+    {
+        get { return attackAnimationParameter; }
+    }
+
+    [SerializeField]
     protected AudioClip walkSound = null;
     //protected Enemy enemyScript;
     [SerializeField]
@@ -60,7 +67,14 @@ public class Entity : MonoBehaviour {
     [SerializeField]
     protected float walkSoundVolume = 1.0f;
 
-	void OnTriggerEnter2D(Collider2D collider)
+    [SerializeField]
+    protected string walkAnimationParameter = "";
+    protected string WalkAnimationParameter
+    {
+        get { return walkAnimationParameter; }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
 	{
 	    
 	}
@@ -138,5 +152,22 @@ public class Entity : MonoBehaviour {
         attackSoundCooldown = attackSoundRate;
         if(attackSound)
             AudioSource.PlayClipAtPoint(attackSound, transform.position, attackSoundVolume);
+    }
+
+    public virtual void MakeWalkAnimation()
+    {
+        
+        if (myAnimator)
+        {
+            myAnimator.SetTrigger(walkAnimationParameter);
+        }
+    }
+
+    public virtual void MakeAttackAnimation()
+    {
+        if (myAnimator)
+        {
+            myAnimator.SetTrigger(attackAnimationParameter);
+        }
     }
 }

@@ -137,6 +137,10 @@ public class ItemFactory : MonoBehaviour {
     public void GiveBackItem(Item.Name mobType, Transform item)
     {
         item.position = new Vector3(-100, -100, -10);
+        if (item.GetComponent<Rigidbody2D>())
+        {
+            item.GetComponent<Rigidbody2D>().simulated = false;
+        }
         
         switch (mobType)
         {
