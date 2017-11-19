@@ -295,6 +295,7 @@ public class Pnj : Entity {
 
                     case Name.BOUGIE:
                         // TODO complete effect
+                        attackPattern = true;
                         if (attackPattern)
                         {
                             Vector3 playerPosition = player.transform.position;
@@ -348,11 +349,13 @@ public class Pnj : Entity {
                         {
                             Vector3 playerPosition = player.transform.position;
                             Vector3 bossPosition = transform.position;
-                            if (transform.rotation.y == 180)
+                            if (transform.eulerAngles.y == 180)
                             {
                                 if (playerPosition.x < bossPosition.x)
                                 {
+                                    
                                     weapon.enabled = true;
+                                    bossReturnCount = 0f;
                                     if (weapon != null && weapon.enabled && weapon.CanAttack)
                                     {
                                         if (GetComponent<Animator>())
@@ -363,21 +366,24 @@ public class Pnj : Entity {
                                 }
                                 else
                                 {
+                                    
                                     weapon.enabled = false;
                                     if (bossReturnCount > bossReturnCooldown)
                                     {
-                                        transform.Rotate(0, 180, 0);
+                                        transform.Rotate(0, -180, 0);
                                         bossReturnCount = 0f;
                                     }
                                     bossReturnCount += Time.deltaTime;
                                 }
                             }
-                            else if (transform.rotation.y == 0)
+                            else
                             {
                                 {
                                     if (playerPosition.x > bossPosition.x)
                                     {
+                                        
                                         weapon.enabled = true;
+                                        bossReturnCount = 0f;
                                         if (weapon != null && weapon.enabled && weapon.CanAttack)
                                         {
                                             if (GetComponent<Animator>())
@@ -388,6 +394,7 @@ public class Pnj : Entity {
                                     }
                                     else
                                     {
+                                        
                                         weapon.enabled = false;
                                         if (bossReturnCount > bossReturnCooldown)
                                         {
@@ -540,6 +547,7 @@ public class Pnj : Entity {
 
                     case Name.BOUGIE:
                         // TODO complete effect
+                        attackPattern = true;
                         if (attackPattern)
                         {
                             Vector3 playerPosition = player.transform.position;
@@ -608,11 +616,12 @@ public class Pnj : Entity {
                         {
                             Vector3 playerPosition = player.transform.position;
                             Vector3 bossPosition = transform.position;
-                            if (transform.rotation.y == 180)
+                            if (transform.eulerAngles.y == 180)
                             {
                                 if (playerPosition.x < bossPosition.x)
                                 {
                                     weapon.enabled = true;
+                                    bossReturnCount = 0f;
                                     if (weapon != null && weapon.enabled && weapon.CanAttack)
                                     {
                                         if (GetComponent<Animator>())
@@ -632,7 +641,7 @@ public class Pnj : Entity {
                                     bossReturnCount += Time.deltaTime;
                                 }
                             }
-                            else if (transform.rotation.y == 0)
+                            else if (transform.eulerAngles.y == 0)
                             {
                                 {
                                     if (playerPosition.x > bossPosition.x)
@@ -651,7 +660,7 @@ public class Pnj : Entity {
                                         weapon.enabled = false;
                                         if (bossReturnCount > bossReturnCooldown)
                                         {
-                                            transform.Rotate(0, 180, 0);
+                                            transform.Rotate(0, -180, 0);
                                             bossReturnCount = 0f;
                                         }
                                         bossReturnCount += Time.deltaTime;
@@ -814,11 +823,12 @@ public class Pnj : Entity {
                         {
                             Vector3 playerPosition = player.transform.position;
                             Vector3 bossPosition = transform.position;
-                            if (transform.rotation.y == 180)
+                            if (transform.eulerAngles.y == 180)
                             {
                                 if (playerPosition.x < bossPosition.x)
                                 {
                                     weapon.enabled = true;
+                                    bossReturnCount = 0f;
                                     if (weapon != null && weapon.enabled && weapon.CanAttack)
                                     {
                                         if (GetComponent<Animator>())
@@ -838,7 +848,7 @@ public class Pnj : Entity {
                                     bossReturnCount += Time.deltaTime;
                                 }
                             }
-                            else if (transform.rotation.y == 0)
+                            else if (transform.eulerAngles.y == 0)
                             {
                                 {
                                     if (playerPosition.x > bossPosition.x)
@@ -857,7 +867,7 @@ public class Pnj : Entity {
                                         weapon.enabled = false;
                                         if (bossReturnCount > bossReturnCooldown)
                                         {
-                                            transform.Rotate(0, 180, 0);
+                                            transform.Rotate(0, -180, 0);
                                             bossReturnCount = 0f;
                                         }
                                         bossReturnCount += Time.deltaTime;

@@ -11,5 +11,5 @@ public class KarmaScript : MonoBehaviour {
         NEGATIVE_KARMA
     }
 
-    static public KarmaState karma = KarmaState.NEGATIVE_KARMA;
+    static public KarmaState karma = KarmaState.NEUTRAL_KARMA;
 }
