@@ -212,7 +212,7 @@ public class Pnj : Entity {
                         {
                             if(transform.position.y > player.transform.position.y + 0.2)
                             {
-                                rigidbody.velocity = new Vector2(-speed.x,0);
+                                //rigidbody.velocity = new Vector2(-speed.x,0);
                             }
                             else
                             {
@@ -419,7 +419,7 @@ public class Pnj : Entity {
                         {
                             if (transform.position.y > player.transform.position.y + 0.2)
                             {
-                                rigidbody.velocity = new Vector2(-speed.x, 0);
+                                //rigidbody.velocity = new Vector2(-speed.x, 0);
                             }
                             else
                             {
@@ -681,7 +681,7 @@ public class Pnj : Entity {
                         {
                             if (transform.position.y > player.transform.position.y + 0.2)
                             {
-                                rigidbody.velocity = new Vector2(-speed.x, 0);
+                                //rigidbody.velocity = new Vector2(-speed.x, 0);
                             }
                             else
                             {
