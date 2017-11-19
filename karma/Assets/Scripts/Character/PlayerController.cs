@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour {
         else { attack3 = false; }
         if((Input.GetButton("Jump") || Input.GetButton("ButtonY")) && grounded) { jump = true; }
         else { jump = false; }
+        HandleJumpAnimation();
         
     }
 
@@ -155,6 +156,7 @@ public class PlayerController : MonoBehaviour {
         {
             HandleMovement();
             HandleSound();
+            HandleAnimation();
             if (corbeauMode)
             {
                 HandleCorbeauMovement();
@@ -269,14 +271,20 @@ public class PlayerController : MonoBehaviour {
 
     private void HandleAnimation()
     {
-        if (grounded && moveLeft || moveRight)
+        if (grounded && (moveLeft || moveRight))
         {
             player.MakeWalkAnimation();
             Debug.Log("je bouge");
         }
+        
+    }
+
+    private void HandleJumpAnimation()
+    {
         if (jump)
         {
             player.MakeJumpAnimation();
+            Debug.Log("je saute");
         }
     }
 
