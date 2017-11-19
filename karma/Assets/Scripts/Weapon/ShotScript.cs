@@ -59,8 +59,9 @@ public class ShotScript : MonoBehaviour {
         if (previousPos != null)
         {
             Vector3 direction = transform.position - previousPos;
-            
-            if(direction!=new Vector3(0,0,0))
+
+            if (direction != new Vector3(0, 0, 0))
+                /*transform.eulerAngles= new Vector3(0, 0, -Vector3.Dot(direction, new Vector3(1, 0, 0) / Vector3.Distance(direction, new Vector3(0, 0, 0))));*/
                 transform.Rotate(0, 0, -Vector3.Dot(direction, new Vector3(1, 0, 0) / Vector3.Distance(direction, new Vector3(0, 0, 0))));
         }
         
