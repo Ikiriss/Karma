@@ -329,19 +329,22 @@ public class Pnj : Entity {
                             if (playerPosition.x < chevalierPosition.x)
                             {
                                 rigidbody.velocity = new Vector2(-speed.x, 0);
+                                
                             }
                             else
                             {
                                 rigidbody.velocity = new Vector2(speed.x, 0);
+                               
                             }
                         }
                         else
                         {
                             Vector3 playerPosition = player.transform.position;
                             Vector3 chevalierPosition = transform.position;
-                            if (playerPosition.x > chevalierPosition.x)
+                            if (playerPosition.x > chevalierPosition.x + 5f)
                             {
                                 attackPattern = true;
+                                transform.Rotate(0, 180, 0);
                             }
                         }
                         break;

@@ -73,6 +73,7 @@ public class Enemy : Entity {
 			weapon.enabled = false;
 		}
         attackCooldown = 0f;
+        rigidbody = GetComponent<Rigidbody2D>();
     }
     
 	void Update()
@@ -139,7 +140,7 @@ public class Enemy : Entity {
         {
             hp -= player.Damage;
             isHit = true;
-            rigidbody.velocity = new Vector2(-5, 0);
+            rigidbody.velocity = new Vector2(5, 0);
             Debug.Log("je me fais taper");
         }
 

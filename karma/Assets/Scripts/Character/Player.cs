@@ -81,7 +81,7 @@ public class Player : Entity {
         rigidbody = GetComponent<Rigidbody2D>();
         InitInventory();
         itemSprites = new SpriteRenderer[numberOfItem];
-        InitrenderInventory();
+        //InitrenderInventory();
     }
 
 
@@ -103,6 +103,8 @@ public class Player : Entity {
         {
             jumpSoundCooldown -= Time.deltaTime;
         }
+
+        RenderInventory();
 
     }
 
@@ -189,14 +191,14 @@ public class Player : Entity {
             if (transform.eulerAngles.y == 0)
             {
                 rigidbody.velocity = new Vector2(-10, 0);
-                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
-                pnj.flipDirection();
+                enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                enemy.flipDirection();
             }
             else
             {
                 rigidbody.velocity = new Vector2(10, 0);
-                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
-                pnj.flipDirection();
+                enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+                enemy.flipDirection();
             }
 
 
@@ -261,23 +263,20 @@ public class Player : Entity {
     {
         inventory = new Item[numberOfItem];
         Item item1 = new Item();
-        item1.ItemName = Item.Name.FLEUR;
+        item1.ItemName = Item.Name.PLANTE_MAGIQUE;
         inventory[0] = item1;
         Item item2 = new Item();
         item1.ItemName = Item.Name.OEUF_CORBEAU;
         inventory[1] = item2;
         Item item3 = new Item();
-        item1.ItemName = Item.Name.ALLUMETTES;
+        item1.ItemName = Item.Name.HACHE;
         inventory[2] = item3;
         Item item4 = new Item();
-        item1.ItemName = Item.Name.BAGUETTE_MAGIQUE;
-        inventory[3] = item4;
+        item1.ItemName = Item.Name.ALLUMETTES;
+        inventory[2] = item4;
         Item item5 = new Item();
-        item1.ItemName = Item.Name.PLANTE_MAGIQUE;
-        inventory[4] = item5;
-        Item item6 = new Item();
-        item1.ItemName = Item.Name.HACHE;
-        inventory[5] = item6;
+        item1.ItemName = Item.Name.BAGUETTE_MAGIQUE;
+        inventory[3] = item5;
     }
 
     public void SetItemPicked(int itemPosition)
@@ -341,6 +340,7 @@ public class Player : Entity {
             {
                 itemSprites[i].enabled = true;
             }
+            else { itemSprites[i].enabled = true; }
         }
     }
 }
