@@ -72,9 +72,6 @@ public class ItemFactory : MonoBehaviour {
         Transform item = null;
         switch (itemType)
         {
-            case Item.Name.FLEUR:
-                item = Instantiate(FLEUR) as Transform;
-                break;
             case Item.Name.EPEE_EVENT2:
                 item = Instantiate(EPEE_EVENT2) as Transform;
                 break;
