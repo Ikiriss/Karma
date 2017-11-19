@@ -119,9 +119,9 @@ public class EnemyFactory : MonoBehaviour {
     {
         bullet.position = new Vector3(-100, -100, -10);
         /*bullet.gameObject.GetComponent<Renderer>().enabled = false;
-        bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;*/
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
-        bullet.gameObject.GetComponent<ShotScript>().enabled = false;*/
+        //bullet.gameObject.GetComponent<ShotScript>().enabled = false;
         Enemy enemy = bullet.gameObject.GetComponent<Enemy>();
         enemy.UnSpawn();
         bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
@@ -129,8 +129,7 @@ public class EnemyFactory : MonoBehaviour {
         Animator anim = bullet.gameObject.GetComponent<Animator>();
         anim.SetBool("pool", true);
         switch (mobType)
-        {
-            
+        {           
             case MobType.SQUELETTE:
                 PutBulletBackInAPool(bullet, squelettePool, squelettePoolLength);
                 break;
