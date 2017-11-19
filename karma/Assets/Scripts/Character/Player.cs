@@ -133,7 +133,12 @@ public class Player : Entity {
         {
             if(pnj.PnjName == Pnj.Name.CORBEAU && KarmaScript.karma != KarmaScript.KarmaState.NEGATIVE_KARMA)
             {
-                GetComponent<PlayerController>().CorbeauMode = true;
+                PlayerController playerController = GetComponent<PlayerController>();
+                if(playerController.PreviousGravityScale == -1)
+                {
+                    playerController.CorbeauMode = true;
+                }
+                
             }
             else
             {

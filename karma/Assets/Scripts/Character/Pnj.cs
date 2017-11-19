@@ -1223,13 +1223,6 @@ public class Pnj : Entity {
                 }
                 break;
 
-            case Name.PERE_ENFANT:
-                if(attackPattern)
-                {
-                    myAnimator.SetTrigger("Attaque");
-                }
-                break;
-
             case Name.CHEVALIER_DECHU:
                 if(attackPattern)
                 {
