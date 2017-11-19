@@ -860,56 +860,70 @@ public class Pnj : Entity {
     }
 }
 
+    void GetItem(Item.Name itemName)
+    {
+        foreach (DropScript drop in items)
+        {
+            if (drop.ItemName == itemName)
+            {
+                drop.SpawnItem();
+            }
+        }
+    }
 
-    void dropItem(bool specialEventTrigger = false)
+    public void DropItemOnSpecialEvent()
     {
         switch(pnjName)
         {
             case Name.MARCHAND:
                 if(KarmaScript.karma == KarmaScript.KarmaState.POSITIVE_KARMA)
                 {
-                    if(specialEventTrigger)
-                    {
-                        foreach (DropScript drop in items)
-                        {
-                            // Drop all items
-                        }
-                    }
-                }
-                else if(KarmaScript.karma == KarmaScript.KarmaState.NEGATIVE_KARMA)
-                {
-                    if (!specialEventTrigger)
-                    {
-                        foreach (DropScript drop in items)
-                        {
-                            // Drop only the egg
-                        }
-                    }
-                }
-                else
-                {
                     foreach (DropScript drop in items)
                     {
-                        // Drop only the egg
-                    }
+                        drop.SpawnItem();
+                    }                 
+                }
+                else if(KarmaScript.karma == KarmaScript.KarmaState.NEUTRAL_KARMA)
+                {
+                    GetItem(Item.Name.OEUF_CORBEAU);
                 }
                 break;
 
             case Name.ENFANT:
                 if(KarmaScript.karma == KarmaScript.KarmaState.POSITIVE_KARMA)
-                {
-                    if(specialEventTrigger && pnjState == State.HAPPY)
+                {        
+                    if(pnjState == State.HAPPY)
                     {
-                        foreach (DropScript drop in items)
-                        {
-                            // Drop only the plante magique
-                        }
-                    }
+                        GetItem(Item.Name.PLANTE_MAGIQUE);
+                    }              
                 }
                 break;
 
             case Name.CLODO:
+                foreach (DropScript drop in items)
+                {
+                    GetItem(Item.Name.ALLUMETTES);
+                }
+                break;
+        }
+    }
 
+    public void DropItemOnDeath()
+    {
+        switch (pnjName)
+        {
+            case Name.MARCHAND:
+                foreach (DropScript drop in items)
+                {
+                    GetItem(Item.Name.OEUF_CORBEAU);
+                }
+                break;
+
+            case Name.CLODO:
+                foreach (DropScript drop in items)
+                {
+                    GetItem(Item.Name.ALLUMETTES);
+                }
                 break;
         }
     }
@@ -1192,7 +1206,7 @@ public class Pnj : Entity {
         if (hp <= 0)
         {
             //animation si on veut
-            dropItem();
+            DropItemOnDeath();
             GiveMobBack(transform);
         }
     }
