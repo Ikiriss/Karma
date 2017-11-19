@@ -159,11 +159,11 @@ MonoBehaviour:
   maxHp: 5
   attackRate: 0.25
   attackCooldown: 0
-  attackSound: {fileID: 8300000, guid: 5f1f49b9439d1d1499ecb6a71061c580, type: 3}
+  attackSound: {fileID: 0}
   attackSoundRate: 1
   attackSoundVolume: 1
   attackAnimationParameter: attaque
-  walkSound: {fileID: 8300000, guid: 9fa9c1b36179d4f44b28cbc990ae4683, type: 3}
+  walkSound: {fileID: 0}
   walkSoundRate: 0.25
   walkSoundVolume: 1
   walkAnimationParameter: marche
@@ -174,6 +174,7 @@ MonoBehaviour:
   jumpSound: {fileID: 0}
   jumpSoundRate: 1
   jumpSoundVolume: 1
+  jumpAnimationParameter: jump
 --- !u!212 &212947702932802722
 SpriteRenderer:
   m_ObjectHideFlags: 1
