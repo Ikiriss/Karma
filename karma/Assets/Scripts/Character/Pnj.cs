@@ -43,6 +43,7 @@ public class Pnj : Entity {
         set { isCacAttack = value; }
     }
 
+
     Player player;
     WeaponScript weapon;
 
@@ -1189,27 +1190,34 @@ public class Pnj : Entity {
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        ShotScript shot = collision.collider.GetComponent<ShotScript>();
-        if (shot && !(shot.IsEnemyShot))
+        if(pnjName == Name.ENFANT)
         {
-            hp -= shot.Damage;
-            shot.ReturnToTheFactory();
-            //Debug.Log("je prend des dégatzaes");
-        }
-        Player player = collision.collider.GetComponent<Player>();
 
-        if (player && collision.collider.GetComponent<PlayerController>().Attack1)
-        {
-            hp -= player.Damage;
-            Debug.Log("pnj se fait taper");
         }
+        {
+            ShotScript shot = collision.collider.GetComponent<ShotScript>();
+            if (shot && !(shot.IsEnemyShot))
+            {
+                hp -= shot.Damage;
+                shot.ReturnToTheFactory();
+                //Debug.Log("je prend des dégatzaes");
+            }
+            Player player = collision.collider.GetComponent<Player>();
 
-        if (hp <= 0)
-        {
-            //animation si on veut
-            DropItemOnDeath();
-            GiveMobBack(transform);
+            if (player && collision.collider.GetComponent<PlayerController>().Attack1)
+            {
+                hp -= player.Damage;
+                Debug.Log("pnj se fait taper");
+            }
+
+            if (hp <= 0)
+            {
+                //animation si on veut
+                DropItemOnDeath();
+                GiveMobBack(transform);
+            }
         }
+        
     }
 
     void UpdateAnimation()
