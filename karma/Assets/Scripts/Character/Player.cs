@@ -81,7 +81,7 @@ public class Player : Entity {
         rigidbody = GetComponent<Rigidbody2D>();
         InitInventory();
         itemSprites = new SpriteRenderer[numberOfItem];
-        InitrenderInventory();
+        //InitrenderInventory();
     }
 
 
@@ -340,6 +340,7 @@ public class Player : Entity {
             {
                 itemSprites[i].enabled = true;
             }
+            else { itemSprites[i].enabled = true; }
         }
     }
 }
