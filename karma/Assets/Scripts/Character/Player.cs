@@ -106,18 +106,28 @@ public class Player : Entity {
         }
         if (pnj)
         {
-            if (pnj.CanAttackSound)
+            if(pnj.PnjName == Pnj.Name.CORBEAU)
             {
-                pnj.MakeAttackSound();
+                GetComponent<PlayerController>().CorbeauMode = true;
             }
-            pnj.Attack();
-            hp -= pnj.Damage;
+            else
+            {
+                if (pnj.CanAttackSound)
+                {
+                    pnj.MakeAttackSound();
+                }
+                pnj.Attack();
+                hp -= pnj.Damage;
 
-            //Recule in collision
-            rigidbody.velocity = new Vector2(-10, 0);
-            pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                //Recule in collision
+                rigidbody.velocity = new Vector2(-10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
 
-            Debug.Log(hp);
+                Debug.Log(hp);
+
+            }
+
+            
         }
         else if (enemy && enemy.CanAttack)
         {

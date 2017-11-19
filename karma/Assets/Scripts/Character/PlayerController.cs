@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField]
+    private GameObject corbeau;
+    [SerializeField]
+    private bool corbeauMode = false;
+    public bool CorbeauMode
+    {
+        get { return corbeauMode; }
+        set { corbeauMode = value; }
+    }
+
     private float translateActivationMarge = 0.1f;
     private bool grounded = false;
     private Rigidbody2D rigidbody;
@@ -47,6 +57,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (corbeauMode)
+        {
+            rigidbody.gravityScale = 1.0f;
+        }
         
         if (/*previousVelocityY == 0 && */rigidbody.velocity.y == 0)
         {

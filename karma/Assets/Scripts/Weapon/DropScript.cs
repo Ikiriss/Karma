@@ -112,13 +112,13 @@ public class DropScript : MonoBehaviour {
     protected Transform popItem(Item.Name itemName)
     {
         Transform itemTransform = null;
-        itemTransform = GameObject.Find("Scripts").GetComponent<ItemFactory>().GetBullet(itemName);
+        itemTransform = GameObject.Find("Scripts").GetComponent<ItemFactory>().GetItem(itemName);
         // Position
         itemTransform.position = transform.position;
         //Debug.Log(itemTransform.position);
         itemTransform.rotation = transform.rotation;
 
-        itemTransform.GetComponent<RigidBody2D>().simulated = true;
+        itemTransform.GetComponent<Rigidbody2D>().simulated = true;
 
         
         
