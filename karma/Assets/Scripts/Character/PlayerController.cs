@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private bool jump = false;
     private bool attack1 = false;
     private bool moveHorizontalBlocked = false;
+    private float horizontalTranslation = 0f;
     public bool Attack1
     {
         get {
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        float horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
+        horizontalTranslation = Input.GetAxis("Horizontal") + Input.GetAxis("HorizontalStick") + Input.GetAxis("HorizontalCroix");
         //if(horizontalTranslation == 0)
         //{
         //    moveHorizontalBlocked = false;
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour {
             moveLeft = false;
             moveRight = false;
         }
+        Flip();
         HandleMovement();
         HandleSound();
     }
@@ -186,6 +188,24 @@ public class PlayerController : MonoBehaviour {
         {
             if (player.CanJumpSound)
                 player.MakeJumpSound();
+        }
+    }
+
+    void Flip()
+    {
+        if(moveLeft)
+        {
+            if (transform.eulerAngles.y == 0)
+            {
+                transform.Rotate(new Vector3(0, 180, 0));
+            }
+        }
+        else
+        {
+            if (transform.eulerAngles.y == 180)
+            {
+                transform.Rotate(new Vector3(0, -180, 0));
+            }
         }
     }
 }
