@@ -16,7 +16,7 @@ public class CameraIsFollowingEntity : MonoBehaviour {
         }
         set
         {
-            CameraFollowOnY = value;
+            cameraFollowOnY = value;
         }
     }
     
