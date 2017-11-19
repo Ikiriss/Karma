@@ -1194,7 +1194,7 @@ public class Pnj : Entity {
         {
 
         }
-        {
+        else{
             ShotScript shot = collision.collider.GetComponent<ShotScript>();
             if (shot && !(shot.IsEnemyShot))
             {

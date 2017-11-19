@@ -39,7 +39,7 @@ public class ChangeSceneOnClickScript : MonoBehaviour
     }
     void OnMouseExit()
     {
-        rend.material.color = Color.white;
+        //rend.material.color = Color.white;
         if (sprite != null)
         {
             spriterender.sprite = spritesave;
@@ -49,7 +49,7 @@ public class ChangeSceneOnClickScript : MonoBehaviour
     private IEnumerator OnMouseDown()
     {
         SoundEffectsHelper.Instance.MakeButtonSelectedSound();
-        float fadeTime = GameObject.Find("FadeScript").GetComponent<FadingScene>().BeginFade(1);
+        float fadeTime = GameObject.Find("menu").GetComponent<FadingScene>().BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene(_nextScene);
     }
