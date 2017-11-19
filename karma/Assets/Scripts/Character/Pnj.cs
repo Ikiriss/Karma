@@ -1213,6 +1213,22 @@ public class Pnj : Entity {
 
             if (hp <= 0)
             {
+                if (pnjName == Name.BOSS_FINAL)
+                {
+                    if (Player.karma > 0)
+                    {
+                        KarmaScript.karma = KarmaScript.KarmaState.POSITIVE_KARMA;
+                    }else if (Player.karma < 0)
+                    {
+                        KarmaScript.karma = KarmaScript.KarmaState.NEGATIVE_KARMA;
+                    }
+                    else
+                    {
+                        KarmaScript.karma = KarmaScript.KarmaState.NEUTRAL_KARMA;
+                    }
+                    Player.karma = 0;
+                    GetComponent<ChangeSceneAfterDelayScript>().enabled = true;
+                }
                 //animation si on veut
                 DropItemOnDeath();
                 GiveMobBack(transform);
