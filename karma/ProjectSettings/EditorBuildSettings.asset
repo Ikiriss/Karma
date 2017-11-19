@@ -11,3 +11,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Seb/seb2.unity
     guid: c2c442fa25d046d40b7be94246cbf884
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z1.unity
+    guid: f70368823c5c68d45a5bb4d490e41820
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z2.unity
+    guid: 5697536f7c4c33245bbe71fd4ae1b409
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z3.unity
+    guid: 813ccbbbbf4a67a419f37fe6eb6b5c5b
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z4.unity
+    guid: 0b7c38d5273722644b446470f0523c8a
+  - enabled: 1
+    path: Assets/Scenes/FINAL Z5.unity
+    guid: 49557044119998648bc263436c951219
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z6.unity
+    guid: 82bc4af6c86d3014fb9b0da540046ab4
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z7.unity
+    guid: bf41393764fd036459f9797c9c6ce3d8
+  - enabled: 1
+    path: Assets/Scenes/FINAL_Z8vrai.unity
+    guid: 2082d626f30497949a717d93cdc80884
