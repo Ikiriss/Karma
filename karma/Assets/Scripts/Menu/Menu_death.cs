@@ -64,6 +64,7 @@ public class Menu_death : MonoBehaviour {
         {
             script.enabled = false;
         }
+        
 
     }
 
