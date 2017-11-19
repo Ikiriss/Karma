@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50069602773196654}
   - component: {fileID: 114408445829666666}
   - component: {fileID: 114751863206922584}
+  - component: {fileID: 95765301942303958}
   m_Layer: 0
   m_Name: batSheet_0
   m_TagString: Untagged
@@ -37,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1140215824632296}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1361718, y: 1.2052615, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.509516, y: 4.6860895, z: 0.2683585}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,6 +99,23 @@ PolygonCollider2D:
       - {x: 0.112500004, y: 0}
       - {x: 0.112500004, y: 0.025}
       - {x: 0.05, y: 0.0875}
+--- !u!95 &95765301942303958
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140215824632296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f72185aa03bc1f4ea0efb74da49256e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114408445829666666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3b25e6292b9664f96645df1ef048d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobType: 0
+  mobType: 3
   hp: 0
   damage: 0
   maxHp: 0
@@ -118,10 +136,10 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   attackSoundRate: 1
   attackSoundVolume: 1
-  walkSound: {fileID: 0}
+  walkSound: {fileID: 8300000, guid: 3900cebe5e044a94fa4407f37895f3de, type: 3}
   walkSoundRate: 1
   walkSoundVolume: 1
-  enemyName: 0
+  enemyName: 3
 --- !u!114 &114751863206922584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250d9696933864f43aabb6f187528b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1, y: 0}
+  speed: {x: 2, y: 0}
   direction: {x: -1, y: 0}
   limitDeplacement: 1
   isShot: 0
