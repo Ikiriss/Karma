@@ -122,11 +122,12 @@ public class EnemyFactory : MonoBehaviour {
         bullet.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         bullet.gameObject.GetComponent<MoveScript>().enabled = false;
         bullet.gameObject.GetComponent<ShotScript>().enabled = false;*/
-        bullet.gameObject.GetComponent<Enemy>().UnSpawn();
+        Enemy enemy = bullet.gameObject.GetComponent<Enemy>();
+        enemy.UnSpawn();
         bullet.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-        Entity hpScript = bullet.gameObject.GetComponent<Entity>();
-        hpScript.Hp = hpScript.MaxHp;
-        bullet.gameObject.GetComponent<Animator>().SetBool("pool", true);
+        //Entity hpScript = bullet.gameObject.GetComponent<Entity>();
+        Animator anim = bullet.gameObject.GetComponent<Animator>();
+        anim.SetBool("pool", true);
         switch (mobType)
         {
             

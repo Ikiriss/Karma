@@ -5,6 +5,20 @@ using UnityEngine;
 public class CameraIsFollowingEntity : MonoBehaviour {
     [SerializeField]
     private GameObject focus;
+
+    [SerializeField]
+    private bool cameraFollowOnY = false;
+    public bool CameraFollowOnY
+    {
+        get
+        {
+            return cameraFollowOnY;
+        }
+        set
+        {
+            CameraFollowOnY = value;
+        }
+    }
     
 	// Use this for initialization
 	void Start () {
@@ -12,7 +26,17 @@ public class CameraIsFollowingEntity : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        transform.GetComponent<Rigidbody2D>().velocity = focus.GetComponent<Rigidbody2D>().velocity;
-	}
+	void Update () {        
+        Vector2 velocity = focus.GetComponent<Rigidbody2D>().velocity;
+        if (!cameraFollowOnY)
+        {
+            velocity = new Vector2(velocity.x, 0);
+        }
+        else
+        {
+            
+        }
+        
+        transform.GetComponent<Rigidbody2D>().velocity = velocity;
+    }
 }

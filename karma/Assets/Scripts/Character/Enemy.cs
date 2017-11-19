@@ -50,6 +50,7 @@ public class Enemy : Entity {
 		// On désactive tout
 		// -- collider
 		GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
 		// -- Mouvement
 		moveScript.enabled = false;
 		// -- Tir
@@ -118,8 +119,8 @@ public class Enemy : Entity {
         }
 
         if (hp <= 0)
-        {
-            alive = false;
+        {            
+            GiveMobBack(transform);
         }
     }
     
@@ -132,6 +133,7 @@ public class Enemy : Entity {
 		// On active tout
 		// -- Collider
 		GetComponent<Collider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().simulated = true;
 		// -- Mouvement
 		moveScript.enabled = true;
         // -- Tir
@@ -179,6 +181,7 @@ public class Enemy : Entity {
         hasSpawn = false;
         alive = true;
         GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
         // -- Mouvement
         moveScript.enabled = false;
         // -- Tir
@@ -186,6 +189,7 @@ public class Enemy : Entity {
         {
             weapon.enabled = false;
         }
+        hp = maxHp;
         
     }
 
