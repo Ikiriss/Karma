@@ -102,7 +102,17 @@ public class Player : Entity {
         {
             hp -= shot.Damage;
             shot.ReturnToTheFactory();
-            //Debug.Log("je prend des dégatzaes");
+            if(transform.eulerAngles.y == 0)
+            {
+                rigidbody.velocity = new Vector2(-10, 0);
+            }
+            else
+            {
+                rigidbody.velocity = new Vector2(10, 0);
+            }
+           
+            pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+            //Debug.Log("je prend des dégats");
         }
         if (pnj)
         {
@@ -139,7 +149,17 @@ public class Player : Entity {
             hp -= enemy.Damage;
 
             //Recule in collision
-            rigidbody.velocity = new Vector2(-2, 0);
+            if (transform.eulerAngles.y == 0)
+            {
+                rigidbody.velocity = new Vector2(-10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+            }
+            else
+            {
+                rigidbody.velocity = new Vector2(10, 0);
+                pnj.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+            }
+
 
             Debug.Log(hp);
         }

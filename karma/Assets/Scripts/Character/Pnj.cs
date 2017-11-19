@@ -104,6 +104,10 @@ public class Pnj : Entity {
     private float bossReturnCooldown = 2f;
     private float bossReturnCount = 0f;
 
+    protected DropScript[] items;
+
+
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindObjectOfType<Player>();
@@ -856,11 +860,54 @@ public class Pnj : Entity {
 }
 
 
-    void dropItem()
+    void dropItem(bool specialEventTrigger = false)
     {
         switch(pnjName)
         {
             case Name.MARCHAND:
+                if(KarmaScript.karma == KarmaScript.KarmaState.POSITIVE_KARMA)
+                {
+                    if(specialEventTrigger)
+                    {
+                        foreach (DropScript drop in items)
+                        {
+                            // Drop all items
+                        }
+                    }
+                }
+                else if(KarmaScript.karma == KarmaScript.KarmaState.NEGATIVE_KARMA)
+                {
+                    if (!specialEventTrigger)
+                    {
+                        foreach (DropScript drop in items)
+                        {
+                            // Drop only the egg
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (DropScript drop in items)
+                    {
+                        // Drop only the egg
+                    }
+                }
+                break;
+
+            case Name.ENFANT:
+                if(KarmaScript.karma == KarmaScript.KarmaState.POSITIVE_KARMA)
+                {
+                    if(specialEventTrigger && pnjState == State.HAPPY)
+                    {
+                        foreach (DropScript drop in items)
+                        {
+                            // Drop only the plante magique
+                        }
+                    }
+                }
+                break;
+
+            case Name.CLODO:
 
                 break;
         }
