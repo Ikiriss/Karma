@@ -1204,7 +1204,7 @@ public class Pnj : Entity {
             }
             Player player = collision.collider.GetComponent<Player>();
 
-            if (player && collision.collider.GetComponent<PlayerController>().Attack1)
+            if (player)
             {
                 hp -= player.Damage;
                 Debug.Log("pnj se fait taper");
