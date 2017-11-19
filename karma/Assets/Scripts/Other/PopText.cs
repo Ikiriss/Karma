@@ -21,7 +21,7 @@ public class PopText : MonoBehaviour {
         if (collider.GetComponent<Player>())
         {
             Debug.Log("Je suis passé ici !");
-            GetComponentInChildren<SpriteRenderer>().enable = true;
+            GetComponentInChildren<SpriteRenderer>().enabled = true;
         }
 
     }
@@ -30,7 +30,7 @@ public class PopText : MonoBehaviour {
     {
         if (collision.GetComponent<Player>())
         {
-            GetComponentInChildren<SpriteRenderer>().enable = false;
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
     }
 }
