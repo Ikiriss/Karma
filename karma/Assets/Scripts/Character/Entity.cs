@@ -160,6 +160,10 @@ public class Entity : MonoBehaviour {
         if (myAnimator)
         {
             myAnimator.SetTrigger(walkAnimationParameter);
+            Debug.Log(myAnimator);
+            //Debug.Log()
+            Debug.Log(gameObject);
+            Debug.Log("walking");
         }
     }
 
@@ -168,6 +172,8 @@ public class Entity : MonoBehaviour {
         if (myAnimator)
         {
             myAnimator.SetTrigger(attackAnimationParameter);
+            Debug.Log(gameObject);
+            Debug.Log("attack");
         }
     }
 }
