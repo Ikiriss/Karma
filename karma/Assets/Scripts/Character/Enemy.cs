@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : Entity {
 
 
-    
+    private Player player;
 
     [SerializeField]
     protected EnemyFactory.MobType enemyName;
@@ -45,7 +45,8 @@ public class Enemy : Entity {
 	// 1 - Disable everything
 	void Start()
 	{
-		hasSpawn = false;
+        player = GameObject.FindObjectOfType<Player>();
+        hasSpawn = false;
 
 		// On désactive tout
 		// -- collider
@@ -193,5 +194,23 @@ public class Enemy : Entity {
         
     }
 
-    
+    public void flipDirection()
+    {
+        if (transform.eulerAngles.y == 180)
+        {
+            if (transform.position.x < player.transform.position.x)
+            {
+                transform.Rotate(0, 180, 0);
+            }
+        }
+        else
+        {
+            if (transform.position.x > player.transform.position.x)
+            {
+                transform.Rotate(0, -180, 0);
+            }
+        }
+    }
+
+
 }

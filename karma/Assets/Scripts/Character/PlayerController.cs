@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+
+    private float frameCount = 0;
+    private float maxCount = 20;
+
     [SerializeField]
     private GameObject corbeau;
     [SerializeField]
@@ -112,8 +116,24 @@ public class PlayerController : MonoBehaviour {
             moveRight = false;
         }
         Flip();
-        HandleMovement();
-        HandleSound();
+        if(!player.IsHit)
+        {
+            HandleMovement();
+            HandleSound();
+        }
+        else
+        {
+            if(frameCount == maxCount)
+            {
+                player.IsHit = false;
+                frameCount = 0;
+            }
+            else
+            {
+                frameCount++;
+            }
+        }
+
     }
 
     
