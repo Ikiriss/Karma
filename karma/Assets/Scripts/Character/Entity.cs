@@ -90,6 +90,12 @@ public class Entity : MonoBehaviour {
         }
     }
 
+    protected void GiveMobBack(Transform mob)
+    {
+        mob.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        GameObject.Find("Scripts").GetComponent<EnemyFactory>().GiveBackMob(mobType, mob);
+    }
+
     public virtual bool CanAttack
     {
         get

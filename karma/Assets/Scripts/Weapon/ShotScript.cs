@@ -50,7 +50,16 @@ public class ShotScript : MonoBehaviour {
     {
         if (collision.collider.GetComponent<PlatformEffector2D>())
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            Wall wall = collision.collider.GetComponent<Wall>();
+            if(wall && wall.BulletThrough && wall.IsInList(bulletType))
+            {
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            }
+            else
+            {
+                ReturnToTheFactory();
+            }
+            
         }
     }
 

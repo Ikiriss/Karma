@@ -123,10 +123,15 @@ public class Pnj : Entity {
             hp = 2;
             damage = 1;
         }
+        attackCooldown = 0f;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
         PnjAction();
     }
 
@@ -1107,24 +1112,34 @@ public class Pnj : Entity {
         
     }
 
-    void flipDirection()
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (transform.eulerAngles.y == 180)
+        ShotScript shot = collision.collider.GetComponent<ShotScript>();
+        if (shot && !(shot.IsEnemyShot))
         {
-            if (transform.position.x < player.transform.position.x)
-            {
-                transform.Rotate(0, 180, 0);
-            }
-        }
-        else
-        {
-            if (transform.position.x > player.transform.position.x)
-            {
-                transform.Rotate(0, -180, 0);
-            }
+            hp -= shot.Damage;
+            shot.ReturnToTheFactory();
+            //Debug.Log("je prend des dégatzaes");
         }
     }
 
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+
+        Player player = collision.collider.GetComponent<Player>();
+
+        if (player && collision.collider.GetComponent<PlayerController>().Attack1)
+        {
+            hp -= player.Damage;
+            Debug.Log("pnj se fait taper");
+        }
+
+        if (hp <= 0)
+        {
+            //animation si on veut
+            GiveMobBack(transform);
+        }
+    }
 }
 
 
