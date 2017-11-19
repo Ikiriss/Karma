@@ -329,10 +329,12 @@ public class Pnj : Entity {
                             if (playerPosition.x < chevalierPosition.x)
                             {
                                 rigidbody.velocity = new Vector2(-speed.x, 0);
+                                
                             }
                             else
                             {
                                 rigidbody.velocity = new Vector2(speed.x, 0);
+                               
                             }
                         }
                         else
@@ -342,6 +344,7 @@ public class Pnj : Entity {
                             if (playerPosition.x > chevalierPosition.x + 5f)
                             {
                                 attackPattern = true;
+                                transform.Rotate(0, 180, 0);
                             }
                         }
                         break;
@@ -1213,6 +1216,22 @@ public class Pnj : Entity {
 
             if (hp <= 0)
             {
+                if (pnjName == Name.BOSS_FINAL)
+                {
+                    if (Player.karma > 0)
+                    {
+                        KarmaScript.karma = KarmaScript.KarmaState.POSITIVE_KARMA;
+                    }else if (Player.karma < 0)
+                    {
+                        KarmaScript.karma = KarmaScript.KarmaState.NEGATIVE_KARMA;
+                    }
+                    else
+                    {
+                        KarmaScript.karma = KarmaScript.KarmaState.NEUTRAL_KARMA;
+                    }
+                    Player.karma = 0;
+                    GetComponent<ChangeSceneAfterDelayScript>().enabled = true;
+                }
                 //animation si on veut
                 DropItemOnDeath();
                 GiveMobBack(transform);
