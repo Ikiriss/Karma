@@ -44,7 +44,7 @@ public class WeaponScript : MonoBehaviour {
     protected float weaponSoundRate;
     protected float weaponSoundCooldown;
     [SerializeField]
-    protected float volume = 1f;
+    protected float weaponVolume = 1f;
     
     
 
@@ -128,7 +128,7 @@ public class WeaponScript : MonoBehaviour {
     {
         weaponSoundCooldown = weaponSoundRate;
         if(weaponSound)
-            AudioSource.PlayClipAtPoint(weaponSound, transform.position, volume);
+            AudioSource.PlayClipAtPoint(weaponSound, transform.position, weaponVolume);
     }
 
 	/// <summary>
