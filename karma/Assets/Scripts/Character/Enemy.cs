@@ -135,7 +135,7 @@ public class Enemy : Entity {
 
         Player player = collision.collider.GetComponent<Player>();
 
-        if (player && collision.collider.GetComponent<PlayerController>().Attack1)
+        if (player)
         {
             hp -= player.Damage;
             isHit = true;
