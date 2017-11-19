@@ -112,6 +112,39 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &200673883 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1249315247795178, guid: 4c8dd7197a2db8945af3421b3775a45a,
+    type: 2}
+  m_PrefabInternal: {fileID: 611539852}
+--- !u!60 &200673887
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 200673883}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.02, y: 0.02}
+    newSize: {x: 0.02, y: 0.02}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.01, y: 0.01}
+      - {x: -0.01, y: -0.01}
+      - {x: 0.01, y: -0.01}
+      - {x: 0.01, y: 0.01}
 --- !u!1 &273517669
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +354,18 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -0.034
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114930946297535580, guid: 4c8dd7197a2db8945af3421b3775a45a,
+        type: 2}
+      propertyPath: hp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114930946297535580, guid: 4c8dd7197a2db8945af3421b3775a45a,
+        type: 2}
+      propertyPath: maxHp
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 61629369883097258, guid: 4c8dd7197a2db8945af3421b3775a45a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4c8dd7197a2db8945af3421b3775a45a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &629544822
@@ -517,10 +561,10 @@ GameObject:
   m_Component:
   - component: {fileID: 940524467}
   - component: {fileID: 940524466}
-  - component: {fileID: 940524465}
   - component: {fileID: 940524464}
   - component: {fileID: 940524469}
   - component: {fileID: 940524468}
+  - component: {fileID: 940524465}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -548,8 +592,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &940524465
-BoxCollider2D:
+--- !u!60 &940524465
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -569,10 +613,13 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02}
-  m_EdgeRadius: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.01, y: 0.01}
+      - {x: -0.01, y: -0.01}
+      - {x: 0.01, y: -0.01}
+      - {x: 0.01, y: 0.01}
 --- !u!212 &940524466
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -641,6 +688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f90da8abc91634ba4eff8209f23fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corbeau: {fileID: 0}
+  corbeauMode: 0
+  corbeauGravityScale: 0
 --- !u!114 &940524469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,9 +711,11 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   attackSoundRate: 1
   attackSoundVolume: 1
+  attackAnimationParameter: attack
   walkSound: {fileID: 0}
   walkSoundRate: 1
   walkSoundVolume: 1
+  walkAnimationParameter: walk
   inventory: []
   numberOfItem: 6
   speed: {x: 5, y: 20}
@@ -671,6 +723,7 @@ MonoBehaviour:
   jumpSound: {fileID: 0}
   jumpSoundRate: 1
   jumpSoundVolume: 1
+  jumpAnimationParameter: jump
 --- !u!1 &1106829897 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1249315247795178, guid: 4c8dd7197a2db8945af3421b3775a45a,

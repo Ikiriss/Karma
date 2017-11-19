@@ -37,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002101985466156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37245592, y: 0.08235579, z: -0.0044824197}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.5291815, y: 1.1107852, z: -0.0044824197}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,16 +55,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e71932cff7ba794eb94c95caee25318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FLEUR: {fileID: 0}
+  FLEUR: {fileID: 4476899961189168, guid: 900603ecb6e39d94f85641279db9129a, type: 2}
   EPEE_EVENT2: {fileID: 0}
-  OEUF_CORBEAU: {fileID: 0}
-  HACHE: {fileID: 0}
-  ALLUMETTES: {fileID: 0}
-  ARC: {fileID: 0}
-  PLANTE_MAGIQUE: {fileID: 0}
-  FLEURPoolLength: 0
-  bouleEtoilePoolLength: 0
-  capsuleEnergyPoolLength: 0
+  OEUF_CORBEAU: {fileID: 4221266743714040, guid: 23ecd16874d621c4cbe8c924490e4b53,
+    type: 2}
+  HACHE: {fileID: 4230017320399518, guid: 32aa4c9436d37814ea8b3257b9ff5119, type: 2}
+  ALLUMETTES: {fileID: 4379486566767204, guid: 881a357911e074b42a15172e5b1dd297, type: 2}
+  BAGUETTE_MAGIQUE: {fileID: 4581120844470328, guid: c96d7eac66c8dbc42a2944cc9fd488e7,
+    type: 2}
+  PLANTE_MAGIQUE: {fileID: 4343404119628970, guid: 193453b63fc812443a95ad84675798c7,
+    type: 2}
+  FleurPoolLength: 1
+  OeufCorbeauPoolLength: 1
+  HachePoolLength: 1
+  AllumettesPoolLength: 1
+  BaguetteMagiquePoolLength: 1
+  PlanteMagiquePoolLength: 1
 --- !u!114 &114342974439550290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,9 +82,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da29c5b2db3e847408d4de1231271dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squelettePrefab: {fileID: 0}
-  blobPrefab: {fileID: 0}
-  chauve_sourisPrefab: {fileID: 0}
+  squelettePrefab: {fileID: 4406482031385214, guid: e2d9f396fde14e8409aefa20bfe8f3c2,
+    type: 2}
+  blobPrefab: {fileID: 4797572597237678, guid: 578d556fba14c1c49882a43fec1451f1, type: 2}
+  chauve_sourisPrefab: {fileID: 4333315557058564, guid: e2f420f8f241a5841aebd8ddfd9050de,
+    type: 2}
   squelettePoolLength: 0
   blobPoolLength: 0
   chauve_sourisPoolLength: 0
@@ -93,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf4c0f171eee104685d8264cec6fbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSelectedSound: {fileID: 0}
+  buttonSelectSound: {fileID: 0}
 --- !u!114 &114594795532710198
 MonoBehaviour:
   m_ObjectHideFlags: 1
