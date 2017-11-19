@@ -177,8 +177,36 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    
-    private void HandleCorbeauMovement()
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Pnj pnj = collision.collider.GetComponent<Pnj>();
+        
+        if(pnj)
+        {
+            SpriteRenderer dialogue = pnj.GetComponentInChildren<SpriteRenderer>();
+            dialogue.enabled = true;
+            if(attack2)
+            {
+                switch(pnj.PnjName)
+                {
+                    case Pnj.Name.ENFANT:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+
+                    case Pnj.Name.MARCHAND:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+
+                    case Pnj.Name.CLODO:
+                        pnj.DropItemOnSpecialEvent();
+                        break;
+                }
+            }
+        }
+    }
+
+        private void HandleCorbeauMovement()
     {
         corbeau.transform.position = corbeauPerchoir.position;
     }
