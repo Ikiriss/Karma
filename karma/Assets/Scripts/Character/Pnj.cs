@@ -138,6 +138,7 @@ public class Pnj : Entity {
             attackCooldown -= Time.deltaTime;
         }
         PnjAction();
+        UpdateAnimation();
     }
 
     void InitPnjState()
@@ -1211,7 +1212,32 @@ public class Pnj : Entity {
         }
     }
 
-    
+    void UpdateAnimation()
+    {
+        switch(pnjName)
+        {
+            case Name.ENFANT:
+                if(pnjState == State.HAPPY)
+                {
+                    myAnimator.SetBool("Happy", true);
+                }
+                break;
+
+            case Name.PERE_ENFANT:
+                if(attackPattern)
+                {
+                    myAnimator.SetTrigger("Attaque");
+                }
+                break;
+
+            case Name.CHEVALIER_DECHU:
+                if(attackPattern)
+                {
+                    myAnimator.SetBool("marche", true);
+                }
+                break;
+        }
+    }
 
     public void flipDirection()
     {
