@@ -22,7 +22,7 @@ public class Player : Entity {
         get { return inventory; }
     }
     [SerializeField]
-    private int numberOfItem = 6;
+    private int numberOfItem = 5;
 	
 
     [SerializeField]
