@@ -79,9 +79,9 @@ public class Player : Entity {
         maxHp = hp;
         myAnimator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
-        InitInventory();
         itemSprites = new SpriteRenderer[numberOfItem];
-        //InitrenderInventory();
+        inventory = new Item[numberOfItem];
+        InitRenderInventory();
     }
 
 
@@ -207,27 +207,26 @@ public class Player : Entity {
         }
         if(item)
         {
-            item.IsPicked = true;
             switch(item.ItemName)
             {
                 case Item.Name.PLANTE_MAGIQUE:
-                    AddItemToInventory(item, 0);
+                    AddItemToInventory(0);
                     break;
 
                 case Item.Name.OEUF_CORBEAU:
-                    AddItemToInventory(item, 1);
+                    AddItemToInventory(1);
                     break;
 
                 case Item.Name.HACHE:
-                    AddItemToInventory(item, 2);
+                    AddItemToInventory(2);
                     break;
 
                 case Item.Name.ALLUMETTES:
-                    AddItemToInventory(item, 3);
+                    AddItemToInventory(3);
                     break;
 
                 case Item.Name.BAGUETTE_MAGIQUE:
-                    AddItemToInventory(item, 4);
+                    AddItemToInventory(4);
                     break;
             }
         }
@@ -239,9 +238,14 @@ public class Player : Entity {
     }
     
 
-    void AddItemToInventory(Item item, int position)
+    void AddItemToInventory(int position)
     {
-        inventory[position] = item;
+        inventory[position].IsPicked = true;
+    }
+
+    void RemoveItemToInventory(int position)
+    {
+        inventory[position].IsPicked = false;
     }
     
 
@@ -259,25 +263,25 @@ public class Player : Entity {
         GetComponent<BarScript>().MoveHealthBar(hpPercent);
     }
 
-    private void InitInventory()
-    {
-        inventory = new Item[numberOfItem];
-        Item item1 = new Item();
-        item1.ItemName = Item.Name.PLANTE_MAGIQUE;
-        inventory[0] = item1;
-        Item item2 = new Item();
-        item1.ItemName = Item.Name.OEUF_CORBEAU;
-        inventory[1] = item2;
-        Item item3 = new Item();
-        item1.ItemName = Item.Name.HACHE;
-        inventory[2] = item3;
-        Item item4 = new Item();
-        item1.ItemName = Item.Name.ALLUMETTES;
-        inventory[2] = item4;
-        Item item5 = new Item();
-        item1.ItemName = Item.Name.BAGUETTE_MAGIQUE;
-        inventory[3] = item5;
-    }
+    //private void InitInventory()
+    //{
+    //    inventory = new Item[numberOfItem];
+    //    Item item1 = new Item();
+    //    item1.ItemName = Item.Name.PLANTE_MAGIQUE;
+    //    inventory[0] = item1;
+    //    Item item2 = new Item();
+    //    item1.ItemName = Item.Name.OEUF_CORBEAU;
+    //    inventory[1] = item2;
+    //    Item item3 = new Item();
+    //    item1.ItemName = Item.Name.HACHE;
+    //    inventory[2] = item3;
+    //    Item item4 = new Item();
+    //    item1.ItemName = Item.Name.ALLUMETTES;
+    //    inventory[2] = item4;
+    //    Item item5 = new Item();
+    //    item1.ItemName = Item.Name.BAGUETTE_MAGIQUE;
+    //    inventory[3] = item5;
+    //}
 
     public void SetItemPicked(int itemPosition)
     {
@@ -318,15 +322,36 @@ public class Player : Entity {
         }
     }
 
-    void InitrenderInventory()
+    void InitRenderInventory()
     {
         Camera camera = GameObject.FindObjectOfType<Camera>();
-        int childNumber = camera.transform.childCount;
-        for(int i = 0; i < childNumber; i++ )
+        //Debug.Log(camera);
+        //int childNumber = camera.transform.childCount;
+        //Debug.Log(childNumber);
+        //for(int i = 0; i < childNumber; i++ )
+        //{
+        //    Transform t = camera.transform.GetChild(i);
+        //    Debug.Log(t);
+        //    Transform c = t.GetComponentInChildren<Transform>();
+        //    Debug.Log(c);
+        //    SpriteRenderer s = c.GetComponentInChildren<SpriteRenderer>();
+        //    Debug.Log(s);
+        //    itemSprites[i] = s;
+        //    Item item = t.GetComponentInChildren<Item>();
+        //    Debug.Log(item);
+        //    inventory[i] = item;
+        //}
+        SpriteRenderer[] spriteRenderers = camera.GetComponentsInChildren<SpriteRenderer>();
+        int i = 0;
+        foreach (SpriteRenderer sprite in spriteRenderers)
         {
-            Transform t = camera.transform.GetChild(i);
-            SpriteRenderer s = t.GetComponentInChildren<SpriteRenderer>();
-            itemSprites[i] = s;
+            Item item = sprite.GetComponent<Item>();
+            if(item)
+            {
+                itemSprites[i] = sprite;
+                inventory[i] = item;
+                i++;
+            }
         }
     }
 
@@ -335,12 +360,18 @@ public class Player : Entity {
         int i = 0;
         foreach(Item item in inventory)
         {
-            i++;
-            if(item.IsPicked)
+            if(item)
             {
-                itemSprites[i].enabled = true;
+                if (item.IsPicked)
+                {
+                    itemSprites[i].enabled = true;
+                }
+                else
+                {
+                    itemSprites[i].enabled = false;
+                }
             }
-            else { itemSprites[i].enabled = true; }
+            i++;
         }
     }
 }

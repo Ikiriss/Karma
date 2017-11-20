@@ -1192,13 +1192,14 @@ public class Pnj : Entity {
         
     }
 
-    protected void OnCollisionStay2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if(pnjName == Name.ENFANT)
         {
 
         }
-        else{
+        else
+        {
             ShotScript shot = collision.collider.GetComponent<ShotScript>();
             if (shot && !(shot.IsEnemyShot))
             {
@@ -1206,12 +1207,14 @@ public class Pnj : Entity {
                 shot.ReturnToTheFactory();
                 //Debug.Log("je prend des dégatzaes");
             }
-            Player player = collision.collider.GetComponent<Player>();
 
-            if (player)
+            SwordWeapon sword = collision.collider.GetComponent<SwordWeapon>();
+
+            if (sword)
             {
                 hp -= player.Damage;
-                Debug.Log("pnj se fait taper");
+                rigidbody.velocity = new Vector2(10, 0);
+                Debug.Log("je me fais taper");
             }
 
             if (hp <= 0)

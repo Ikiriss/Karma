@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     private bool grounded = false;
     private Rigidbody2D rigidbody;
     private Player player;
+    private SwordWeapon sword;
     private Vector2 movement = new Vector2(0, 0);
     private bool moveRight = false;
     private bool moveLeft = false;
@@ -73,10 +74,10 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        sword = GetComponentInChildren<SwordWeapon>();
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
-        corbeauPerchoir = GameObject.Find("perchoir_corbeau").transform;
+        //corbeauPerchoir = GameObject.Find("perchoir_corbeau").transform;
     }
 	
 	// Update is called once per frame
@@ -135,6 +136,7 @@ public class PlayerController : MonoBehaviour {
         if (attack1)
         {
             bool attackanim = Attack1;
+            sword.Attack();
         }
         if (Mathf.Abs(horizontalTranslation) > translateActivationMarge && horizontalTranslation > 0 && !moveHorizontalBlocked)
         {

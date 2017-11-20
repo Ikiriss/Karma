@@ -134,13 +134,13 @@ public class Enemy : Entity {
             hp -= shot.Damage;
         }
 
-        Player player = collision.collider.GetComponent<Player>();
+        SwordWeapon sword = collision.collider.GetComponent<SwordWeapon>();
 
-        if (player)
+        if (sword)
         {
             hp -= player.Damage;
             isHit = true;
-            rigidbody.velocity = new Vector2(5, 0);
+            rigidbody.velocity = new Vector2(10, 0);
             Debug.Log("je me fais taper");
         }
 
